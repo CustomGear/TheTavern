@@ -24,6 +24,7 @@
     .container{max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,60px)}
     .section-label{font-family:'Jost',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:.75rem}
     .heading-display{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.8rem);font-weight:700;line-height:1.1}
+    #menu-loc-title em{font-style:italic;color:var(--gold)}
     .btn{display:inline-block;font-family:'Jost',sans-serif;font-size:.75rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;padding:.85rem 2.2rem;border:1.5px solid currentColor;cursor:pointer;transition:var(--transition);background:transparent}
     .btn-gold{color:var(--gold)}.btn-gold:hover{background:var(--gold);color:var(--ink)}
     .btn-cream{color:var(--cream)}.btn-cream:hover{background:var(--cream);color:var(--ink)}
@@ -667,7 +668,7 @@
     <div class="menu-header">
       <div>
         <div class="section-label" data-i18n="nav_menus">Menu</div>
-        <h2 class="heading-display" data-i18n="menu_title">Our Menu</h2>
+        <h2 class="heading-display" id="menu-loc-title"></h2>
       </div>
       <div class="menu-lang-tabs">
         <button class="menu-lang-tab active" onclick="switchMenuLang('en',this)">EN</button>
@@ -1513,6 +1514,12 @@ function applyLang(lang) {
   document.getElementById('page-desc').content = lang === 'en'
     ? `${locName} — Ottawa patio bar with live music, seasonal menus and stunning views. A drink with a view.`
     : `${locName} — Bar-terrasse à Ottawa avec musique en direct, menus saisonniers et vues magnifiques.`;
+  // Menu section heading = location name with last word in italic gold
+  const menuLocTitle = document.getElementById('menu-loc-title');
+  if (menuLocTitle) {
+    const parts = locName.split(' ');
+    menuLocTitle.innerHTML = parts.slice(0, -1).join(' ') + ' <em>' + parts[parts.length - 1] + '</em>';
+  }
 }
 
 function setLang(lang, btn) {
