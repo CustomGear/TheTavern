@@ -31,28 +31,71 @@
     .divider{width:48px;height:2px;background:var(--gold);margin:1.5rem 0}
 
 
+    /* ── SITE HEADER ──────────────────────────────────── */
+    #site-header{position:sticky;top:0;z-index:999}
+    /* ── STRIP ────────────────────────────────────────── */
+    #strip{background:var(--forest);color:var(--sand);font-family:var(--font-ui),'DM Sans',sans-serif;
+      font-size:.62rem;letter-spacing:.18em;text-transform:uppercase}
+    #strip strong{color:var(--gold-lt,#e8aa5a);font-weight:600}
+    .strip-inner{display:flex;align-items:stretch;min-height:46px}
+    .strip-left{display:flex;align-items:center;padding:0 .9rem;border-right:1px solid rgba(196,135,58,.18);flex-shrink:0}
+    .strip-center{flex:1;display:flex;align-items:center;justify-content:center;gap:.6rem;padding:.5rem 1rem;
+      font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sand);text-align:center;flex-wrap:wrap}
+    .strip-right{display:flex;align-items:center;padding:0 1.2rem;border-left:1px solid rgba(196,135,58,.18);
+      font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--sand);
+      white-space:nowrap;text-decoration:none;transition:color .2s;flex-shrink:0}
+    .strip-right:hover{color:var(--gold-lt,#e8aa5a)}
+    @media(max-width:640px){.strip-left{display:none}}
+    /* ── LT TOGGLE (shared) ───────────────────────────── */
+    .lt{display:flex;border:1px solid rgba(196,135,58,.35);overflow:hidden}
+    .lt button{font-family:var(--font-ui),'DM Sans',sans-serif;font-size:.57rem;font-weight:600;
+      letter-spacing:.12em;padding:.36rem .68rem;border:none;background:transparent;
+      color:rgba(244,237,224,.42);transition:.22s;cursor:pointer}
+    .lt button.on,.lt button.active{background:var(--gold);color:var(--ink,#111009)}
     /* ── NAV ─────────────────────────────────────────── */
-    #nav{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(26,18,8,0);backdrop-filter:blur(0);transition:background .3s,backdrop-filter .3s}
-    #nav.scrolled{background:rgba(26,18,8,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(200,150,62,.2)}
-    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:1rem clamp(20px,5vw,60px)}
-    .nav-logo{font-family:"Playfair Display",serif;font-size:1.25rem;font-weight:900;color:var(--cream);letter-spacing:.04em}
-    .nav-logo span{color:var(--gold)}
-    .nav-links{display:flex;gap:1.8rem;align-items:center}
-    .nav-links a{font-size:.7rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,240,232,.8);transition:color .2s;position:relative}
-    .nav-links a::after{content:"";position:absolute;bottom:-3px;left:0;right:100%;height:1px;background:var(--gold);transition:right .25s}
+    #nav{position:relative;background:rgba(13,11,6,.97);backdrop-filter:blur(16px);
+      border-bottom:1px solid rgba(196,135,58,.25);transition:background .3s}
+    .nav-wrap{display:flex;align-items:center;justify-content:space-between;padding:.95rem clamp(18px,5vw,72px)}
+    .nav-logo{font-family:"Cormorant",Georgia,serif;font-size:1.45rem;font-weight:700;
+      color:var(--cream);letter-spacing:.02em;line-height:1}
+    .nav-logo em{font-style:italic;color:var(--gold)}
+    .nav-links{display:flex;align-items:center;gap:2.2rem}
+    .nav-links a{font-size:.62rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;
+      color:rgba(244,237,224,.7);transition:color .2s;position:relative}
+    .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:100%;height:1px;
+      background:var(--gold);transition:right .25s}
     .nav-links a:hover{color:var(--cream)}.nav-links a:hover::after{right:0}
-    .nav-links .nav-cta{background:var(--gold);color:var(--ink);padding:.5rem 1.2rem;font-weight:600}
-    .nav-links .nav-cta:hover{background:var(--gold-lt)}.nav-links .nav-cta::after{display:none}
-    .lang-toggle{display:flex;gap:0;border:1px solid rgba(200,150,62,.4);overflow:hidden}
-    .lang-btn{font-size:.65rem;font-weight:700;letter-spacing:.1em;padding:.38rem .7rem;cursor:pointer;border:none;background:transparent;color:rgba(245,240,232,.6);transition:var(--transition)}
-    .lang-btn.active{background:var(--gold);color:var(--ink)}
-    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
-    .hamburger span{display:block;width:24px;height:2px;background:var(--cream);transition:var(--transition)}
-    .mobile-menu{display:none;flex-direction:column;background:rgba(26,18,8,.98);padding:1.5rem clamp(20px,5vw,60px) 2rem;gap:1.2rem;border-top:1px solid rgba(200,150,62,.2)}
-    .mobile-menu a{font-size:.8rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,240,232,.8);padding:.4rem 0}
-    .mobile-menu .lang-toggle{border-color:rgba(200,150,62,.3);margin-top:.5rem;width:fit-content}
-    .mobile-menu.open{display:flex}
-    @media(max-width:900px){.nav-links{display:none}.hamburger{display:flex}}
+    .nav-cta-link{background:transparent!important;color:var(--gold)!important;
+      border:1px solid rgba(196,135,58,.35)!important;padding:.42rem 1.2rem!important;
+      font-size:.6rem!important;font-weight:600!important;letter-spacing:.18em!important;transition:all .25s!important}
+    .nav-cta-link:hover{background:var(--gold)!important;color:var(--ink,#111009)!important}
+    .nav-cta-link::after{display:none!important}
+    .has-drop{position:relative}
+    .nav-drop{position:absolute;top:calc(100% + 14px);left:50%;background:rgba(13,11,6,.98);
+      border:1px solid rgba(196,135,58,.25);min-width:220px;padding:.4rem 0;list-style:none;
+      opacity:0;pointer-events:none;transform:translateX(-50%) translateY(-6px);
+      transition:opacity .22s,transform .22s;z-index:1001;backdrop-filter:blur(16px)}
+    .has-drop:hover .nav-drop,.has-drop:focus-within .nav-drop{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+    .has-drop::after{content:'';position:absolute;top:100%;left:-12px;right:-12px;height:16px}
+    .nav-drop li a{display:block;padding:.58rem 1.2rem;font-size:.6rem;letter-spacing:.14em;
+      text-transform:uppercase;color:rgba(244,237,224,.65);transition:color .2s,background .2s;border:none}
+    .nav-drop li a::after{display:none}
+    .nav-drop li a:hover{color:var(--gold);background:rgba(196,135,58,.08)}
+    .nav-caret{width:10px;height:10px;vertical-align:middle;margin-left:.3rem;opacity:.5}
+    .hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;margin-left:1rem}
+    .hbg span{display:block;width:22px;height:1.5px;background:var(--cream);transition:.3s}
+    .mob{display:none;flex-direction:column;background:rgba(13,11,6,.99);
+      padding:1.5rem clamp(18px,5vw,72px) 2rem;gap:1.2rem;border-top:1px solid rgba(196,135,58,.15)}
+    .mob a{font-size:.76rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+      color:rgba(244,237,224,.75);padding:.38rem 0;border-bottom:1px solid rgba(196,135,58,.08)}
+    .mob.open{display:flex}
+    .mob-sublocs{display:flex;flex-direction:column;gap:0;border-left:1.5px solid rgba(196,135,58,.25);
+      margin-left:.5rem;padding-left:.9rem;margin-bottom:.3rem}
+    .mob-sublocs a{font-size:.68rem;letter-spacing:.1em;padding:.3rem 0;
+      border-bottom:1px solid rgba(196,135,58,.05);color:rgba(244,237,224,.55)}
+    .mob-sublocs a:last-child{border-bottom:none}
+    .mob-sublocs a:hover{color:var(--gold)}
+    @media(max-width:1000px){.nav-links{display:none}.hbg{display:flex}}
 
     /* ── HERO ─────────────────────────────────────────── */
     #loc-hero{position:relative;height:90vh;min-height:520px;display:flex;align-items:flex-end;overflow:hidden}
@@ -231,38 +274,73 @@
 </head>
 <body>
 
+<header id="site-header">
+<div id="strip">
+  <div class="strip-inner">
+    <div class="strip-left">
+      <div class="lt" id="lt-strip">
+        <button class="on" onclick="setLang('en',this)">EN</button>
+        <button onclick="setLang('fr',this)">FR</button>
+      </div>
+    </div>
+    <div class="strip-center">
+      <strong>☀</strong>
+      <span data-i18n="strip_open">All locations open today</span>
+      <span aria-hidden="true">·</span>
+      <span>Weather-dependent patios</span>
+    </div>
+    <a class="strip-right" href="index.html">← All Locations</a>
+  </div>
+</div>
 <!-- NAV -->
 <nav id="nav">
-  <div class="nav-inner">
-    <a class="nav-logo" href="index.html">The <span>Tavern</span></a>
+  <div class="nav-wrap">
+    <a class="nav-logo" href="index.html">The <em>Tavern</em></a>
     <ul class="nav-links">
-      <li><a href="index.html#locations" data-i18n="nav_locations">Locations</a></li>
+      <li class="has-drop">
+        <a href="index.html#locations">Locations
+          <svg class="nav-caret" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 4l4 4 4-4"/></svg>
+        </a>
+        <ul class="nav-drop">
+          <li><a href="gallery.html">Tavern at the Gallery</a></li>
+          <li><a href="falls.html">Tavern on the Falls</a></li>
+          <li><a href="hill.html">Tavern on the Hill</a></li>
+          <li><a href="island.html">Tavern on the Island</a></li>
+        </ul>
+      </li>
       <li><a href="#loc-menu" data-i18n="nav_menus">Menus</a></li>
       <li><a href="#loc-music" data-i18n="nav_music">Live Music</a></li>
       <li><a href="#loc-events" data-i18n="nav_events">Host an Event</a></li>
       <li><a href="index.html#gift" data-i18n="nav_gift">Gift Cards</a></li>
-      <li><a href="RESERVE_URL" target="_blank" class="nav-cta" data-i18n="nav_reserve">Reserve a Table</a></li>
-      <li>
-        <div class="lang-toggle">
-          <button class="lang-btn active" onclick="setLang('en',this)">EN</button>
-          <button class="lang-btn" onclick="setLang('fr',this)">FR</button>
-        </div>
-      </li>
+      <li><a href="RESERVE_URL" target="_blank" class="nav-cta-link" data-i18n="nav_reserve">Reserve</a></li>
     </ul>
-    <div class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+    <div style="display:flex;align-items:center;gap:.9rem">
+      <div class="lt" id="lt-main">
+        <button class="on" onclick="setLang('en',this)">EN</button>
+        <button onclick="setLang('fr',this)">FR</button>
+      </div>
+      <div class="hbg" onclick="toggleMob()"><span></span><span></span><span></span></div>
+    </div>
   </div>
-  <div class="mobile-menu" id="mobile-menu">
-    <a href="index.html#locations" onclick="toggleMenu()" data-i18n="nav_locations">Locations</a>
-    <a href="#loc-menu" onclick="toggleMenu()" data-i18n="nav_menus">Menus</a>
-    <a href="#loc-music" onclick="toggleMenu()" data-i18n="nav_music">Live Music</a>
-    <a href="#loc-events" onclick="toggleMenu()" data-i18n="nav_events">Host an Event</a>
-    <a href="RESERVE_URL" target="_blank" onclick="toggleMenu()" data-i18n="nav_reserve">Reserve a Table</a>
-    <div class="lang-toggle">
-      <button class="lang-btn active" onclick="setLang('en',this)">EN</button>
-      <button class="lang-btn" onclick="setLang('fr',this)">FR</button>
+  <div class="mob" id="mob">
+    <a href="index.html#locations" onclick="closeMob()">Locations</a>
+    <div class="mob-sublocs">
+      <a href="gallery.html" onclick="closeMob()">Tavern at the Gallery</a>
+      <a href="falls.html" onclick="closeMob()">Tavern on the Falls</a>
+      <a href="hill.html" onclick="closeMob()">Tavern on the Hill</a>
+      <a href="island.html" onclick="closeMob()">Tavern on the Island</a>
+    </div>
+    <a href="#loc-menu" onclick="closeMob()" data-i18n="nav_menus">Menus</a>
+    <a href="#loc-music" onclick="closeMob()" data-i18n="nav_music">Live Music</a>
+    <a href="#loc-events" onclick="closeMob()" data-i18n="nav_events">Host an Event</a>
+    <a href="RESERVE_URL" target="_blank" onclick="closeMob()" data-i18n="nav_reserve">Reserve a Table</a>
+    <div class="lt" style="margin-top:.5rem;align-self:flex-start">
+      <button class="on" onclick="setLang('en',this)">EN</button>
+      <button onclick="setLang('fr',this)">FR</button>
     </div>
   </div>
 </nav>
+</header>
 
 <!-- HERO -->
 <section id="loc-hero">
@@ -1247,9 +1325,10 @@ function switchMenuLang(lang, btn) {
 
 // ── NAV / SCROLL ─────────────────────────────────────────────
 window.addEventListener('scroll', () => {
-  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 10);
 });
-function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('open'); }
+function toggleMob() { document.getElementById('mob').classList.toggle('open'); }
+function closeMob() { document.getElementById('mob').classList.remove('open'); }
 
 // ── ADMIN ─────────────────────────────────────────────────────
 function openAdmin()  { document.getElementById('admin-panel').classList.add('open'); }

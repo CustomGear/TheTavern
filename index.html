@@ -77,15 +77,16 @@ img{max-width:100%;display:block}a{color:inherit;text-decoration:none}ul{list-st
 .lt button.on{background:var(--gold);color:var(--ink)}
 
 /* ─── STRIP ──────────────────────────────────────────── */
+#site-header{position:sticky;top:0;z-index:999}
 #strip{background:var(--forest);color:var(--sand);text-align:center;
   font-family:var(--font-ui);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;
-  padding:.6rem 1rem;z-index:200;position:relative}
+  padding:.6rem 1rem}
 #strip strong{color:var(--gold-lt);font-weight:600}
 
 /* ─── NAV ────────────────────────────────────────────── */
-#nav{position:fixed;top:30px;left:0;right:0;z-index:999;transition:top .3s,background .3s}
-#nav.stuck{top:0;background:rgba(15,13,7,.97);backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--gold-line)}
+#nav{position:relative;background:rgba(13,11,6,.97);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--gold-line);transition:background .3s}
+#nav.scrolled{background:rgba(10,8,4,.99)}
 .nav-wrap{display:flex;align-items:center;justify-content:space-between;
   padding:.95rem clamp(18px,5vw,72px)}
 .nav-logo{font-family:var(--font-d);font-size:1.45rem;font-weight:700;
@@ -720,9 +721,9 @@ footer{background:var(--ink);border-top:1px solid var(--gold-line);
 .wx-caret { width: 12px; height: 12px; opacity: .45; transition: transform .25s; flex-shrink: 0; }
 #wx-btn.open .wx-caret { transform: rotate(180deg); }
 
-/* Flyout panel — desktop dropdown */
+/* Flyout panel — drops below sticky header */
 #wx-panel {
-  position: fixed; top: 46px; right: 0;
+  position: absolute; top: 100%; right: 0;
   width: 318px; max-width: calc(100vw - 16px);
   background: var(--ink,#111009);
   border: 1px solid rgba(196,135,58,.22); border-top: none;
@@ -734,8 +735,6 @@ footer{background:var(--ink);border-top:1px solid var(--gold-line);
   overflow: hidden;
 }
 #wx-panel.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
-#nav.stuck ~ #wx-panel,
-#nav.stuck + * + #wx-panel { top: 0; }
 
 /* Panel sections */
 .wxp-header {
@@ -887,6 +886,7 @@ footer{background:var(--ink);border-top:1px solid var(--gold-line);
 </head>
 <body>
 
+<header id="site-header">
 <div id="strip">
   <div class="strip-inner">
     <div class="strip-left">
@@ -967,6 +967,7 @@ footer{background:var(--ink);border-top:1px solid var(--gold-line);
     </div>
   </div>
 </nav>
+</header>
 
 <!-- HERO -->
 <section id="hero">
@@ -1951,7 +1952,7 @@ function setLang(l){ lang=l; localStorage.setItem('tv-lang',l); applyLang(); }
 
 // ── Nav ─────────────────────────────────────────────────
 window.addEventListener('scroll',()=>{
-  document.getElementById('nav').classList.toggle('stuck', window.scrollY>44);
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY>10);
 });
 function toggleMob(){ document.getElementById('mob').classList.toggle('open'); }
 function closeMob(){  document.getElementById('mob').classList.remove('open'); }
@@ -2701,12 +2702,6 @@ attachReveal();
     }
   });
 
-  // Panel top adjusts when nav sticks
-  window.addEventListener('scroll', () => {
-    const panel = document.getElementById('wx-panel');
-    if(!panel || window.innerWidth <= 640) return;
-    panel.style.top = (window.scrollY > 44) ? '0' : '46px';
-  });
 
   // ── Init strip ────────────────────────────────────────────────
   async function initStrip(){
