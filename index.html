@@ -2206,4 +2206,50 @@
   function submitForm(e) {
     e.preventDefault();
     document.getElementById('event-form').style.display = 'none';
-    docu
+    document.getElementById('form-success').style.display = 'block';
+  }
+
+  // Live weather — Ottawa via open-meteo (no API key required)
+  (async function fetchLiveWeather() {
+    const el = document.getElementById('live-weather');
+    if (!el) return;
+    try {
+      const url =
+        'https://api.open-meteo.com/v1/forecast' +
+        '?latitude=45.4215&longitude=-75.6972' +
+        '&current=temperature_2m,weather_code' +
+        '&timezone=America%2FToronto';
+      const res  = await fetch(url);
+      if (!res.ok) throw new Error(res.status);
+      const data = await res.json();
+      const temp = Math.round(data.current.temperature_2m);
+      const code = data.current.weather_code;
+      const icons = {
+        clear: '☀️', cloudy: '☁️', fog: '🌫️',
+        drizzle: '🌦️', rain: '🌧️', snow: '❄️', storm: '⛈️'
+      };
+      let icon = icons.clear;
+      if (code >= 95)           icon = icons.storm;
+      else if (code >= 71)      icon = icons.snow;
+      else if (code >= 51)      icon = icons.rain;
+      else if (code === 45 || code === 48) icon = icons.fog;
+      else if (code >= 2)       icon = icons.cloudy;
+      el.textContent = icon + ' ' + temp + '°C';
+
+      // Tint banner red on storm/heavy rain
+      if (code >= 85 || (code >= 65 && code <= 67)) {
+        const banner = document.getElementById('weather-banner');
+        if (banner) banner.style.background = 'rgba(120,40,20,.92)';
+        const status = document.querySelector('.weather-status');
+        if (status && !status.dataset.custom)
+          status.textContent = 'Check location status — weather alert';
+      }
+    } catch (_) {
+      el.textContent = '—';
+    }
+  })();
+
+
+</script>
+</body>
+</html>
