@@ -48,10 +48,11 @@
     @media(max-width:640px){.strip-left{display:none}}
     /* ── LT TOGGLE (shared) ───────────────────────────── */
     .lt{display:flex;border:1px solid rgba(196,135,58,.35);overflow:hidden}
-    .lt button{font-family:var(--font-ui),'DM Sans',sans-serif;font-size:.57rem;font-weight:600;
-      letter-spacing:.12em;padding:.36rem .68rem;border:none;background:transparent;
-      color:rgba(244,237,224,.42);transition:.22s;cursor:pointer}
-    .lt button.on,.lt button.active{background:var(--gold);color:var(--ink,#111009)}
+    .lt button{font-family:'DM Sans','Helvetica Neue',sans-serif;font-size:.57rem;font-weight:600;
+      letter-spacing:.12em;padding:.36rem .72rem;border:none;background:transparent;
+      color:rgba(244,237,224,.45);transition:all .22s;cursor:pointer}
+    .lt button:not(.on):not(.active):hover{color:rgba(244,237,224,.85);background:rgba(196,135,58,.1)}
+    .lt button.on,.lt button.active{background:var(--gold);color:var(--ink,#111009);font-weight:700}
     /* ── NAV ─────────────────────────────────────────── */
     #nav{position:relative;background:rgba(13,11,6,.97);backdrop-filter:blur(16px);
       border-bottom:1px solid rgba(196,135,58,.25);transition:background .3s}

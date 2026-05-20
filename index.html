@@ -73,8 +73,10 @@ img{max-width:100%;display:block}a{color:inherit;text-decoration:none}ul{list-st
 /* ─── LANG TOGGLE ────────────────────────────────────── */
 .lt{display:flex;border:1px solid var(--gold-line);overflow:hidden}
 .lt button{font-family:var(--font-ui);font-size:.57rem;font-weight:600;letter-spacing:.12em;
-  padding:.36rem .68rem;border:none;background:transparent;color:rgba(244,237,224,.42);transition:.22s}
-.lt button.on{background:var(--gold);color:var(--ink)}
+  padding:.36rem .72rem;border:none;background:transparent;color:rgba(244,237,224,.45);
+  transition:all .22s;cursor:pointer}
+.lt button:not(.on):hover{color:rgba(244,237,224,.85);background:rgba(196,135,58,.1)}
+.lt button.on{background:var(--gold);color:var(--ink);font-weight:700}
 
 /* ─── STRIP ──────────────────────────────────────────── */
 #site-header{position:sticky;top:0;z-index:999}
