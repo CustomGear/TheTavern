@@ -1,0 +1,1674 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>The Tavern Group | Ottawa's Best Outdoor Patio Bar — A Drink With a View</title>
+<meta name="description" content="Ottawa's best outdoor patio bar. Four stunning locations: the Gallery, the Falls, the Hill, and the Island. Live music, seasonal menus, unforgettable views. A drink with a view."/>
+<meta name="keywords" content="Ottawa patio bar, outdoor patio Ottawa, best patio Ottawa, Ottawa bar with view, Ottawa live music patio, Tavern Ottawa"/>
+<meta property="og:title" content="The Tavern Group | Ottawa's Best Outdoor Patio Bar"/>
+<meta property="og:description" content="A drink with a view. Four Ottawa locations with live music, seasonal menus, and Ottawa's finest outdoor patio experience."/>
+<meta property="og:type" content="website"/>
+<meta name="robots" content="index,follow"/>
+<link rel="canonical" href="https://www.thetavern.ca/"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ink:#1a1208;--cream:#f5f0e8;--warm:#f9f4ec;
+  --gold:#c8963e;--gold-lt:#e8b96a;--rust:#9b3a1e;
+  --forest:#2a3d2e;--sand:#d4c4a0;--mist:#8a9e8c;
+  --ease:cubic-bezier(.4,0,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+.container{max-width:1300px;margin:0 auto;padding:0 clamp(18px,5vw,64px)}
+.lbl{font-size:.68rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem}
+.h-display{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.8rem);font-weight:700;line-height:1.08}
+.h-serif{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.1rem,2.2vw,1.65rem);font-weight:300;color:var(--forest)}
+.btn{display:inline-flex;align-items:center;gap:.5rem;font-family:'Jost',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;padding:.82rem 2rem;border:1.5px solid currentColor;cursor:pointer;transition:.3s var(--ease);background:transparent;white-space:nowrap}
+.btn-gold{color:var(--gold)}.btn-gold:hover{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+.btn-cream{color:var(--cream)}.btn-cream:hover{background:var(--cream);color:var(--ink)}
+.btn-dark{color:var(--ink)}.btn-dark:hover{background:var(--ink);color:var(--cream)}
+.btn-solid{background:var(--gold);color:var(--ink);border-color:var(--gold)}.btn-solid:hover{background:var(--gold-lt);border-color:var(--gold-lt)}
+.divider{width:44px;height:2px;background:var(--gold);margin:1.4rem 0}
+
+/* ── WEATHER STRIP ─────────────────────────────────────── */
+#strip{background:var(--forest);color:var(--sand);text-align:center;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;padding:.55rem 1rem;position:relative;z-index:200}
+#strip span{color:var(--gold-lt);font-weight:600}
+#strip-msg{display:inline}
+
+/* ── NAV ───────────────────────────────────────────────── */
+#nav{position:fixed;top:30px;left:0;right:0;z-index:999;transition:top .3s,background .3s,box-shadow .3s}
+#nav.stuck{top:0;background:rgba(20,14,6,.96);backdrop-filter:blur(14px);box-shadow:0 1px 0 rgba(200,150,62,.15)}
+.nav-wrap{display:flex;align-items:center;justify-content:space-between;padding:.95rem clamp(18px,5vw,64px)}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.28rem;font-weight:900;color:var(--cream);letter-spacing:.03em;flex-shrink:0}
+.nav-logo em{font-style:normal;color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:2rem}
+.nav-links a{font-size:.68rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,240,232,.78);transition:color .2s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;right:100%;height:1px;background:var(--gold);transition:right .25s var(--ease)}
+.nav-links a:hover{color:var(--cream)}.nav-links a:hover::after{right:0}
+.nav-cta{background:var(--gold)!important;color:var(--ink)!important;padding:.46rem 1.2rem!important;font-weight:600!important;border-radius:1px}
+.nav-cta:hover{background:var(--gold-lt)!important}.nav-cta::after{display:none!important}
+/* Lang toggle */
+.lt{display:flex;border:1px solid rgba(200,150,62,.38);overflow:hidden;flex-shrink:0}
+.lt button{font-size:.62rem;font-weight:700;letter-spacing:.1em;padding:.36rem .68rem;cursor:pointer;border:none;background:transparent;color:rgba(245,240,232,.55);transition:.25s}
+.lt button.on{background:var(--gold);color:var(--ink)}
+/* Hamburger */
+.hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hbg span{display:block;width:22px;height:2px;background:var(--cream);transition:.3s}
+.mob{display:none;flex-direction:column;background:rgba(18,12,5,.98);padding:1.4rem clamp(18px,5vw,64px) 1.8rem;gap:1.1rem;border-top:1px solid rgba(200,150,62,.18)}
+.mob a{font-size:.78rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,240,232,.78);padding:.35rem 0}
+.mob.open{display:flex}
+@media(max-width:960px){.nav-links{display:none}.hbg{display:flex}}
+
+/* ── HERO ──────────────────────────────────────────────── */
+#hero{position:relative;height:100vh;min-height:580px;display:flex;align-items:flex-end;overflow:hidden}
+.hero-img{position:absolute;inset:0;background:url('https://static.wixstatic.com/media/a88227_d331ffd34fdc4eec800b2cf02ad50861~mv2.jpg/v1/fill/w_1440,h_879,al_c,q_85,enc_avif,quality_auto/a88227_d331ffd34fdc4eec800b2cf02ad50861~mv2.jpg') center/cover no-repeat;transform:scale(1.04);transition:transform 8s var(--ease);z-index:0}
+#hero.loaded .hero-img{transform:scale(1)}
+.hero-grad{position:absolute;inset:0;background:linear-gradient(160deg,rgba(8,6,3,.82) 0%,rgba(8,6,3,.45) 45%,rgba(8,6,3,.75) 100%);z-index:1}
+.hero-grain{position:absolute;inset:0;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px;z-index:2}
+.hero-cnt{position:relative;z-index:3;padding:clamp(36px,7vw,88px) clamp(18px,5vw,80px);max-width:860px}
+.hero-eyebrow{font-size:.68rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:.9rem;opacity:0;animation:fu .8s .25s forwards}
+.hero-h1{font-family:'Playfair Display',serif;font-size:clamp(3rem,9vw,7.5rem);font-weight:900;line-height:.96;color:var(--cream);letter-spacing:-.015em;margin-bottom:1rem;opacity:0;animation:fu .8s .45s forwards}
+.hero-h1 em{font-style:italic;color:var(--gold)}
+.hero-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1rem,2.4vw,1.65rem);color:rgba(245,240,232,.72);margin-bottom:2.4rem;opacity:0;animation:fu .8s .65s forwards}
+.hero-acts{display:flex;flex-wrap:wrap;gap:.9rem;opacity:0;animation:fu .8s .85s forwards}
+.hero-scroll{position:absolute;bottom:2.2rem;right:clamp(18px,5vw,64px);z-index:3;display:flex;flex-direction:column;align-items:center;gap:.45rem;opacity:0;animation:fi 1s 1.4s forwards}
+.hero-scroll span{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,240,232,.45);writing-mode:vertical-rl}
+.scroll-ln{width:1px;height:44px;background:linear-gradient(to bottom,var(--gold),transparent);animation:sp 2.2s ease-in-out infinite}
+@keyframes fu{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fi{from{opacity:0}to{opacity:1}}
+@keyframes sp{0%,100%{opacity:.35;transform:scaleY(1)}50%{opacity:1;transform:scaleY(1.18)}}
+
+/* ── PHOTO STRIP ───────────────────────────────────────── */
+#strip-photos{overflow:hidden;background:var(--ink)}
+.strip-row{display:flex;height:260px}
+.strip-ph{flex:1;background-size:cover;background-position:center;filter:brightness(.78) saturate(.88);transition:flex .55s var(--ease),filter .4s;cursor:pointer;border-right:2px solid var(--ink)}
+.strip-ph:last-child{border-right:none}
+.strip-ph:hover{flex:2.6;filter:brightness(1) saturate(1.08)}
+@media(max-width:600px){.strip-row{height:150px}}
+
+/* ── WEATHER SECTION ───────────────────────────────────── */
+#weather{background:var(--forest);padding:3.2rem 0}
+.w-inner{display:flex;align-items:center;gap:2.5rem;flex-wrap:wrap}
+.w-icon svg{width:64px;height:64px;flex-shrink:0}
+.w-body h3{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--cream);margin-bottom:.45rem}
+.w-body p{font-size:.88rem;color:var(--sand);line-height:1.75;max-width:580px}
+.w-body strong{color:var(--gold-lt)}
+
+/* ── LOCATIONS ─────────────────────────────────────────── */
+#locations{padding:5.5rem 0}
+.sec-head{margin-bottom:3rem}
+.loc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:rgba(212,196,160,.25)}
+@media(max-width:900px){.loc-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.loc-grid{grid-template-columns:1fr}}
+.loc-card{position:relative;overflow:hidden;cursor:pointer;aspect-ratio:.72;background:var(--ink)}
+.loc-card-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .65s var(--ease),filter .4s}
+.loc-card:hover .loc-card-bg{transform:scale(1.06);filter:brightness(.9)}
+.loc-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,5,2,.94) 0%,rgba(8,5,2,.18) 55%,transparent 100%)}
+/* Hover reveal overlay */
+.loc-hover-ov{position:absolute;inset:0;background:rgba(8,5,2,.82);opacity:0;transition:opacity .35s var(--ease);display:flex;align-items:center;justify-content:center}
+.loc-card:hover .loc-hover-ov{opacity:1}
+.loc-hover-inner{text-align:center;transform:translateY(12px);transition:transform .35s var(--ease)}
+.loc-card:hover .loc-hover-inner{transform:translateY(0)}
+.loc-hover-title{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--cream);margin-bottom:1.2rem}
+.loc-hover-btns{display:flex;flex-direction:column;gap:.6rem;align-items:center}
+.loc-hover-btn{font-size:.65rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;padding:.6rem 1.6rem;border:1px solid rgba(200,150,62,.6);color:var(--cream);cursor:pointer;background:transparent;transition:.25s;width:160px;text-align:center}
+.loc-hover-btn:hover,.loc-hover-btn.primary{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+/* Bottom content always visible */
+.loc-cnt{position:absolute;bottom:0;left:0;right:0;padding:1.8rem;transition:transform .35s var(--ease)}
+.loc-card:hover .loc-cnt{transform:translateY(60px);opacity:0}
+.loc-num{font-size:.6rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.35rem}
+.loc-name{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--cream);line-height:1.08;margin-bottom:.4rem}
+.loc-addr{font-size:.74rem;color:var(--sand);letter-spacing:.05em;margin-bottom:.9rem}
+.loc-tags{display:flex;flex-wrap:wrap;gap:.35rem}
+.loc-tag{font-size:.58rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:.25rem .6rem;border:1px solid rgba(200,150,62,.45);color:var(--gold-lt);border-radius:20px}
+
+/* ── HOURS ─────────────────────────────────────────────── */
+#hours{padding:4rem 0;background:var(--cream);border-top:1px solid var(--sand)}
+.hours-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.5rem}
+.h-card{background:white;border:1px solid var(--sand);padding:1.6rem 1.8rem}
+.h-card h4{font-family:'Playfair Display',serif;font-size:.95rem;margin-bottom:.9rem;padding-bottom:.7rem;border-bottom:1px solid var(--sand)}
+.h-row{display:flex;justify-content:space-between;font-size:.8rem;padding:.32rem 0}
+.h-row .day{color:#5a4a32;font-weight:500}.h-row .time{color:var(--gold);font-weight:600}
+.h-note{font-size:.7rem;color:var(--mist);margin-top:.7rem;font-style:italic}
+
+/* ── LIVE MUSIC ────────────────────────────────────────── */
+#music{background:var(--ink);padding:5.5rem 0;position:relative;overflow:hidden}
+#music::before{content:'';position:absolute;inset:0;background:url('https://static.wixstatic.com/media/1e1b17_45a710737f9d432e85c05ae7e6dcbf32f000.jpg/v1/fill/w_376,h_575,al_c,q_80,usm_0.33_1.00_0.00,enc_avif,quality_auto/1e1b17_45a710737f9d432e85c05ae7e6dcbf32f000.jpg') center/cover;opacity:.06}
+#music::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 59px,rgba(200,150,62,.04) 60px)}
+.music-inner{position:relative;z-index:1}
+.music-hd{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;margin-bottom:2.5rem}
+.music-hd .h-display{color:var(--cream)}
+/* Sheet sync indicator */
+.sheet-indicator{display:inline-flex;align-items:center;gap:.5rem;font-size:.68rem;color:var(--mist);margin-bottom:1.2rem}
+.sheet-dot{width:7px;height:7px;border-radius:50%;background:var(--mist)}
+.sheet-dot.live{background:#5cb85c;box-shadow:0 0 6px rgba(92,184,92,.5)}
+/* Tabs */
+.m-tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.8rem}
+.m-tab{font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:.55rem 1.2rem;border:1px solid rgba(200,150,62,.28);color:var(--sand);cursor:pointer;background:transparent;transition:.25s}
+.m-tab:hover,.m-tab.on{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+/* Schedule rows */
+.sched{display:flex;flex-direction:column;gap:1px}
+.sched-pane{display:none}.sched-pane.on{display:block}
+.sched-item{display:grid;grid-template-columns:96px 1fr auto;gap:1.4rem;align-items:center;padding:1.1rem 1.5rem;background:rgba(245,240,232,.03);border-left:3px solid transparent;transition:.28s}
+.sched-item:hover{background:rgba(245,240,232,.07);border-left-color:var(--gold)}
+.sched-dt{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--gold);line-height:1.3}
+.sched-dt .dy{display:block;font-size:.6rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--sand);font-family:'Jost',sans-serif;margin-bottom:.1rem}
+.sched-artist{font-size:.9rem;color:var(--cream);font-weight:500}
+.sched-genre{font-size:.68rem;color:var(--mist);margin-top:.12rem}
+.sched-time{font-size:.72rem;font-weight:600;color:var(--sand);text-align:right;white-space:nowrap}
+.music-foot{margin-top:1.6rem;font-size:.75rem;color:var(--mist)}
+@media(max-width:580px){.sched-item{grid-template-columns:78px 1fr}.sched-time{display:none}}
+/* Loading/empty state */
+.sched-loading{padding:2rem;text-align:center;color:var(--mist);font-size:.85rem}
+
+/* ── MENUS ─────────────────────────────────────────────── */
+#menus{padding:5.5rem 0;background:var(--warm)}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.8rem}
+.m-card{background:var(--cream);border:1px solid var(--sand);padding:2.2rem;position:relative;overflow:hidden;transition:.3s var(--ease)}
+.m-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:.35s var(--ease)}
+.m-card:hover{transform:translateY(-4px);box-shadow:0 14px 36px rgba(26,18,8,.1)}.m-card:hover::before{transform:scaleX(1)}
+.m-loc{font-size:.62rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem}
+.m-card h3{font-family:'Playfair Display',serif;font-size:1.35rem;margin-bottom:.2rem}
+.m-lang-tabs{display:flex;gap:.3rem;margin:1rem 0 .8rem}
+.m-ltab{font-size:.6rem;font-weight:700;letter-spacing:.1em;padding:.28rem .7rem;border:1px solid var(--sand);background:transparent;cursor:pointer;color:#7a6a50;transition:.2s}
+.m-ltab.on,.m-ltab:hover{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+.m-body{display:none}.m-body.on{display:block}
+.m-section-hd{font-size:.6rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--mist);margin:1rem 0 .4rem;padding-bottom:.3rem;border-bottom:1px solid var(--sand)}
+.m-item{display:flex;justify-content:space-between;align-items:baseline;padding:.48rem 0;border-bottom:1px dashed rgba(212,196,160,.5);font-size:.84rem;gap:.7rem}
+.m-item:last-child{border-bottom:none}
+.m-iname{color:var(--ink);font-weight:500}
+.m-idesc{font-size:.72rem;color:#7a6a50;display:block;margin-top:.08rem}
+.m-price{color:var(--gold);font-weight:600;font-size:.82rem;white-space:nowrap;flex-shrink:0}
+.m-card .btn{margin-top:1.2rem;font-size:.65rem}
+/* special badge */
+.sp-badge{font-size:.52rem;font-weight:700;background:var(--gold);color:var(--ink);padding:.1rem .35rem;margin-left:.35rem;vertical-align:middle}
+.sp-name{color:var(--gold)!important}
+
+/* ── EVENTS ────────────────────────────────────────────── */
+#events{padding:5.5rem 0;background:var(--forest);position:relative;overflow:hidden}
+#events::before{content:'';position:absolute;inset:0;opacity:.05;background-image:radial-gradient(var(--gold) 1px,transparent 1px);background-size:28px 28px}
+#events::after{content:'';position:absolute;inset:0;background:url('https://static.wixstatic.com/media/a88227_c9f0c3a887ce4e58bb4f022b0087fbf4~mv2.jpeg/v1/fill/w_371,h_960,al_c,q_80,enc_avif,quality_auto/a88227_c9f0c3a887ce4e58bb4f022b0087fbf4~mv2.jpeg') center/cover;opacity:.1}
+.ev-inner{display:grid;grid-template-columns:1fr 1fr;gap:4.5rem;align-items:start;position:relative;z-index:1}
+@media(max-width:900px){.ev-inner{grid-template-columns:1fr;gap:3rem}}
+.ev-text .lbl{color:var(--gold-lt)}
+.ev-text .h-display{color:var(--cream);margin-bottom:1rem}
+.ev-text > p{color:var(--sand);line-height:1.8;font-size:.9rem;margin-bottom:1.5rem}
+.ev-perks{display:flex;flex-direction:column;gap:.65rem;margin-bottom:2.2rem}
+.ev-perk{display:flex;align-items:center;gap:.7rem;font-size:.86rem;color:var(--sand)}
+.pk-dot{width:5px;height:5px;background:var(--gold);border-radius:50%;flex-shrink:0}
+/* Form */
+.form-wrap{background:rgba(245,240,232,.06);border:1px solid rgba(200,150,62,.2);padding:2.2rem;backdrop-filter:blur(10px)}
+.form-title{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--cream);margin-bottom:1.2rem}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+@media(max-width:520px){.f-row{grid-template-columns:1fr}}
+.fg{margin-bottom:.8rem}
+.fg label{display:block;font-size:.64rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--sand);margin-bottom:.38rem}
+.fg input,.fg select,.fg textarea{width:100%;background:rgba(245,240,232,.06);border:1px solid rgba(200,150,62,.22);padding:.72rem .9rem;color:var(--cream);font-family:'Jost',sans-serif;font-size:.84rem;outline:none;transition:border-color .2s;-webkit-appearance:none}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--gold)}
+.fg textarea{resize:vertical;min-height:86px}
+.fg select option{background:var(--ink);color:var(--cream)}
+.f-submit{width:100%;background:var(--gold);color:var(--ink);border:none;padding:.9rem;font-family:'Jost',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;transition:background .2s;margin-top:.4rem}
+.f-submit:hover{background:var(--gold-lt)}
+.f-ok{display:none;text-align:center;padding:2rem;color:var(--cream)}
+.f-ok .ck{font-size:2.2rem;color:var(--gold);margin-bottom:.7rem}
+
+/* ── GIFT CARDS ────────────────────────────────────────── */
+#gift{padding:4.5rem 0;background:var(--cream)}
+.gift-inner{display:flex;align-items:center;gap:4rem;flex-wrap:wrap}
+.gift-mock{flex:0 0 300px;background:linear-gradient(135deg,var(--ink),var(--forest));border-radius:10px;padding:2.2rem;aspect-ratio:1.6;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 22px 52px rgba(26,18,8,.22);position:relative;overflow:hidden}
+.gift-mock::before{content:'';position:absolute;top:-50px;right:-50px;width:150px;height:150px;border-radius:50%;background:rgba(200,150,62,.1)}
+.gift-mock .gl{font-family:'Playfair Display',serif;font-size:1rem;font-weight:900;color:var(--cream)}
+.gift-mock .gl em{font-style:normal;color:var(--gold)}
+.gift-mock .gv{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--gold)}
+.gift-txt{flex:1;min-width:260px}
+.gift-txt h2{margin-bottom:.8rem}
+.gift-txt p{font-size:.88rem;line-height:1.82;color:#5a4a32;margin-bottom:1.6rem}
+
+/* ── ABOUT ─────────────────────────────────────────────── */
+#about{padding:5.5rem 0;background:var(--ink);position:relative}
+#about::before{content:'';position:absolute;inset:0;background:url('https://static.wixstatic.com/media/a88227_2e4af2f3dc8d4ff6933c25cec2f4c47e~mv2.jpg/v1/fill/w_2534,h_1546,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a88227_2e4af2f3dc8d4ff6933c25cec2f4c47e~mv2.jpg') center/cover;opacity:.07}
+.about-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;position:relative;z-index:1}
+@media(max-width:900px){.about-inner{grid-template-columns:1fr}}
+.about-txt .lbl{color:var(--gold)}
+.about-txt .h-display{color:var(--cream);margin-bottom:.5rem}
+.about-txt p{font-size:.9rem;line-height:1.85;color:var(--sand);margin:1rem 0}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.2rem}
+.stat-num{font-family:'Playfair Display',serif;font-size:2.4rem;color:var(--gold);line-height:1}
+.stat-lbl{font-size:.67rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mist);margin-top:.25rem}
+.about-imgs{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+.ab-img{border-radius:2px;overflow:hidden;border:1px solid rgba(200,150,62,.12)}
+.ab-img.tall{grid-row:span 2}
+.ab-img img{width:100%;height:100%;object-fit:cover;display:block}
+.ab-img.tall img{height:420px}
+.ab-img:not(.tall) img{height:200px}
+
+/* ── FOOTER ────────────────────────────────────────────── */
+footer{background:var(--ink);border-top:1px solid rgba(200,150,62,.14);padding:3.8rem 0 1.8rem}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:2.8rem}
+@media(max-width:900px){.ft-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.ft-grid{grid-template-columns:1fr}}
+.ft-brand .nav-logo{display:block;margin-bottom:.9rem}
+.ft-brand p{font-size:.82rem;color:var(--mist);line-height:1.72;max-width:270px;margin-bottom:1.3rem}
+.socials{display:flex;gap:.75rem}
+.soc{width:34px;height:34px;border:1px solid rgba(200,150,62,.28);display:flex;align-items:center;justify-content:center;color:var(--sand);font-size:.72rem;transition:.25s}
+.soc:hover{border-color:var(--gold);color:var(--gold)}
+.ft-col h4{font-size:.63rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.ft-col ul{display:flex;flex-direction:column;gap:.5rem}
+.ft-col a{font-size:.8rem;color:var(--mist);transition:color .2s}.ft-col a:hover{color:var(--cream)}
+.ft-btm{border-top:1px solid rgba(200,150,62,.1);padding-top:1.3rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem}
+.ft-btm p{font-size:.7rem;color:rgba(138,158,140,.55)}
+.ft-btm a{color:var(--gold)}
+
+/* ── LOCATION MODAL ────────────────────────────────────── */
+#loc-modal{display:none;position:fixed;inset:0;z-index:2000;align-items:center;justify-content:center;padding:1rem}
+#loc-modal.open{display:flex}
+.modal-bg{position:absolute;inset:0;background:rgba(8,5,2,.88);backdrop-filter:blur(12px);cursor:pointer}
+.modal-box{position:relative;z-index:1;background:var(--cream);width:100%;max-width:900px;max-height:92vh;overflow-y:auto;display:flex;flex-direction:column;animation:modal-in .38s var(--ease)}
+@keyframes modal-in{from{opacity:0;transform:translateY(28px) scale(.97)}to{opacity:1;transform:none}}
+.modal-hero{position:relative;height:300px;overflow:hidden;flex-shrink:0}
+.modal-hero-img{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 6s var(--ease)}
+.modal-box:hover .modal-hero-img{transform:scale(1.04)}
+.modal-hero-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,5,2,.88) 0%,transparent 55%)}
+.modal-hero-cnt{position:absolute;bottom:0;left:0;right:0;padding:2rem 2.2rem}
+.modal-close{position:absolute;top:1rem;right:1rem;width:36px;height:36px;border:1px solid rgba(245,240,232,.4);background:rgba(8,5,2,.5);color:var(--cream);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;z-index:2;transition:.25s;backdrop-filter:blur(6px)}
+.modal-close:hover{background:rgba(8,5,2,.8);border-color:var(--gold)}
+.modal-num{font-size:.62rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-lt);margin-bottom:.3rem}
+.modal-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;color:var(--cream);line-height:1}
+.modal-tag{font-size:.78rem;color:rgba(245,240,232,.65);margin-top:.35rem}
+.modal-body{padding:2rem 2.2rem;flex:1}
+/* Quick action pills */
+.modal-actions{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:2rem}
+.modal-action{display:inline-flex;align-items:center;gap:.45rem;font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:.6rem 1.2rem;border:1px solid var(--sand);color:var(--ink);cursor:pointer;transition:.25s;background:transparent}
+.modal-action:hover,.modal-action.primary{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+.modal-action svg{width:13px;height:13px;flex-shrink:0}
+/* Info grid */
+.modal-info-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem}
+@media(max-width:560px){.modal-info-grid{grid-template-columns:1fr}}
+.modal-info-card{background:var(--warm);border:1px solid var(--sand);padding:1.2rem 1.4rem}
+.modal-info-card h4{font-size:.62rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem}
+.modal-hours .h-row{display:flex;justify-content:space-between;font-size:.8rem;padding:.28rem 0}
+.modal-hours .h-row .day{color:#5a4a32}.modal-hours .h-row .time{color:var(--gold);font-weight:600}
+.modal-contact p{font-size:.82rem;color:#5a4a32;line-height:1.8}
+.modal-contact a{color:var(--gold);transition:color .2s}.modal-contact a:hover{color:var(--gold-lt)}
+/* Mini music in modal */
+.modal-music{margin-bottom:2rem}
+.modal-music h4{font-size:.62rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.9rem}
+.modal-sched-item{display:flex;justify-content:space-between;align-items:baseline;padding:.6rem 0;border-bottom:1px solid var(--sand);font-size:.82rem}
+.modal-sched-item:last-child{border-bottom:none}
+.modal-sched-artist{font-weight:500}
+.modal-sched-date{font-size:.72rem;color:var(--mist)}
+/* Mini menu in modal */
+.modal-menu-preview{margin-bottom:1.5rem}
+.modal-menu-preview h4{font-size:.62rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.9rem}
+.modal-menu-lang{display:flex;gap:.3rem;margin-bottom:.9rem}
+.mml-btn{font-size:.6rem;font-weight:700;letter-spacing:.1em;padding:.26rem .65rem;border:1px solid var(--sand);background:transparent;cursor:pointer;color:#7a6a50;transition:.2s}
+.mml-btn.on{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+.modal-menu-body{display:none}.modal-menu-body.on{display:block}
+.modal-full-btn{width:100%;text-align:center;font-size:.68rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;padding:.75rem;border:1px solid var(--sand);color:var(--ink);cursor:pointer;background:transparent;transition:.25s;margin-top:1rem;display:block}
+.modal-full-btn:hover{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+
+/* ── ADMIN ─────────────────────────────────────────────── */
+#adm-btn{position:fixed;bottom:1.8rem;right:1.8rem;z-index:3000;width:46px;height:46px;background:var(--gold);border:none;border-radius:50%;cursor:pointer;font-size:1rem;color:var(--ink);box-shadow:0 4px 18px rgba(200,150,62,.38);transition:.28s}
+#adm-btn:hover{background:var(--gold-lt);transform:scale(1.06)}
+#adm-panel{display:none;position:fixed;inset:0;z-index:4000;align-items:center;justify-content:center;padding:1rem}
+#adm-panel.open{display:flex}
+#adm-panel .modal-bg{cursor:default}
+.adm-box{position:relative;z-index:1;background:var(--cream);max-width:680px;width:100%;max-height:90vh;overflow-y:auto;padding:2.4rem}
+.adm-box h2{font-family:'Playfair Display',serif;font-size:1.55rem;margin-bottom:.3rem}
+.adm-note{font-size:.78rem;color:var(--mist);margin-bottom:1.2rem;line-height:1.5}
+.adm-close{position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.25rem;cursor:pointer}
+.adm-tabs{display:flex;gap:.25rem;margin-bottom:0;border-bottom:1px solid var(--sand)}
+.adm-tab{font-size:.67rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:.52rem .88rem;border:none;background:none;cursor:pointer;color:#7a6a50;border-bottom:2px solid transparent;margin-bottom:-1px;transition:.22s}
+.adm-tab.on{color:var(--rust);border-bottom-color:var(--rust)}
+.adm-pane{display:none;padding-top:1.3rem}.adm-pane.on{display:block}
+.adm-f{margin-bottom:.85rem}
+.adm-f label{display:block;font-size:.63rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#5a4a32;margin-bottom:.33rem}
+.adm-f input,.adm-f select,.adm-f textarea{width:100%;border:1px solid var(--sand);padding:.62rem .88rem;font-family:'Jost',sans-serif;font-size:.84rem;background:white;color:var(--ink);outline:none;transition:border-color .2s}
+.adm-f input:focus,.adm-f select:focus,.adm-f textarea:focus{border-color:var(--gold)}
+.adm-f textarea{min-height:68px;resize:vertical}
+.adm-row{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+@media(max-width:520px){.adm-row{grid-template-columns:1fr}}
+.adm-save{background:var(--rust);color:white;border:none;padding:.72rem 1.7rem;font-family:'Jost',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;transition:background .2s;margin-top:.7rem}
+.adm-save:hover{background:#7a2e18}
+.adm-msg{font-size:.78rem;color:var(--forest);font-weight:600;margin-top:.5rem;min-height:1.2rem}
+.sheet-info{background:rgba(42,61,46,.08);border:1px solid rgba(42,61,46,.2);padding:1rem 1.2rem;margin-bottom:1rem;font-size:.8rem;line-height:1.6;color:#3a3a3a}
+.sheet-info code{background:rgba(0,0,0,.07);padding:.1rem .35rem;font-size:.75rem;font-family:monospace}
+</style>
+</head>
+<body>
+
+<!-- WEATHER STRIP -->
+<div id="strip">
+  ☀️ &nbsp;<span id="strip-msg">All locations open today</span>&nbsp;—&nbsp;
+  Weather-dependent patios · Check socials for closures
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-wrap">
+    <a class="nav-logo" href="#">The <em>Tavern</em></a>
+    <ul class="nav-links">
+      <li><a href="#locations" data-k="nav_locations">Locations</a></li>
+      <li><a href="#music"     data-k="nav_music">Live Music</a></li>
+      <li><a href="#menus"     data-k="nav_menus">Menus</a></li>
+      <li><a href="#events"    data-k="nav_events">Host an Event</a></li>
+      <li><a href="#gift"      data-k="nav_gift">Gift Cards</a></li>
+      <li><a href="https://www.tbdine.com/book/restaurant/the-tavern-at-the-gallery?idApp=69897" target="_blank" class="nav-cta" data-k="nav_reserve">Reserve</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:1rem">
+      <div class="lt" id="lt-nav">
+        <button class="on" onclick="setLang('en',this)">EN</button>
+        <button onclick="setLang('fr',this)">FR</button>
+      </div>
+      <div class="hbg" onclick="toggleMob()"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+  <div class="mob" id="mob">
+    <a href="#locations" onclick="closeMob()" data-k="nav_locations">Locations</a>
+    <a href="#music"     onclick="closeMob()" data-k="nav_music">Live Music</a>
+    <a href="#menus"     onclick="closeMob()" data-k="nav_menus">Menus</a>
+    <a href="#events"    onclick="closeMob()" data-k="nav_events">Host an Event</a>
+    <a href="#gift"      onclick="closeMob()" data-k="nav_gift">Gift Cards</a>
+    <a href="https://www.tbdine.com/book/restaurant/the-tavern-at-the-gallery?idApp=69897" target="_blank" data-k="nav_reserve">Reserve a Table</a>
+    <div class="lt" style="margin-top:.3rem">
+      <button class="on" onclick="setLang('en',this)">EN</button>
+      <button onclick="setLang('fr',this)">FR</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-img"></div>
+  <div class="hero-grad"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-cnt">
+    <div class="hero-eyebrow" data-k="hero_eyebrow">Ottawa's Finest Outdoor Patio Experience</div>
+    <h1 class="hero-h1" data-k="hero_title">A Drink <em>With a View</em></h1>
+    <p class="hero-sub" data-k="hero_tagline">Four distinct locations. One unforgettable atmosphere.</p>
+    <div class="hero-acts">
+      <a href="#locations" class="btn btn-gold" data-k="hero_cta1">Explore Locations</a>
+      <a href="#music"     class="btn btn-cream" data-k="hero_cta2">Live Music Schedule</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-ln"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- PHOTO STRIP -->
+<div id="strip-photos">
+  <div class="strip-row">
+    <div class="strip-ph" style="background-image:url('https://static.wixstatic.com/media/a88227_b995ca7c9ceb4a73bee36324c40aa6c7~mv2.jpg/v1/fill/w_770,h_1786,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a88227_b995ca7c9ceb4a73bee36324c40aa6c7~mv2.jpg')"></div>
+    <div class="strip-ph" style="background-image:url('https://static.wixstatic.com/media/a88227_c9f0c3a887ce4e58bb4f022b0087fbf4~mv2.jpeg/v1/fill/w_371,h_960,al_c,q_80,enc_avif,quality_auto/a88227_c9f0c3a887ce4e58bb4f022b0087fbf4~mv2.jpeg')"></div>
+    <div class="strip-ph" style="background-image:url('https://static.wixstatic.com/media/a88227_fa970914314f4e6289958379f3a049b3~mv2.jpg/v1/fill/w_526,h_1351,al_c,q_85,enc_avif,quality_auto/a88227_fa970914314f4e6289958379f3a049b3~mv2.jpg')"></div>
+    <div class="strip-ph" style="background-image:url('https://static.wixstatic.com/media/1e1b17_45a710737f9d432e85c05ae7e6dcbf32f000.jpg/v1/fill/w_376,h_575,al_c,q_80,usm_0.33_1.00_0.00,enc_avif,quality_auto/1e1b17_45a710737f9d432e85c05ae7e6dcbf32f000.jpg')"></div>
+    <div class="strip-ph" style="background-image:url('https://static.wixstatic.com/media/a88227_322949a436ea4c9cb92bb0a1cf9d1bff~mv2.jpg/v1/fill/w_752,h_1786,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a88227_322949a436ea4c9cb92bb0a1cf9d1bff~mv2.jpg')"></div>
+    <div class="strip-ph" style="background-image:url('https://static.wixstatic.com/media/1e1b17_130ebc508086441a8fa5b5fd7a56cd53f000.jpg/v1/fill/w_385,h_575,al_c,q_80,usm_0.33_1.00_0.00,enc_avif,quality_auto/1e1b17_130ebc508086441a8fa5b5fd7a56cd53f000.jpg')"></div>
+  </div>
+</div>
+
+<!-- WEATHER -->
+<section id="weather">
+  <div class="container">
+    <div class="w-inner">
+      <div class="w-icon">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="32" r="12" fill="#c8963e" opacity=".9"/>
+          <g stroke="#c8963e" stroke-width="2.2" stroke-linecap="round" opacity=".55">
+            <line x1="32" y1="7" x2="32" y2="13"/>
+            <line x1="32" y1="51" x2="32" y2="57"/>
+            <line x1="7" y1="32" x2="13" y2="32"/>
+            <line x1="51" y1="32" x2="57" y2="32"/>
+            <line x1="15.5" y1="15.5" x2="19.8" y2="19.8"/>
+            <line x1="44.2" y1="44.2" x2="48.5" y2="48.5"/>
+            <line x1="48.5" y1="15.5" x2="44.2" y2="19.8"/>
+            <line x1="19.8" y1="44.2" x2="15.5" y2="48.5"/>
+          </g>
+        </svg>
+      </div>
+      <div class="w-body">
+        <h3 data-k="weather_title">Outdoor Patio — Weather Dependent</h3>
+        <p data-k="weather_body">The Tavern Group operates seasonal outdoor patios across four Ottawa locations. <strong>All patios are weather-dependent</strong> — we may close or adjust hours during rain or storms. Check our socials before you head out.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATIONS -->
+<section id="locations">
+  <div class="container">
+    <div class="sec-head">
+      <div class="lbl" data-k="loc_label">Our Locations</div>
+      <h2 class="h-display" data-k="loc_heading">Four Ways to Sip Beneath the Sky</h2>
+    </div>
+    <div class="loc-grid" id="loc-grid"></div>
+  </div>
+</section>
+
+<!-- HOURS -->
+<section id="hours">
+  <div class="container">
+    <div class="lbl" data-k="hours_label" style="margin-bottom:1.2rem">Operating Hours</div>
+    <div class="hours-grid" id="hours-grid"></div>
+  </div>
+</section>
+
+<!-- LIVE MUSIC -->
+<section id="music">
+  <div class="container music-inner">
+    <div class="music-hd">
+      <div>
+        <div class="lbl" data-k="music_label">Live Music 2025</div>
+        <h2 class="h-display" style="color:var(--cream)" data-k="music_heading">Where Every Night Has a Soundtrack</h2>
+      </div>
+      <a href="#events" class="btn btn-gold" data-k="see_all" style="align-self:flex-end">See Full Calendar</a>
+    </div>
+    <div class="sheet-indicator" id="sheet-indicator">
+      <span class="sheet-dot" id="sheet-dot"></span>
+      <span id="sheet-status">Loading schedule…</span>
+    </div>
+    <div class="m-tabs" id="music-tabs"></div>
+    <div id="music-sched"></div>
+    <p class="music-foot" data-k="music_footer">All shows weather-dependent · Ages 19+ · Schedule subject to change</p>
+  </div>
+</section>
+
+<!-- MENUS -->
+<section id="menus">
+  <div class="container">
+    <div class="sec-head">
+      <div class="lbl" data-k="menu_label">Seasonal Menus</div>
+      <h2 class="h-display" data-k="menu_heading">Crafted for the Season</h2>
+      <div class="divider"></div>
+      <p class="h-serif" data-k="menu_tagline">Each location offers its own menu inspired by the view</p>
+    </div>
+    <div class="menu-grid" id="menu-grid"></div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section id="events">
+  <div class="container">
+    <div class="ev-inner">
+      <div class="ev-text">
+        <div class="lbl" data-k="events_label">Private Events</div>
+        <h2 class="h-display" data-k="events_heading">Host Your Event in Style</h2>
+        <p data-k="events_body">From intimate celebrations to corporate gatherings, the Tavern Group offers exclusive venue experiences across all four Ottawa locations.</p>
+        <div class="ev-perks" id="ev-perks"></div>
+        <a href="#" class="btn btn-gold" data-k="see_all">See Full Calendar</a>
+      </div>
+      <div class="form-wrap">
+        <div class="form-title" data-k="book_event">Book an Event</div>
+        <form id="evt-form" onsubmit="submitForm(event)">
+          <div class="f-row">
+            <div class="fg"><label data-k="form_fname">First Name</label><input type="text" required/></div>
+            <div class="fg"><label data-k="form_lname">Last Name</label><input type="text" required/></div>
+          </div>
+          <div class="fg"><label data-k="form_email">Email</label><input type="email" required/></div>
+          <div class="fg"><label data-k="form_phone">Phone</label><input type="tel"/></div>
+          <div class="f-row">
+            <div class="fg">
+              <label data-k="form_loc">Preferred Location</label>
+              <select>
+                <option data-k="loc_gallery">Tavern at the Gallery</option>
+                <option data-k="loc_falls">Tavern on the Falls</option>
+                <option data-k="loc_hill">Tavern on the Hill</option>
+                <option data-k="loc_island">Tavern on the Island</option>
+              </select>
+            </div>
+            <div class="fg">
+              <label data-k="form_guests">Estimated Guests</label>
+              <select><option>20–50</option><option>50–100</option><option>100–200</option><option>200+</option></select>
+            </div>
+          </div>
+          <div class="fg"><label data-k="form_date">Event Date</label><input type="date"/></div>
+          <div class="fg"><label data-k="form_msg">Tell us about your event</label><textarea></textarea></div>
+          <button type="submit" class="f-submit" data-k="form_submit">Send Inquiry →</button>
+        </form>
+        <div class="f-ok" id="f-ok">
+          <div class="ck">✓</div>
+          <div style="font-family:'Playfair Display',serif;font-size:1.2rem;margin-bottom:.4rem" data-k="form_ok_title">We'll be in touch soon!</div>
+          <div style="font-size:.8rem;color:var(--sand)" data-k="form_ok_body">Our events team typically responds within 24 hours.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GIFT CARDS -->
+<section id="gift">
+  <div class="container">
+    <div class="gift-inner">
+      <div class="gift-mock">
+        <div class="gl">The <em>Tavern</em> Group</div>
+        <div class="gv">A Drink With a View</div>
+      </div>
+      <div class="gift-txt">
+        <div class="lbl" data-k="gift_label">Gift Cards</div>
+        <h2 class="h-display" data-k="gift_title">Give the Gift of a Great Evening</h2>
+        <p data-k="gift_body">The perfect gift for any occasion. Valid at all four Ottawa locations and never expires.</p>
+        <a href="https://app.tableup.com/r/907/home" target="_blank" class="btn btn-gold" data-k="gift_cta">Purchase a Gift Card</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-txt">
+        <div class="lbl" data-k="about_label">Our Story</div>
+        <h2 class="h-display" data-k="about_title">Ottawa's Outdoor Patio Since Day One</h2>
+        <div class="divider"></div>
+        <p data-k="about_p1">The Tavern Group was born from a simple idea: Ottawa deserved outdoor gathering spaces as beautiful as its skyline.</p>
+        <p data-k="about_p2">From our flagship location beside the National Gallery to our serene Island perch overlooking the Gatineau Hills, every Tavern location is designed to make you feel somewhere special.</p>
+        <div class="stats">
+          <div><div class="stat-num">4</div><div class="stat-lbl" data-k="stat_loc">Locations</div></div>
+          <div><div class="stat-num">100+</div><div class="stat-lbl" data-k="stat_shows">Live shows / yr</div></div>
+          <div><div class="stat-num">∞</div><div class="stat-lbl" data-k="stat_views">Stunning views</div></div>
+        </div>
+      </div>
+      <div class="about-imgs">
+        <div class="ab-img tall"><img src="https://static.wixstatic.com/media/a88227_22fd1797e7de4d46b2c1fe428705c268~mv2.jpg/v1/fill/w_752,h_1992,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a88227_22fd1797e7de4d46b2c1fe428705c268~mv2.jpg" alt="Tavern patio"/></div>
+        <div class="ab-img"><img src="https://static.wixstatic.com/media/a88227_407cdc6d5b7844ffa2a65eccdaca21b0~mv2.jpg/v1/fill/w_716,h_1795,al_c,q_85,enc_avif,quality_auto/a88227_407cdc6d5b7844ffa2a65eccdaca21b0~mv2.jpg" alt="Tavern"/></div>
+        <div class="ab-img"><img src="https://static.wixstatic.com/media/1e1b17_b797790917834c578b818aa1adf9c598f000.jpg/v1/fill/w_376,h_965,al_c,q_85,usm_0.33_1.00_0.00,enc_avif,quality_auto/1e1b17_b797790917834c578b818aa1adf9c598f000.jpg" alt="Tavern Island"/></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="ft-grid">
+      <div class="ft-brand">
+        <a class="nav-logo" href="#">The <em>Tavern</em></a>
+        <p data-k="footer_tagline">Ottawa's best outdoor patio bar — four locations, one unforgettable experience.</p>
+        <div class="socials">
+          <a href="https://www.facebook.com/tavernatthegallery" class="soc" target="_blank">f</a>
+          <a href="https://www.instagram.com/tavernatthegallery/" class="soc" target="_blank">ig</a>
+        </div>
+      </div>
+      <div class="ft-col">
+        <h4 data-k="footer_loc">Locations</h4>
+        <ul>
+          <li><a href="gallery.html" data-k="loc_gallery">Tavern at the Gallery</a></li>
+          <li><a href="falls.html"   data-k="loc_falls">Tavern on the Falls</a></li>
+          <li><a href="hill.html"    data-k="loc_hill">Tavern on the Hill</a></li>
+          <li><a href="island.html"  data-k="loc_island">Tavern on the Island</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h4 data-k="footer_explore">Explore</h4>
+        <ul>
+          <li><a href="#music"   data-k="nav_music">Live Music</a></li>
+          <li><a href="#menus"   data-k="nav_menus">Menus</a></li>
+          <li><a href="#events"  data-k="nav_events">Host an Event</a></li>
+          <li><a href="#gift"    data-k="nav_gift">Gift Cards</a></li>
+          <li><a href="#about"   data-k="about_label">Our Story</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h4 data-k="footer_contact">Contact</h4>
+        <ul>
+          <li><a href="mailto:info@thetavern.ca">info@thetavern.ca</a></li>
+          <li><a href="#events" data-k="book_event">Book an Event</a></li>
+          <li><a href="#hours"  data-k="hours_label">Hours</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-btm">
+      <p>© 2025 The Tavern Group · Ottawa, ON · All Rights Reserved</p>
+      <p><a href="#">Privacy</a> · <a href="#">Accessibility</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- LOCATION MODAL -->
+<div id="loc-modal">
+  <div class="modal-bg" onclick="closeModal()"></div>
+  <div class="modal-box" id="modal-box">
+    <div class="modal-hero">
+      <div class="modal-hero-img" id="modal-hero-img"></div>
+      <div class="modal-hero-grad"></div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div class="modal-hero-cnt">
+        <div class="modal-num" id="modal-num"></div>
+        <div class="modal-title" id="modal-title"></div>
+        <div class="modal-tag" id="modal-tag"></div>
+      </div>
+    </div>
+    <div class="modal-body">
+      <div class="modal-actions" id="modal-actions"></div>
+      <div class="modal-info-grid">
+        <div class="modal-info-card modal-hours">
+          <h4 data-k="hours_label">Operating Hours</h4>
+          <div id="modal-hours-body"></div>
+        </div>
+        <div class="modal-info-card modal-contact">
+          <h4 data-k="footer_contact">Contact</h4>
+          <div id="modal-contact-body"></div>
+        </div>
+      </div>
+      <div class="modal-music">
+        <h4 data-k="nav_music">Upcoming Live Music</h4>
+        <div id="modal-music-body"></div>
+      </div>
+      <div class="modal-menu-preview">
+        <h4 data-k="nav_menus">Menu Preview</h4>
+        <div class="modal-menu-lang">
+          <button class="mml-btn on" onclick="switchModalMenuLang('en',this)">EN</button>
+          <button class="mml-btn" onclick="switchModalMenuLang('fr',this)">FR</button>
+        </div>
+        <div class="modal-menu-body on" id="modal-menu-en"></div>
+        <div class="modal-menu-body" id="modal-menu-fr"></div>
+      </div>
+      <a id="modal-full-link" href="#" class="modal-full-btn" data-k="modal_visit">Visit Full Location Page →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN -->
+<button id="adm-btn" onclick="openAdm()">⚙</button>
+<div id="adm-panel">
+  <div class="modal-bg" onclick="closeAdm()"></div>
+  <div class="adm-box">
+    <button class="adm-close" onclick="closeAdm()">✕</button>
+    <div class="lbl" style="color:var(--rust)">Content Management</div>
+    <h2 data-k="adm_title">Admin Panel</h2>
+    <p class="adm-note">Update hours, menus, music, and weather status. Changes apply immediately.</p>
+    <div class="adm-tabs">
+      <button class="adm-tab on" onclick="showAdmTab('adm-sheet',this)" data-k="adm_sheet">Google Sheet</button>
+      <button class="adm-tab" onclick="showAdmTab('adm-hours',this)" data-k="adm_hours">Hours</button>
+      <button class="adm-tab" onclick="showAdmTab('adm-special',this)" data-k="adm_special">Specials</button>
+      <button class="adm-tab" onclick="showAdmTab('adm-menu',this)" data-k="adm_menu">Edit Menu</button>
+      <button class="adm-tab" onclick="showAdmTab('adm-weather',this)" data-k="adm_weather">Weather</button>
+    </div>
+    <!-- Google Sheet tab -->
+    <div class="adm-pane on" id="adm-sheet">
+      <div class="sheet-info">
+        <strong>How to connect your Google Sheet:</strong><br/>
+        1. Create a Google Sheet with columns: <code>Location</code>, <code>Day</code>, <code>Date</code>, <code>Artist</code>, <code>Genre</code>, <code>Time</code><br/>
+        2. In the <em>Location</em> column use: <code>gallery</code>, <code>falls</code>, <code>hill</code>, or <code>island</code><br/>
+        3. Go to <strong>File → Share → Publish to web</strong>, choose your sheet, select <strong>CSV</strong>, click <strong>Publish</strong><br/>
+        4. Paste the URL below and click Save — the schedule will refresh automatically.
+      </div>
+      <div class="adm-f">
+        <label data-k="adm_sheet">Google Sheet CSV URL</label>
+        <input type="text" id="adm-sheet-url" placeholder="https://docs.google.com/spreadsheets/d/.../pub?output=csv"/>
+      </div>
+      <button class="adm-save" onclick="saveSheetUrl()">Connect Sheet</button>
+      <div class="adm-msg" id="adm-sheet-msg"></div>
+      <div style="margin-top:1rem;font-size:.78rem;color:var(--mist)">Current status: <span id="adm-sheet-status">Using fallback data</span></div>
+    </div>
+    <!-- Hours tab -->
+    <div class="adm-pane" id="adm-hours">
+      <div class="adm-f"><label>Location</label>
+        <select id="adm-h-loc">
+          <option value="gallery">Tavern at the Gallery</option>
+          <option value="falls">Tavern on the Falls</option>
+          <option value="hill">Tavern on the Hill</option>
+          <option value="island">Tavern on the Island</option>
+        </select>
+      </div>
+      <div class="adm-row">
+        <div class="adm-f"><label>Mon–Thu</label><input id="adm-h-wk" type="text"/></div>
+        <div class="adm-f"><label>Friday</label><input id="adm-h-fr" type="text"/></div>
+      </div>
+      <div class="adm-row">
+        <div class="adm-f"><label>Saturday</label><input id="adm-h-sa" type="text"/></div>
+        <div class="adm-f"><label>Sunday</label><input id="adm-h-su" type="text"/></div>
+      </div>
+      <button class="adm-save" onclick="saveHours()">Save Hours</button>
+      <div class="adm-msg" id="adm-h-msg"></div>
+      <script>document.getElementById('adm-h-loc').addEventListener('change',fillHoursForm)</script>
+    </div>
+    <!-- Special tab -->
+    <div class="adm-pane" id="adm-special">
+      <div class="adm-f"><label>Location</label>
+        <select id="adm-sp-loc">
+          <option value="gallery">Gallery</option><option value="falls">Falls</option>
+          <option value="hill">Hill</option><option value="island">Island</option>
+        </select>
+      </div>
+      <div class="adm-f"><label>Section (e.g. Cocktails)</label><input id="adm-sp-sec" type="text" placeholder="Cocktails"/></div>
+      <div class="adm-row">
+        <div class="adm-f"><label>Name (EN)</label><input id="adm-sp-en" type="text" placeholder="Peach Bellini"/></div>
+        <div class="adm-f"><label>Name (FR)</label><input id="adm-sp-fr" type="text" placeholder="Bellini à la pêche"/></div>
+      </div>
+      <div class="adm-row">
+        <div class="adm-f"><label>Desc (EN)</label><input id="adm-sp-den" type="text" placeholder="Fresh peach, prosecco"/></div>
+        <div class="adm-f"><label>Desc (FR)</label><input id="adm-sp-dfr" type="text" placeholder="Pêche fraîche, prosecco"/></div>
+      </div>
+      <div class="adm-f"><label>Price</label><input id="adm-sp-pr" type="text" placeholder="$13"/></div>
+      <button class="adm-save" onclick="addSpecial()">Add Special</button>
+      <div class="adm-msg" id="adm-sp-msg"></div>
+    </div>
+    <!-- Edit Menu tab -->
+    <div class="adm-pane" id="adm-menu">
+      <div class="adm-row">
+        <div class="adm-f"><label>Location</label>
+          <select id="adm-m-loc">
+            <option value="gallery">Gallery</option><option value="falls">Falls</option>
+            <option value="hill">Hill</option><option value="island">Island</option>
+          </select>
+        </div>
+        <div class="adm-f"><label>Language</label>
+          <select id="adm-m-lang"><option value="en">English</option><option value="fr">Français</option></select>
+        </div>
+      </div>
+      <div class="adm-f"><label>Section Title (exact)</label><input id="adm-m-sec" type="text" placeholder="Cocktails"/></div>
+      <div class="adm-row">
+        <div class="adm-f"><label>Item Name</label><input id="adm-m-name" type="text" placeholder="New Drink"/></div>
+        <div class="adm-f"><label>Price</label><input id="adm-m-price" type="text" placeholder="$14"/></div>
+      </div>
+      <div class="adm-f"><label>Description</label><input id="adm-m-desc" type="text" placeholder="Description"/></div>
+      <button class="adm-save" onclick="saveMenuItem()">Save to Menu</button>
+      <div class="adm-msg" id="adm-m-msg"></div>
+    </div>
+    <!-- Weather tab -->
+    <div class="adm-pane" id="adm-weather">
+      <div class="adm-f"><label>Status Banner (EN)</label><input id="adm-w-en" type="text" placeholder="All locations open today"/></div>
+      <div class="adm-f"><label>Status Banner (FR)</label><input id="adm-w-fr" type="text" placeholder="Tous les emplacements ouverts aujourd'hui"/></div>
+      <div class="adm-f"><label>Alert Type</label>
+        <select id="adm-w-type">
+          <option value="open">✅ All Open</option>
+          <option value="partial">⚠️ Some Locations Affected</option>
+          <option value="closed">🚫 Closed / Weather Alert</option>
+        </select>
+      </div>
+      <button class="adm-save" onclick="saveWeather()">Update Status</button>
+      <div class="adm-msg" id="adm-w-msg"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════════
+// TAVERN GROUP — SHARED DATA & TRANSLATIONS
+// ═══════════════════════════════════════════════════════════════
+
+// ── GOOGLE SHEETS CONFIG ─────────────────────────────────────
+// Publish your Google Sheet to the web as CSV:
+// File → Share → Publish to web → Sheet → CSV → Get link
+// Paste the URL below. Sheet columns: Location,Day,Date,Artist,Genre,Time
+const SHEETS_CONFIG = {
+  // Replace this URL with your published Google Sheet CSV URL
+  url: 'YOUR_GOOGLE_SHEET_CSV_URL_HERE',
+  // Fallback to hardcoded data if sheet unavailable
+  useFallback: true
+};
+
+// ── LOCATION DATA ─────────────────────────────────────────────
+const LOCATION_INFO = {
+  gallery: {
+    key: 'gallery',
+    img:  'https://static.wixstatic.com/media/a88227_d331ffd34fdc4eec800b2cf02ad50861~mv2.jpg/v1/fill/w_1440,h_879,al_c,q_85,enc_avif,quality_auto/a88227_d331ffd34fdc4eec800b2cf02ad50861~mv2.jpg',
+    img2: 'https://static.wixstatic.com/media/a88227_322949a436ea4c9cb92bb0a1cf9d1bff~mv2.jpg/v1/fill/w_752,h_1786,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a88227_322949a436ea4c9cb92bb0a1cf9d1bff~mv2.jpg',
+    img3: 'https://static.wixstatic.com/media/a88227_b995ca7c9ceb4a73bee36324c40aa6c7~mv2.jpg/v1/fill/w_770,h_1786,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a88227_b995ca7c9ceb4a73bee36324c40aa6c7~mv2.jpg',
+    addr:  '380 Sussex Dr., Ottawa, ON',
+    phone: '613-555-0101',
+    email: 'gallery@thetavern.ca',
+    maps:  'https://maps.google.com/?q=380+Sussex+Dr+Ottawa',
+    reserve: 'https://www.tbdine.com/book/restaurant/the-tavern-at-the-gallery?idApp=69897&language=en-us',
+    facebook:  'https://www.facebook.com/tavernatthegallery',
+    instagram: 'https://www.instagram.com/tavernatthegallery/',
+    accentColor: '#2d4a35',
+    num_en: 'Location 01', num_fr: 'Emplacement 01',
+    tag_en: 'National Gallery Views · Byward Market',
+    tag_fr: 'Vue sur la Galerie nationale · Marché By',
+    story_en: ["Ottawa's premier National Gallery patio — nestled beside one of Canada's greatest cultural institutions, with views of the iconic spider sculpture and the Rideau River.", "Come for the art. Stay for the drinks and the company. Where the Byward Market meets fine patio culture."],
+    story_fr: ["La terrasse principale de la Galerie nationale d'Ottawa — nichée à côté de l'une des plus grandes institutions culturelles du Canada.", "Venez pour l'art. Restez pour les boissons et la compagnie. Là où le Marché By rencontre la culture de terrasse raffinée."],
+    hours: { monThu:'11am – 11pm', fri:'11am – 1am', sat:'10am – 1am', sun:'10am – 10pm' }
+  },
+  falls: {
+    key: 'falls',
+    img:  'https://static.wixstatic.com/media/a88227_2e4af2f3dc8d4ff6933c25cec2f4c47e~mv2.jpg/v1/fill/w_2534,h_1546,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a88227_2e4af2f3dc8d4ff6933c25cec2f4c47e~mv2.jpg',
+    img2: 'https://static.wixstatic.com/media/a88227_22fd1797e7de4d46b2c1fe428705c268~mv2.jpg/v1/fill/w_752,h_1992,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a88227_22fd1797e7de4d46b2c1fe428705c268~mv2.jpg',
+    img3: 'https://static.wixstatic.com/media/a88227_c9f0c3a887ce4e58bb4f022b0087fbf4~mv2.jpeg/v1/fill/w_371,h_960,al_c,q_80,enc_avif,quality_auto/a88227_c9f0c3a887ce4e58bb4f022b0087fbf4~mv2.jpeg',
+    addr:  'Rideau Falls Park, Ottawa, ON',
+    phone: '613-555-0202',
+    email: 'falls@thetavern.ca',
+    maps:  'https://maps.google.com/?q=Rideau+Falls+Park+Ottawa',
+    reserve: 'https://www.tbdine.com/book/restaurant/the-tavern-at-the-gallery?idApp=69897&language=en-us',
+    facebook:  'https://www.facebook.com/tavernatthegallery',
+    instagram: 'https://www.instagram.com/tavernatthegallery/',
+    accentColor: '#1a3a5c',
+    num_en: 'Location 02', num_fr: 'Emplacement 02',
+    tag_en: 'Waterfront · Rideau Falls Views',
+    tag_fr: 'Bord de l\'eau · Vue sur les Chutes Rideau',
+    story_en: ["Perched at the edge of Rideau Falls, this is Ottawa's most dramatic outdoor patio. The sound of cascading water is the constant backdrop to every great evening.", "Order something cold, lean back, and let the falls do the talking. There's no better seat in Ottawa."],
+    story_fr: ["Perchée au bord des Chutes Rideau, voici la terrasse extérieure la plus dramatique d'Ottawa. Le son de l'eau en cascade accompagne chaque belle soirée.", "Commandez quelque chose de frais, détendez-vous et laissez les chutes parler."],
+    hours: { monThu:'11am – 11pm', fri:'11am – 1am', sat:'10am – 1am', sun:'10am – 10pm' }
+  },
+  hill: {
+    key: 'hill',
+    img:  'https://static.wixstatic.com/media/a88227_f4831e7cc95c47a2b553f9fd936dc614~mv2.jpg/v1/fill/w_1080,h_659,al_c,q_85,enc_avif,quality_auto/a88227_f4831e7cc95c47a2b553f9fd936dc614~mv2.jpg',
+    img2: 'https://static.wixstatic.com/media/a88227_fa970914314f4e6289958379f3a049b3~mv2.jpg/v1/fill/w_526,h_1351,al_c,q_85,enc_avif,quality_auto/a88227_fa970914314f4e6289958379f3a049b3~mv2.jpg',
+    img3: 'https://static.wixstatic.com/media/a88227_407cdc6d5b7844ffa2a65eccdaca21b0~mv2.jpg/v1/fill/w_716,h_1795,al_c,q_85,enc_avif,quality_auto/a88227_407cdc6d5b7844ffa2a65eccdaca21b0~mv2.jpg',
+    addr:  "Major's Hill Park, Ottawa, ON",
+    phone: '613-555-0303',
+    email: 'hill@thetavern.ca',
+    maps:  "https://maps.google.com/?q=Major's+Hill+Park+Ottawa",
+    reserve: 'https://www.tbdine.com/book/restaurant/the-tavern-at-the-gallery?idApp=69897&language=en-us',
+    facebook:  'https://www.facebook.com/tavernatthegallery',
+    instagram: 'https://www.instagram.com/tavernatthegallery/',
+    accentColor: '#4a3520',
+    num_en: 'Location 03', num_fr: 'Emplacement 03',
+    tag_en: "Parliament Views · Major's Hill Park",
+    tag_fr: 'Vue sur le Parlement · Parc Major\'s Hill',
+    story_en: ["Atop Major's Hill Park, this location commands some of the most iconic views in all of Canada — the Peace Tower, the Ottawa River, and the Gatineau Hills in the distance.", "Whether you're catching a post-work sunset or a Saturday night show, Tavern on the Hill always delivers."],
+    story_fr: ["Au sommet du parc Major's Hill, cet emplacement offre certaines des vues les plus emblématiques du Canada — la Tour de la Paix, la rivière des Outaouais et les collines de la Gatineau.", "Que vous profitiez d'un coucher de soleil après le travail ou d'un spectacle le samedi soir, la Taverne sur la Colline livre toujours."],
+    hours: { monThu:'12pm – 11pm', fri:'12pm – 1am', sat:'11am – 1am', sun:'11am – 10pm' }
+  },
+  island: {
+    key: 'island',
+    img:  'https://static.wixstatic.com/media/1e1b17_035df277dad2454ba763f2b5c3da1b03~mv2.jpg/v1/fill/w_1630,h_994,al_c,q_85,enc_avif,quality_auto/1e1b17_035df277dad2454ba763f2b5c3da1b03~mv2.jpg',
+    img2: 'https://static.wixstatic.com/media/1e1b17_b797790917834c578b818aa1adf9c598f000.jpg/v1/fill/w_376,h_965,al_c,q_85,usm_0.33_1.00_0.00,enc_avif,quality_auto/1e1b17_b797790917834c578b818aa1adf9c598f000.jpg',
+    img3: 'https://static.wixstatic.com/media/1e1b17_45a710737f9d432e85c05ae7e6dcbf32f000.jpg/v1/fill/w_376,h_575,al_c,q_80,usm_0.33_1.00_0.00,enc_avif,quality_auto/1e1b17_45a710737f9d432e85c05ae7e6dcbf32f000.jpg',
+    addr:  'Nepean Point, Ottawa, ON',
+    phone: '613-555-0404',
+    email: 'island@thetavern.ca',
+    maps:  'https://maps.google.com/?q=Nepean+Point+Ottawa',
+    reserve: 'https://www.tbdine.com/book/restaurant/the-tavern-at-the-gallery?idApp=69897&language=en-us',
+    facebook:  'https://www.facebook.com/tavernatthegallery',
+    instagram: 'https://www.instagram.com/tavernatthegallery/',
+    accentColor: '#2a4040',
+    num_en: 'Location 04', num_fr: 'Emplacement 04',
+    tag_en: 'River Views · Gatineau Hills',
+    tag_fr: 'Vue sur la rivière · Collines Gatineau',
+    story_en: ["The most serene of our four locations, Tavern on the Island sits at Nepean Point with unobstructed views of the Ottawa River, Gatineau Hills, and the Canadian Museum of History.", "Come early for brunch jazz, stay for sunset cocktails. Ottawa's best-kept patio secret."],
+    story_fr: ["Le plus serein de nos quatre emplacements, la Taverne sur l'Île est à la Pointe Nepean avec des vues dégagées sur la rivière des Outaouais et les collines de la Gatineau.", "Venez tôt pour le jazz du brunch, restez pour les cocktails au coucher du soleil."],
+    hours: { monThu:'12pm – 11pm', fri:'12pm – 1am', sat:'11am – 1am', sun:'11am – 10pm' }
+  }
+};
+
+// ── MENUS (bilingual, per location) ──────────────────────────
+const MENUS = {
+  gallery: {
+    en: [
+      { section:'Small Plates', items:[
+        {name:'Charcuterie Board',     desc:'Local cured meats, artisan cheese, preserves',              price:'$22'},
+        {name:'Crispy Calamari',       desc:'House aioli, pickled lemon',                                price:'$17'},
+        {name:'Gallery Flatbread',     desc:'Roasted garlic, brie, fig jam',                             price:'$16'},
+        {name:'Burrata & Heirloom',    desc:'Basil oil, fleur de sel, grilled crostini',                 price:'$19'},
+      ]},
+      { section:'Mains', items:[
+        {name:'Gallery Salmon',        desc:'Herb-crusted Atlantic salmon, wilted greens, lemon beurre blanc', price:'$29'},
+        {name:'Sussex Burger',         desc:'Double smash, aged cheddar, caramelized onion, house pickle', price:'$19'},
+        {name:'Grilled Chicken Sandwich', desc:'Sourdough, avocado, chipotle mayo, arugula',             price:'$18'},
+        {name:'Mushroom Risotto',      desc:'Wild mushroom, truffle oil, parmesan, chives',              price:'$24'},
+      ]},
+      { section:'Cocktails', items:[
+        {name:'Sussex Sling',          desc:'Gin, elderflower, cucumber, prosecco',                      price:'$14'},
+        {name:'Byward Bramble',        desc:'Whisky, blackberry, lemon, honey',                          price:'$14'},
+        {name:'Gallery Spritz',        desc:'Aperol, prosecco, blood orange, soda',                      price:'$13'},
+        {name:'The Diplomat',          desc:'Vodka, St-Germain, grapefruit, tonic',                      price:'$14'},
+      ]},
+      { section:'Beer & Wine', items:[
+        {name:'Local Craft (rotating)',desc:'Ask your server for today\'s selection',                     price:'$9'},
+        {name:'House White / Rosé',    desc:'Ask your server',                                           price:'$10'},
+        {name:'House Red',             desc:'Ask your server',                                           price:'$10'},
+      ]},
+    ],
+    fr: [
+      { section:'Petites assiettes', items:[
+        {name:'Planche de charcuterie',desc:'Charcuteries locales, fromages artisanaux, conserves',      price:'$22'},
+        {name:'Calamars croustillants',desc:'Aïoli maison, citron mariné',                               price:'$17'},
+        {name:'Flatbread de la Galerie',desc:'Ail rôti, brie, confiture de figue',                       price:'$16'},
+        {name:'Burrata & Tomate ancienne',desc:'Huile de basilic, fleur de sel, crostini grillé',        price:'$19'},
+      ]},
+      { section:'Plats principaux', items:[
+        {name:'Saumon de la Galerie',  desc:'Saumon en croûte d\'herbes, verdures, beurre blanc citron', price:'$29'},
+        {name:'Burger Sussex',         desc:'Double smash, cheddar vieilli, oignon caramélisé, cornichon',price:'$19'},
+        {name:'Sandwich au poulet grillé',desc:'Pain au levain, avocat, mayo chipotle, roquette',        price:'$18'},
+        {name:'Risotto aux champignons',desc:'Champignons sauvages, huile de truffe, parmesan',          price:'$24'},
+      ]},
+      { section:'Cocktails', items:[
+        {name:'Sussex Sling',          desc:'Gin, fleur de sureau, concombre, prosecco',                 price:'$14'},
+        {name:'Bramble Byward',        desc:'Whisky, mûre, citron, miel',                                price:'$14'},
+        {name:'Spritz de la Galerie',  desc:'Aperol, prosecco, orange sanguine, eau gazeuse',            price:'$13'},
+        {name:'Le Diplomate',          desc:'Vodka, St-Germain, pamplemousse, tonic',                    price:'$14'},
+      ]},
+      { section:'Bières et vins', items:[
+        {name:'Bière artisanale (rotatif)',desc:'Demandez à votre serveur',                              price:'$9'},
+        {name:'Blanc / Rosé maison',   desc:'Demandez à votre serveur',                                  price:'$10'},
+        {name:'Rouge maison',          desc:'Demandez à votre serveur',                                  price:'$10'},
+      ]},
+    ]
+  },
+  falls: {
+    en: [
+      { section:'Starters', items:[
+        {name:'Steamed Mussels',       desc:'White wine, garlic, shallots, grilled bread',               price:'$18'},
+        {name:'Fish Tacos (3pc)',      desc:'Beer-battered pickerel, slaw, chipotle crema',              price:'$19'},
+        {name:'Shrimp Cocktail',       desc:'Chilled tiger shrimp, house cocktail sauce, lemon',         price:'$17'},
+      ]},
+      { section:'Mains', items:[
+        {name:'Falls Burger',          desc:'Double smash, aged cheddar, house pickle, fries',           price:'$18'},
+        {name:'Lobster Roll',          desc:'Atlantic lobster, tarragon mayo, brioche, chips',           price:'$26'},
+        {name:'Fish & Chips',          desc:'Beer-battered haddock, hand-cut fries, tartar sauce',       price:'$22'},
+        {name:'Grilled Salmon Tacos',  desc:'Mango salsa, avocado crema, pickled cabbage',               price:'$23'},
+      ]},
+      { section:'Cocktails', items:[
+        {name:'Rideau Mist',           desc:'Vodka, green tea, mint, lime',                              price:'$13'},
+        {name:'Cascade Cooler',        desc:'Rum, pineapple, coconut',                                   price:'$14'},
+        {name:'Falls Paloma',          desc:'Tequila, grapefruit, agave, salt rim',                      price:'$14'},
+        {name:'Waterfall Spritz',      desc:'Gin, cucumber, tonic, elderflower',                         price:'$13'},
+      ]},
+      { section:'Beer & Wine', items:[
+        {name:'Local Craft (rotating)',desc:'Ask your server',                                           price:'$9'},
+        {name:'House White / Rosé',    desc:'Ask your server',                                           price:'$10'},
+        {name:'House Red',             desc:'Ask your server',                                           price:'$10'},
+      ]},
+    ],
+    fr: [
+      { section:'Entrées', items:[
+        {name:'Moules vapeur',         desc:'Vin blanc, ail, échalotes, pain grillé',                    price:'$18'},
+        {name:'Tacos de poisson (3pc)',desc:'Doré pané à la bière, chou, crème chipotle',                price:'$19'},
+        {name:'Cocktail de crevettes', desc:'Crevettes tigrées froides, sauce cocktail maison',          price:'$17'},
+      ]},
+      { section:'Plats principaux', items:[
+        {name:'Burger des Chutes',     desc:'Double smash, cheddar vieilli, cornichon maison, frites',   price:'$18'},
+        {name:'Rouleau de homard',     desc:'Homard de l\'Atlantique, mayo à l\'estragon, brioche',      price:'$26'},
+        {name:'Fish & Chips',          desc:'Aiglefin pané à la bière, frites coupées, sauce tartare',   price:'$22'},
+        {name:'Tacos de saumon grillé',desc:'Salsa à la mangue, crème d\'avocat, chou mariné',           price:'$23'},
+      ]},
+      { section:'Cocktails', items:[
+        {name:'Brume de la Rideau',    desc:'Vodka, thé vert, menthe, lime',                             price:'$13'},
+        {name:'Refroidisseur Cascade', desc:'Rhum, ananas, noix de coco',                                price:'$14'},
+        {name:'Paloma des Chutes',     desc:'Tequila, pamplemousse, agave, rebord salé',                 price:'$14'},
+        {name:'Spritz de la Cascade',  desc:'Gin, concombre, tonic, fleur de sureau',                    price:'$13'},
+      ]},
+      { section:'Bières et vins', items:[
+        {name:'Bière artisanale (rotatif)',desc:'Demandez à votre serveur',                              price:'$9'},
+        {name:'Blanc / Rosé maison',   desc:'Demandez à votre serveur',                                  price:'$10'},
+        {name:'Rouge maison',          desc:'Demandez à votre serveur',                                  price:'$10'},
+      ]},
+    ]
+  },
+  hill: {
+    en: [
+      { section:'Snacks & Shares', items:[
+        {name:'Poutine Classique',     desc:'Quebec curds, rich gravy',                                  price:'$14'},
+        {name:'Hill Nachos',           desc:'House chips, pulled pork, all the fixings',                 price:'$21'},
+        {name:'Parliament Platter',    desc:'Wings, fries, dips — serves 4',                             price:'$38'},
+        {name:'Crispy Brussels',       desc:'Bacon lardons, lemon, parmesan, chili flake',               price:'$15'},
+      ]},
+      { section:'Mains', items:[
+        {name:'Hill Smash Burger',     desc:'Double patty, smoked gouda, caramelized onion, pickle',     price:'$19'},
+        {name:'Chicken & Waffles',     desc:'Buttermilk fried chicken, maple sriracha, jalapeño',        price:'$22'},
+        {name:'Steak Frites',          desc:'6oz bavette, house butter, hand-cut fries',                 price:'$28'},
+        {name:'Veggie Bowl',           desc:'Farro, roasted veg, tahini, pomegranate, herbs',            price:'$20'},
+      ]},
+      { section:'Cocktails', items:[
+        {name:'The Hill & Honey',      desc:'Bourbon, local honey, thyme, ginger beer',                  price:'$14'},
+        {name:"Major's Mule",          desc:'Vodka, lime, ginger beer, mint',                            price:'$13'},
+        {name:'Parliament Old Fashioned', desc:'Rye whisky, maple, aromatic bitters, orange',           price:'$15'},
+        {name:'Capital Sour',          desc:'Bourbon, lemon, aquafaba, angostura',                       price:'$14'},
+      ]},
+      { section:'Beer & Wine', items:[
+        {name:'Local Craft (rotating)',desc:'Ask your server',                                           price:'$9'},
+        {name:'House White / Rosé',    desc:'Ask your server',                                           price:'$10'},
+        {name:'House Red',             desc:'Ask your server',                                           price:'$10'},
+      ]},
+    ],
+    fr: [
+      { section:'Grignotines et partage', items:[
+        {name:'Poutine classique',     desc:'Fromage en grains du Québec, sauce riche',                  price:'$14'},
+        {name:'Nachos de la Colline',  desc:'Chips maison, porc effiloché, garnitures complètes',        price:'$21'},
+        {name:'Plateau du Parlement',  desc:'Ailes, frites, trempettes — pour 4 personnes',              price:'$38'},
+        {name:'Choux de Bruxelles croustillants', desc:'Lardons, citron, parmesan, flocons de piment',  price:'$15'},
+      ]},
+      { section:'Plats principaux', items:[
+        {name:'Burger Smash de la Colline', desc:'Double galette, gouda fumé, oignon caramélisé',        price:'$19'},
+        {name:'Poulet et gaufres',     desc:'Poulet frit au babeurre, érable sriracha, jalapeño mariné', price:'$22'},
+        {name:'Steak frites',          desc:'Bavette 6oz, beurre maison, frites coupées à la main',      price:'$28'},
+        {name:'Bol végétarien',        desc:'Farro, légumes rôtis, tahini, grenade, herbes',             price:'$20'},
+      ]},
+      { section:'Cocktails', items:[
+        {name:'La Colline et le Miel', desc:'Bourbon, miel local, thym, bière au gingembre',             price:'$14'},
+        {name:'Mule du Major',         desc:'Vodka, lime, bière au gingembre, menthe',                   price:'$13'},
+        {name:'Old Fashioned du Parlement', desc:'Whisky de seigle, sirop d\'érable, bitters',          price:'$15'},
+        {name:'Sour Capital',          desc:'Bourbon, citron, aquafaba, angostura',                      price:'$14'},
+      ]},
+      { section:'Bières et vins', items:[
+        {name:'Bière artisanale (rotatif)',desc:'Demandez à votre serveur',                              price:'$9'},
+        {name:'Blanc / Rosé maison',   desc:'Demandez à votre serveur',                                  price:'$10'},
+        {name:'Rouge maison',          desc:'Demandez à votre serveur',                                  price:'$10'},
+      ]},
+    ]
+  },
+  island: {
+    en: [
+      { section:'Raw Bar & Bites', items:[
+        {name:'Oysters on the Half (6pc)', desc:'East Coast, mignonette, lemon',                         price:'$20'},
+        {name:'Tuna Tartare',          desc:'Sesame, avocado, crispy wonton, sriracha mayo',             price:'$19'},
+        {name:'Island Shrimp Cocktail',desc:'Chilled tiger shrimp, house cocktail sauce',                price:'$18'},
+        {name:'Ceviche of the Day',    desc:'Ask your server for today\'s catch',                        price:'$17'},
+      ]},
+      { section:'Mains', items:[
+        {name:'Whole Grilled Branzino',desc:'Lemon herb butter, grilled vegetables, chimichurri',        price:'$32'},
+        {name:'Island Lobster Roll',   desc:'Warm butter-poached lobster, brioche, chips',               price:'$28'},
+        {name:'Grilled Octopus',       desc:'Smoked paprika, fingerling potato, salsa verde',            price:'$27'},
+        {name:'Island Fish Sandwich',  desc:'Blackened mahi, slaw, avocado, brioche',                    price:'$22'},
+      ]},
+      { section:'Cocktails', items:[
+        {name:'Nepean Negroni',        desc:'Gin, Campari, sweet vermouth, orange',                      price:'$15'},
+        {name:'Island Spritz',         desc:'Aperol, Prosecco, soda, blood orange',                      price:'$13'},
+        {name:'Dark & Stormy Island',  desc:'Dark rum, ginger beer, lime, angostura',                    price:'$13'},
+        {name:'The Horizon',           desc:'Tequila, blue curaçao, lime, salt rim',                     price:'$14'},
+      ]},
+      { section:'Beer & Wine', items:[
+        {name:'Local Craft (rotating)',desc:'Ask your server',                                           price:'$9'},
+        {name:'House White / Rosé',    desc:'Ask your server',                                           price:'$10'},
+        {name:'House Red',             desc:'Ask your server',                                           price:'$10'},
+      ]},
+    ],
+    fr: [
+      { section:'Bar à fruits de mer et bouchées', items:[
+        {name:'Huîtres sur coquille (6 pièces)', desc:'Côte Est, mignonette, citron',                   price:'$20'},
+        {name:'Tartare de thon',       desc:'Sésame, avocat, wonton croustillant, mayo sriracha',        price:'$19'},
+        {name:'Cocktail de crevettes de l\'Île', desc:'Crevettes tigrées froides, sauce cocktail maison', price:'$18'},
+        {name:'Ceviche du jour',       desc:'Demandez à votre serveur pour la prise du jour',            price:'$17'},
+      ]},
+      { section:'Plats principaux', items:[
+        {name:'Branzino grillé entier',desc:'Beurre aux herbes et citron, légumes grillés, chimichurri', price:'$32'},
+        {name:'Rouleau de homard de l\'Île', desc:'Homard poché au beurre chaud, brioche, chips',       price:'$28'},
+        {name:'Pieuvre grillée',       desc:'Paprika fumé, pommes de terre grenaille, salsa verde',      price:'$27'},
+        {name:'Sandwich de poisson de l\'Île', desc:'Mahi noirci, chou, avocat, brioche',               price:'$22'},
+      ]},
+      { section:'Cocktails', items:[
+        {name:'Negroni Nepean',        desc:'Gin, Campari, vermouth doux, orange',                       price:'$15'},
+        {name:'Spritz de l\'Île',      desc:'Aperol, Prosecco, eau gazeuse, orange sanguine',            price:'$13'},
+        {name:'Dark & Stormy de l\'Île',desc:'Rhum brun, bière au gingembre, lime, angostura',           price:'$13'},
+        {name:'L\'Horizon',            desc:'Tequila, curaçao bleu, lime, rebord salé',                  price:'$14'},
+      ]},
+      { section:'Bières et vins', items:[
+        {name:'Bière artisanale (rotatif)',desc:'Demandez à votre serveur',                              price:'$9'},
+        {name:'Blanc / Rosé maison',   desc:'Demandez à votre serveur',                                  price:'$10'},
+        {name:'Rouge maison',          desc:'Demandez à votre serveur',                                  price:'$10'},
+      ]},
+    ]
+  }
+};
+
+// ── FALLBACK MUSIC (used if Google Sheet unavailable) ─────────
+const MUSIC_FALLBACK = [
+  {loc:'gallery', day:'Fri', date:'Jun 6',  artist:'The Blue Herons',          genre:'Blues / Folk',           time:'8:00 PM'},
+  {loc:'gallery', day:'Sat', date:'Jun 7',  artist:'Mackenzie Moran Trio',     genre:'Jazz / Soul',            time:'7:30 PM'},
+  {loc:'gallery', day:'Fri', date:'Jun 13', artist:'River Road',               genre:'Country / Americana',    time:'8:00 PM'},
+  {loc:'gallery', day:'Sat', date:'Jun 14', artist:'Club Soda Collective',     genre:'Funk / R&B',             time:'9:00 PM'},
+  {loc:'gallery', day:'Sun', date:'Jun 15', artist:'Sunday Sessions (Open Mic)',genre:'Acoustic / Various',    time:'3:00 PM'},
+  {loc:'gallery', day:'Fri', date:'Jun 20', artist:'The Sable Brothers',       genre:'Indie Folk',             time:'8:00 PM'},
+  {loc:'falls',   day:'Thu', date:'Jun 5',  artist:'The Rideau Kings',         genre:'Classic Rock',           time:'7:00 PM'},
+  {loc:'falls',   day:'Sat', date:'Jun 7',  artist:'Lena Voss Band',           genre:'Indie / Pop',            time:'8:30 PM'},
+  {loc:'falls',   day:'Fri', date:'Jun 13', artist:'Waterfall Jazz Project',   genre:'Contemporary Jazz',      time:'7:30 PM'},
+  {loc:'falls',   day:'Sat', date:'Jun 21', artist:'Eastern Front',            genre:'Blues Rock',             time:'9:00 PM'},
+  {loc:'hill',    day:'Fri', date:'Jun 6',  artist:'The Parlour',              genre:'Swing / Jazz',           time:'8:00 PM'},
+  {loc:'hill',    day:'Sat', date:'Jun 14', artist:'Capital City Brass',       genre:'Brass Band / Funk',      time:'7:00 PM'},
+  {loc:'hill',    day:'Thu', date:'Jun 19', artist:'The Hillside Session',     genre:'Acoustic Folk',          time:'6:30 PM'},
+  {loc:'hill',    day:'Sat', date:'Jun 28', artist:'Disco Inferno Revue',      genre:'Disco / Dance',          time:'9:00 PM'},
+  {loc:'island',  day:'Sat', date:'Jun 7',  artist:'River Nomads',             genre:'World / Reggae',         time:'7:00 PM'},
+  {loc:'island',  day:'Sun', date:'Jun 8',  artist:'Sunday Brunch Jazz',       genre:'Jazz Quartet',           time:'11:00 AM'},
+  {loc:'island',  day:'Fri', date:'Jun 20', artist:'Island Nights DJs',        genre:'Electronic / Chill',     time:'9:00 PM'},
+  {loc:'island',  day:'Sat', date:'Jun 28', artist:"The Nepean Sessions",      genre:'Indie / Ambient',        time:'8:00 PM'},
+];
+
+// ── TRANSLATIONS ──────────────────────────────────────────────
+const T = {
+  en: {
+    // Nav
+    nav_locations:'Locations', nav_menus:'Menus', nav_music:'Live Music',
+    nav_events:'Host an Event', nav_gift:'Gift Cards', nav_reserve:'Reserve a Table',
+    // Hero
+    hero_eyebrow:"Ottawa's Finest Outdoor Patio Experience",
+    hero_title:'A Drink <em>With a View</em>',
+    hero_tagline:'Four distinct locations. One unforgettable atmosphere.',
+    hero_cta1:'Explore Locations', hero_cta2:'Live Music Schedule',
+    // Sections
+    weather_title:'Outdoor Patio — Weather Dependent',
+    weather_body:'The Tavern Group operates seasonal outdoor patios across four Ottawa locations. <strong>All patios are weather-dependent</strong> — we may close or adjust hours during rain or storms. Check our socials before you head out.',
+    loc_label:'Our Locations', loc_heading:'Four Ways to Sip Beneath the Sky',
+    hours_label:'Operating Hours', hours_note:'*Weather permitting. Kitchen closes 1hr before close.',
+    music_label:'Live Music 2025', music_heading:'Where Every Night Has a Soundtrack',
+    music_all:'All Locations', music_footer:'All shows weather-dependent · Ages 19+ · Schedule subject to change',
+    menu_label:'Seasonal Menus', menu_heading:'Crafted for the Season',
+    menu_tagline:'Each location offers its own menu inspired by the view',
+    events_label:'Private Events', events_heading:'Host Your Event in Style',
+    events_body:'From intimate celebrations to corporate gatherings, the Tavern Group offers exclusive venue experiences across all four Ottawa locations.',
+    events_perks:['Dedicated event coordinator at every location','Custom menus & bar packages','Live music add-ons available','Capacity from 20 to 300 guests','Corporate, weddings, birthdays & more'],
+    form_fname:'First Name', form_lname:'Last Name', form_email:'Email', form_phone:'Phone',
+    form_loc:'Preferred Location', form_guests:'Estimated Guests', form_date:'Event Date',
+    form_msg:'Tell us about your event', form_submit:'Send Inquiry →',
+    form_ok_title:"We'll be in touch soon!", form_ok_body:'Our events team typically responds within 24 hours.',
+    gift_label:'Gift Cards', gift_title:'Give the Gift of a Great Evening',
+    gift_body:"The perfect gift for any occasion. Valid at all four Ottawa locations and never expires — because great evenings shouldn't have an expiry date.",
+    gift_cta:'Purchase a Gift Card',
+    about_label:'Our Story', about_title:"Ottawa's Outdoor Patio Since Day One",
+    about_p1:"The Tavern Group was born from a simple idea: Ottawa deserved outdoor gathering spaces as beautiful as its skyline. We set out to build patios with soul — places where the view is as good as the drink in your hand.",
+    about_p2:"From our flagship location beside the National Gallery to our serene Island perch overlooking the Gatineau Hills, every Tavern location is designed to make you feel somewhere special — because you are.",
+    stat_loc:'Locations', stat_shows:'Live shows / yr', stat_views:'Stunning views',
+    footer_tagline:"Ottawa's best outdoor patio bar — four locations, one unforgettable experience. A drink with a view.",
+    footer_loc:'Locations', footer_explore:'Explore', footer_contact:'Contact',
+    // Location page
+    back:'← All Locations', reserve:'Make a Reservation', directions:'Get Directions',
+    contact_us:'Contact', open_daily:'Open Daily', weather_perm:'*Weather permitting',
+    book_event:'Book an Event', full_menu:'View Full Menu', see_all:'See Full Calendar',
+    loc_gallery:'Tavern at the Gallery', loc_falls:'Tavern on the Falls',
+    loc_hill:'Tavern on the Hill', loc_island:"Tavern on the Island",
+    mon_thu:'Mon – Thu', fri:'Friday', sat:'Saturday', sun:'Sunday',
+    // Modal
+    modal_visit:'Visit Location Page', modal_menu:'View Menu', modal_music:'Music Schedule',
+    modal_reserve:'Reserve', modal_directions:'Directions',
+    // Admin
+    adm_title:'Admin Panel', adm_hours:'Hours', adm_special:'Specials',
+    adm_music:'Music', adm_weather:'Weather', adm_menu:'Edit Menu',
+    adm_save:'Save Changes', adm_sheet:'Google Sheet URL',
+    adm_sheet_note:'Paste your published Google Sheet CSV URL to sync the live music schedule.',
+  },
+  fr: {
+    nav_locations:'Emplacements', nav_menus:'Menus', nav_music:'Musique en direct',
+    nav_events:'Organiser un événement', nav_gift:'Cartes-cadeaux', nav_reserve:'Réserver une table',
+    hero_eyebrow:'La meilleure expérience de terrasse à Ottawa',
+    hero_title:'Un verre <em>Avec vue</em>',
+    hero_tagline:'Quatre emplacements distincts. Une atmosphère inoubliable.',
+    hero_cta1:'Explorer les emplacements', hero_cta2:'Horaire musique',
+    weather_title:'Terrasse extérieure — Selon la météo',
+    weather_body:'Le Groupe Tavern exploite des terrasses saisonnières dans quatre emplacements à Ottawa. <strong>Toutes les terrasses dépendent de la météo</strong> — nous pouvons fermer lors de pluie ou d\'orages. Consultez nos réseaux sociaux avant de venir.',
+    loc_label:'Nos emplacements', loc_heading:'Quatre façons de siroter sous le ciel',
+    hours_label:'Heures d\'ouverture', hours_note:'*Selon la météo. La cuisine ferme 1h avant la fermeture.',
+    music_label:'Musique en direct 2025', music_heading:'Chaque soir a sa trame sonore',
+    music_all:'Tous les emplacements', music_footer:'Tous les spectacles selon la météo · 19 ans et plus · Horaire sujet à changement',
+    menu_label:'Menus saisonniers', menu_heading:'Créé pour la saison',
+    menu_tagline:'Chaque emplacement offre son propre menu inspiré par la vue',
+    events_label:'Événements privés', events_heading:'Organisez votre événement avec style',
+    events_body:'Des célébrations intimes aux rassemblements d\'entreprise, le Groupe Tavern offre des expériences exclusives dans ses quatre magnifiques emplacements à Ottawa.',
+    events_perks:['Coordinateur d\'événements dédié à chaque emplacement','Menus et forfaits bar personnalisés','Options de musique en direct','Capacité de 20 à 300 invités','Entreprises, mariages, anniversaires et plus'],
+    form_fname:'Prénom', form_lname:'Nom', form_email:'Courriel', form_phone:'Téléphone',
+    form_loc:'Emplacement préféré', form_guests:'Nombre d\'invités estimé', form_date:'Date de l\'événement',
+    form_msg:'Parlez-nous de votre événement', form_submit:'Envoyer la demande →',
+    form_ok_title:'Nous vous contacterons bientôt!', form_ok_body:'Notre équipe répond généralement dans les 24 heures.',
+    gift_label:'Cartes-cadeaux', gift_title:'Offrez une belle soirée',
+    gift_body:'Le cadeau parfait pour toute occasion. Valide dans les quatre emplacements d\'Ottawa et sans date d\'expiration — parce que les belles soirées ne devraient pas avoir de limite.',
+    gift_cta:'Acheter une carte-cadeau',
+    about_label:'Notre histoire', about_title:'La terrasse d\'Ottawa depuis le premier jour',
+    about_p1:'Le Groupe Tavern est né d\'une idée simple : Ottawa méritait des espaces de rassemblement extérieurs aussi beaux que sa ligne d\'horizon. Nous avons entrepris de créer des terrasses avec de l\'âme.',
+    about_p2:'De notre emplacement phare à côté de la Galerie nationale à notre perche sereine sur l\'Île surplombant les collines de la Gatineau, chaque emplacement est conçu pour vous faire sentir quelque part de spécial.',
+    stat_loc:'Emplacements', stat_shows:'Spectacles / an', stat_views:'Vues magnifiques',
+    footer_tagline:'Le meilleur bar-terrasse extérieur d\'Ottawa — quatre emplacements, une expérience inoubliable. Un verre avec vue.',
+    footer_loc:'Emplacements', footer_explore:'Explorer', footer_contact:'Contact',
+    back:'← Tous les emplacements', reserve:'Faire une réservation', directions:'Itinéraire',
+    contact_us:'Contact', open_daily:'Ouvert tous les jours', weather_perm:'*Selon la météo',
+    book_event:'Réserver un événement', full_menu:'Voir le menu complet', see_all:'Voir le calendrier',
+    loc_gallery:'Taverne à la Galerie', loc_falls:'Taverne aux Chutes',
+    loc_hill:'Taverne sur la Colline', loc_island:"Taverne sur l'Île",
+    mon_thu:'Lun – Jeu', fri:'Vendredi', sat:'Samedi', sun:'Dimanche',
+    modal_visit:'Visiter la page', modal_menu:'Voir le menu', modal_music:'Horaire musical',
+    modal_reserve:'Réserver', modal_directions:'Itinéraire',
+    adm_title:'Panneau d\'administration', adm_hours:'Heures', adm_special:'Spéciaux',
+    adm_music:'Musique', adm_weather:'Météo', adm_menu:'Modifier menu',
+    adm_save:'Enregistrer', adm_sheet:'URL Google Sheet',
+    adm_sheet_note:'Collez l\'URL CSV publié de votre Google Sheet pour synchroniser l\'horaire musical.',
+  }
+};
+
+
+// ═══════════════════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════════════════
+let lang = localStorage.getItem('tv-lang') || 'en';
+let allShows = [];       // loaded from Sheet or fallback
+let menuData = JSON.parse(JSON.stringify(MENUS)); // mutable copy
+let currentModalLoc = null;
+let sheetUrl = localStorage.getItem('tv-sheet-url') || '';
+
+// ═══════════════════════════════════════════════════════════
+// LANGUAGE
+// ═══════════════════════════════════════════════════════════
+function tl(key){ return T[lang][key] || T.en[key] || key; }
+
+function applyLang(){
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-k]').forEach(el => {
+    const k = el.getAttribute('data-k');
+    const v = tl(k);
+    if(v) el.innerHTML = v;
+  });
+  document.querySelectorAll('.lt button, .lt button').forEach(b=>{
+    b.classList.toggle('on', b.textContent===lang.toUpperCase());
+  });
+  // Rebuild dynamic sections
+  buildLocGrid();
+  buildHoursGrid();
+  buildMusicTabs();
+  buildMenuGrid();
+  buildEvPerks();
+  updateStripMsg();
+}
+
+function setLang(l){ lang=l; localStorage.setItem('tv-lang',l); applyLang(); }
+
+// ═══════════════════════════════════════════════════════════
+// NAV
+// ═══════════════════════════════════════════════════════════
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('stuck', window.scrollY>28);
+});
+function toggleMob(){ document.getElementById('mob').classList.toggle('open'); }
+function closeMob(){  document.getElementById('mob').classList.remove('open'); }
+setTimeout(()=>{ document.getElementById('hero').classList.add('loaded'); }, 100);
+
+// ═══════════════════════════════════════════════════════════
+// GOOGLE SHEETS FETCH
+// ═══════════════════════════════════════════════════════════
+async function loadSchedule(){
+  const dot = document.getElementById('sheet-dot');
+  const status = document.getElementById('sheet-status');
+  const admStatus = document.getElementById('adm-sheet-status');
+  if(sheetUrl && sheetUrl !== 'YOUR_GOOGLE_SHEET_CSV_URL_HERE'){
+    try{
+      status.textContent = 'Fetching live schedule…';
+      const res = await fetch(sheetUrl);
+      if(!res.ok) throw new Error('HTTP '+res.status);
+      const csv = await res.text();
+      const rows = csv.trim().split('\n').slice(1); // skip header
+      allShows = rows.map(row=>{
+        const cols = row.split(',').map(c=>c.replace(/^"|"$/g,'').trim());
+        return { loc:cols[0]||'', day:cols[1]||'', date:cols[2]||'', artist:cols[3]||'', genre:cols[4]||'', time:cols[5]||'' };
+      }).filter(s=>s.artist);
+      dot.classList.add('live');
+      status.textContent = `Live from Google Sheet · ${allShows.length} shows`;
+      if(admStatus) admStatus.textContent = 'Connected — '+allShows.length+' shows loaded';
+    } catch(e){
+      allShows = [...MUSIC_FALLBACK];
+      dot.classList.remove('live');
+      status.textContent = 'Sheet unavailable — showing sample data';
+      if(admStatus) admStatus.textContent = 'Error: '+e.message+' — using fallback';
+    }
+  } else {
+    allShows = [...MUSIC_FALLBACK];
+    dot.classList.remove('live');
+    status.textContent = 'Sample schedule — connect your Google Sheet in Admin ⚙';
+    if(admStatus) admStatus.textContent = 'Not connected — using fallback data';
+  }
+  buildMusicTabs();
+  buildMusicSched('all');
+}
+
+function saveSheetUrl(){
+  const url = document.getElementById('adm-sheet-url').value.trim();
+  sheetUrl = url;
+  localStorage.setItem('tv-sheet-url', url);
+  const msg = document.getElementById('adm-sheet-msg');
+  msg.textContent = '⏳ Connecting…';
+  loadSchedule().then(()=>{
+    msg.textContent = '✓ Schedule updated';
+    setTimeout(()=>msg.textContent='',3000);
+  });
+}
+
+// ═══════════════════════════════════════════════════════════
+// LOCATION GRID
+// ═══════════════════════════════════════════════════════════
+const LOC_ORDER = ['gallery','falls','hill','island'];
+function locName(k){ return tl('loc_'+k); }
+
+function buildLocGrid(){
+  const g = document.getElementById('loc-grid');
+  g.innerHTML = LOC_ORDER.map((k,i)=>{
+    const L = LOCATION_INFO[k];
+    const name = locName(k);
+    const parts = name.split(' ');
+    const line1 = parts.slice(0,2).join(' ');
+    const line2 = parts.slice(2).join(' ');
+    const num   = lang==='en' ? L.num_en : L.num_fr;
+    const tags  = (lang==='en' ? L.tag_en : L.tag_fr).split('·');
+    return `<div class="loc-card" onclick="openModal('${k}')">
+      <div class="loc-card-bg" style="background-image:url('${L.img}')"></div>
+      <div class="loc-ov"></div>
+      <div class="loc-hover-ov">
+        <div class="loc-hover-inner">
+          <div class="loc-hover-title">${line1}<br>${line2}</div>
+          <div class="loc-hover-btns">
+            <button class="loc-hover-btn primary" onclick="event.stopPropagation();openModal('${k}')">${tl('modal_visit')}</button>
+            <button class="loc-hover-btn" onclick="event.stopPropagation();openModal('${k}');setTimeout(()=>document.getElementById('modal-box').scrollTop=400,400)">${tl('modal_menu')}</button>
+            <a class="loc-hover-btn" href="${L.reserve}" target="_blank" onclick="event.stopPropagation()">${tl('modal_reserve')}</a>
+          </div>
+        </div>
+      </div>
+      <div class="loc-cnt">
+        <div class="loc-num">${num}</div>
+        <div class="loc-name">${line1}<br>${line2}</div>
+        <div class="loc-addr">${L.addr}</div>
+        <div class="loc-tags">${tags.map(t=>`<span class="loc-tag">${t.trim()}</span>`).join('')}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ═══════════════════════════════════════════════════════════
+// HOURS GRID
+// ═══════════════════════════════════════════════════════════
+function buildHoursGrid(){
+  const g = document.getElementById('hours-grid');
+  g.innerHTML = LOC_ORDER.map(k=>{
+    const L = LOCATION_INFO[k];
+    const h = L.hours;
+    return `<div class="h-card">
+      <h4>${locName(k)}</h4>
+      <div class="h-row"><span class="day">${tl('mon_thu')}</span><span class="time">${h.monThu}</span></div>
+      <div class="h-row"><span class="day">${tl('fri')}</span><span class="time">${h.fri}</span></div>
+      <div class="h-row"><span class="day">${tl('sat')}</span><span class="time">${h.sat}</span></div>
+      <div class="h-row"><span class="day">${tl('sun')}</span><span class="time">${h.sun}</span></div>
+      <div class="h-note">${tl('hours_note')}</div>
+    </div>`;
+  }).join('');
+}
+
+// ═══════════════════════════════════════════════════════════
+// MUSIC SCHEDULE (feeds from Google Sheets / fallback)
+// ═══════════════════════════════════════════════════════════
+let activeTab = 'all';
+const TAB_LABELS = { en:['All Locations','The Gallery','The Falls','The Hill','The Island'],
+                      fr:['Tous les emplacements','La Galerie','Les Chutes','La Colline',"L'Île"] };
+
+function buildMusicTabs(){
+  const tabs = document.getElementById('music-tabs');
+  const keys = ['all',...LOC_ORDER];
+  const labels = TAB_LABELS[lang];
+  tabs.innerHTML = keys.map((k,i)=>`
+    <button class="m-tab${activeTab===k?' on':''}" onclick="buildMusicSched('${k}');setActiveTab('${k}')">${labels[i]}</button>
+  `).join('');
+}
+
+function setActiveTab(k){
+  activeTab=k;
+  document.querySelectorAll('.m-tab').forEach(b=>b.classList.remove('on'));
+  event.target.classList.add('on');
+}
+
+function buildMusicSched(loc){
+  activeTab = loc;
+  const wrap = document.getElementById('music-sched');
+  const shows = loc==='all' ? allShows : allShows.filter(s=>s.loc===loc);
+  if(!shows.length){
+    wrap.innerHTML = `<div class="sched-loading">No shows scheduled yet — check back soon.</div>`;
+    return;
+  }
+  wrap.innerHTML = `<div class="sched">${shows.map(s=>`
+    <div class="sched-item" onclick="openModal('${s.loc}')">
+      <div class="sched-dt"><span class="dy">${s.day}</span>${s.date}</div>
+      <div><div class="sched-artist">${s.artist}</div><div class="sched-genre">${s.genre}</div></div>
+      <div class="sched-time">${s.time}</div>
+    </div>`).join('')}</div>`;
+  buildMusicTabs(); // refresh tab active states
+}
+
+// ═══════════════════════════════════════════════════════════
+// MENU CARDS (homepage preview — 2 items per section)
+// ═══════════════════════════════════════════════════════════
+function buildMenuGrid(){
+  const g = document.getElementById('menu-grid');
+  g.innerHTML = LOC_ORDER.map(k=>{
+    const dEn = menuData[k].en;
+    const dFr = menuData[k].fr;
+    const buildPreview = (secs, lid) => secs.slice(0,2).map(sec=>`
+      <div class="m-section-hd">${sec.section}</div>
+      ${sec.items.slice(0,2).map(it=>`
+        <div class="m-item">
+          <div><span class="m-iname${it.special?' sp-name':''}">${it.name}${it.special?`<span class="sp-badge">Special</span>`:''}</span>
+          <span class="m-idesc">${it.desc}</span></div>
+          <span class="m-price">${it.price}</span>
+        </div>`).join('')}`).join('');
+    return `<div class="m-card">
+      <div class="m-loc">${locName(k)}</div>
+      <h3>${k==='gallery'?'Gallery Classics':k==='falls'?'Falls Edition':k==='hill'?'Hill & Valley':'Island Provisions'}</h3>
+      <div class="m-lang-tabs">
+        <button class="m-ltab on" onclick="switchMenuLang('${k}','en',this)">EN</button>
+        <button class="m-ltab" onclick="switchMenuLang('${k}','fr',this)">FR</button>
+      </div>
+      <div class="m-body on" id="menu-${k}-en">${buildPreview(dEn,'en')}</div>
+      <div class="m-body" id="menu-${k}-fr">${buildPreview(dFr,'fr')}</div>
+      <a href="${k}.html#loc-menu" class="btn btn-dark">${tl('full_menu')} →</a>
+    </div>`;
+  }).join('');
+}
+
+function switchMenuLang(loc, l, btn){
+  document.getElementById(`menu-${loc}-en`).classList.toggle('on', l==='en');
+  document.getElementById(`menu-${loc}-fr`).classList.toggle('on', l==='fr');
+  btn.parentElement.querySelectorAll('.m-ltab').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+}
+
+// ═══════════════════════════════════════════════════════════
+// EVENTS PERKS
+// ═══════════════════════════════════════════════════════════
+function buildEvPerks(){
+  document.getElementById('ev-perks').innerHTML = tl('events_perks').map(p=>`
+    <div class="ev-perk"><span class="pk-dot"></span>${p}</div>`).join('');
+}
+
+// ═══════════════════════════════════════════════════════════
+// WEATHER STRIP
+// ═══════════════════════════════════════════════════════════
+function updateStripMsg(){
+  const msgs = { en:'All locations open today', fr:"Tous les emplacements ouverts aujourd'hui" };
+  const el = document.getElementById('strip-msg');
+  if(el && !el.dataset.custom) el.textContent = msgs[lang];
+}
+
+// ═══════════════════════════════════════════════════════════
+// LOCATION MODAL
+// ═══════════════════════════════════════════════════════════
+function openModal(k){
+  currentModalLoc = k;
+  const L = LOCATION_INFO[k];
+  const h = L.hours;
+  const name = locName(k);
+  const parts = name.split(' ');
+
+  // Hero
+  document.getElementById('modal-hero-img').style.backgroundImage = `url('${L.img}')`;
+  document.getElementById('modal-num').textContent = lang==='en' ? L.num_en : L.num_fr;
+  document.getElementById('modal-title').innerHTML = `${parts.slice(0,2).join(' ')}<br><em style="color:var(--gold)">${parts.slice(2).join(' ')}</em>`;
+  document.getElementById('modal-tag').textContent = lang==='en' ? L.tag_en : L.tag_fr;
+
+  // Action pills
+  document.getElementById('modal-actions').innerHTML = `
+    <a href="${k}.html" class="modal-action primary">${tl('modal_visit')}</a>
+    <a href="${L.reserve}" target="_blank" class="modal-action">
+      <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a5 5 0 100 10A5 5 0 008 1zM0 8a8 8 0 1116 0A8 8 0 010 8z"/><path d="M7.5 4.5v4l3 1.5.5-1-2.5-1.25V4.5z"/></svg>
+      ${tl('modal_reserve')}
+    </a>
+    <a href="${L.maps}" target="_blank" class="modal-action">
+      <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a5 5 0 00-5 5c0 3.5 5 11 5 11s5-7.5 5-11a5 5 0 00-5-5zm0 7a2 2 0 110-4 2 2 0 010 4z"/></svg>
+      ${tl('modal_directions')}
+    </a>
+    <a href="${L.instagram}" target="_blank" class="modal-action">Instagram</a>
+    <a href="${k}.html#loc-music" class="modal-action">${tl('modal_music')}</a>
+  `;
+
+  // Hours
+  document.getElementById('modal-hours-body').innerHTML = `
+    <div class="h-row"><span class="day">${tl('mon_thu')}</span><span class="time">${h.monThu}</span></div>
+    <div class="h-row"><span class="day">${tl('fri')}</span><span class="time">${h.fri}</span></div>
+    <div class="h-row"><span class="day">${tl('sat')}</span><span class="time">${h.sat}</span></div>
+    <div class="h-row"><span class="day">${tl('sun')}</span><span class="time">${h.sun}</span></div>
+    <div class="h-note">${tl('weather_perm')}</div>
+  `;
+
+  // Contact
+  document.getElementById('modal-contact-body').innerHTML = `
+    <p>📍 <a href="${L.maps}" target="_blank">${L.addr}</a></p>
+    <p>📞 <a href="tel:${L.phone}">${L.phone}</a></p>
+    <p>✉️ <a href="mailto:${L.email}">${L.email}</a></p>
+  `;
+
+  // Upcoming music (next 3)
+  const shows = allShows.filter(s=>s.loc===k).slice(0,3);
+  document.getElementById('modal-music-body').innerHTML = shows.length
+    ? shows.map(s=>`<div class="modal-sched-item">
+        <span class="modal-sched-artist">${s.artist}</span>
+        <span class="modal-sched-date">${s.day} ${s.date} · ${s.time}</span>
+      </div>`).join('')
+    : `<p style="font-size:.8rem;color:var(--mist)">No shows scheduled yet.</p>`;
+
+  // Menu preview (first section, 3 items)
+  ['en','fr'].forEach(l=>{
+    const secs = menuData[k][l];
+    const html = secs.slice(0,3).map(sec=>`
+      <div class="m-section-hd">${sec.section}</div>
+      ${sec.items.slice(0,3).map(it=>`
+        <div class="m-item">
+          <div><span class="m-iname">${it.name}</span><span class="m-idesc">${it.desc}</span></div>
+          <span class="m-price">${it.price}</span>
+        </div>`).join('')}`).join('');
+    document.getElementById(`modal-menu-${l}`).innerHTML = html;
+  });
+  // Reset menu lang to current
+  switchModalMenuLang(lang, document.querySelector(`.mml-btn${lang==='fr'?':last-child':':first-child'}`));
+
+  // Full page link
+  document.getElementById('modal-full-link').href = `${k}.html`;
+
+  // Open
+  document.getElementById('loc-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('modal-box').scrollTop = 0;
+}
+
+function closeModal(){
+  document.getElementById('loc-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function switchModalMenuLang(l, btn){
+  document.querySelectorAll('.modal-menu-body').forEach(b=>b.classList.remove('on'));
+  document.querySelectorAll('.mml-btn').forEach(b=>b.classList.remove('on'));
+  const el = document.getElementById('modal-menu-'+l);
+  if(el) el.classList.add('on');
+  if(btn) btn.classList.add('on');
+}
+
+// Keyboard close
+document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ closeModal(); closeAdm(); } });
+
+// ═══════════════════════════════════════════════════════════
+// ADMIN
+// ═══════════════════════════════════════════════════════════
+function openAdm(){
+  document.getElementById('adm-panel').classList.add('open');
+  document.getElementById('adm-sheet-url').value = sheetUrl;
+  fillHoursForm();
+}
+function closeAdm(){ document.getElementById('adm-panel').classList.remove('open'); }
+function showAdmTab(id,btn){
+  document.querySelectorAll('.adm-pane').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.adm-tab').forEach(t=>t.classList.remove('on'));
+  document.getElementById(id).classList.add('on');
+  btn.classList.add('on');
+}
+
+function fillHoursForm(){
+  const k = document.getElementById('adm-h-loc').value;
+  const h = LOCATION_INFO[k].hours;
+  document.getElementById('adm-h-wk').value = h.monThu;
+  document.getElementById('adm-h-fr').value = h.fri;
+  document.getElementById('adm-h-sa').value = h.sat;
+  document.getElementById('adm-h-su').value = h.sun;
+}
+
+function saveHours(){
+  const k = document.getElementById('adm-h-loc').value;
+  LOCATION_INFO[k].hours = {
+    monThu: document.getElementById('adm-h-wk').value,
+    fri:    document.getElementById('adm-h-fr').value,
+    sat:    document.getElementById('adm-h-sa').value,
+    sun:    document.getElementById('adm-h-su').value,
+  };
+  buildHoursGrid();
+  flash('adm-h-msg','✓ Hours updated');
+}
+
+function addSpecial(){
+  const k   = document.getElementById('adm-sp-loc').value;
+  const sec = document.getElementById('adm-sp-sec').value;
+  const nameEn = document.getElementById('adm-sp-en').value;
+  const nameFr = document.getElementById('adm-sp-fr').value || nameEn;
+  const descEn = document.getElementById('adm-sp-den').value;
+  const descFr = document.getElementById('adm-sp-dfr').value || descEn;
+  const price  = document.getElementById('adm-sp-pr').value;
+  if(!nameEn||!price){ alert('Fill in name and price'); return; }
+  ['en','fr'].forEach(l=>{
+    const data = menuData[k][l];
+    const nameU = l==='en'?nameEn:nameFr;
+    const descU = l==='en'?descEn:descFr;
+    let found = data.find(s=>s.section.toLowerCase()===sec.toLowerCase());
+    if(found) found.items.unshift({name:nameU,desc:descU,price,special:true});
+    else data.push({section:sec,items:[{name:nameU,desc:descU,price,special:true}]});
+  });
+  buildMenuGrid();
+  flash('adm-sp-msg','✓ Special added');
+  closeAdm();
+}
+
+function saveMenuItem(){
+  const k    = document.getElementById('adm-m-loc').value;
+  const l    = document.getElementById('adm-m-lang').value;
+  const sec  = document.getElementById('adm-m-sec').value;
+  const name = document.getElementById('adm-m-name').value;
+  const desc = document.getElementById('adm-m-desc').value;
+  const price= document.getElementById('adm-m-price').value;
+  if(!name||!sec){ alert('Fill in section and item name'); return; }
+  const data = menuData[k][l];
+  let found = data.find(s=>s.section.toLowerCase()===sec.toLowerCase());
+  if(!found){ found={section:sec,items:[]}; data.push(found); }
+  const ei = found.items.findIndex(i=>i.name.toLowerCase()===name.toLowerCase());
+  if(ei>=0) found.items[ei]={name,desc,price};
+  else found.items.push({name,desc,price});
+  buildMenuGrid();
+  flash('adm-m-msg','✓ Menu updated');
+}
+
+function saveWeather(){
+  const enMsg = document.getElementById('adm-w-en').value;
+  const type  = document.getElementById('adm-w-type').value;
+  const icons = {open:'☀️',partial:'⛅',closed:'🌧️'};
+  const el = document.getElementById('strip-msg');
+  el.textContent = enMsg || (lang==='en' ? 'All locations open today' : "Tous les emplacements ouverts aujourd'hui");
+  el.dataset.custom = '1';
+  document.getElementById('strip').style.background = type==='closed'?'#7a2e18':type==='partial'?'#6b5a1e':'var(--forest)';
+  flash('adm-w-msg','✓ Weather status updated');
+}
+
+function flash(id, msg, dur=3000){
+  const el = document.getElementById(id);
+  if(el){ el.textContent=msg; setTimeout(()=>el.textContent='',dur); }
+}
+
+function submitForm(e){
+  e.preventDefault();
+  document.getElementById('evt-form').style.display='none';
+  document.getElementById('f-ok').style.display='block';
+}
+
+// ═══════════════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════════════
+applyLang();
+loadSchedule();
+</script>
+</body>
+</html>

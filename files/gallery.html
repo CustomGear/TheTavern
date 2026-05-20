@@ -1,0 +1,1702 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title id="page-title">Tavern — Loading</title>
+  <meta name="description" id="page-desc" content=""/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+
+    :root {
+      --ink:#1a1208;--cream:#f5f0e8;--warm:#f9f4ec;--gold:#c8963e;
+      --gold-lt:#e8b96a;--rust:#9b3a1e;--forest:#2a3d2e;--sand:#d4c4a0;
+      --mist:#8a9e8c;--transition:0.35s cubic-bezier(0.4,0,0.2,1);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    ul{list-style:none}
+    .container{max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,60px)}
+    .section-label{font-family:'Jost',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:.75rem}
+    .heading-display{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.8rem);font-weight:700;line-height:1.1}
+    .btn{display:inline-block;font-family:'Jost',sans-serif;font-size:.75rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;padding:.85rem 2.2rem;border:1.5px solid currentColor;cursor:pointer;transition:var(--transition);background:transparent}
+    .btn-gold{color:var(--gold)}.btn-gold:hover{background:var(--gold);color:var(--ink)}
+    .btn-cream{color:var(--cream)}.btn-cream:hover{background:var(--cream);color:var(--ink)}
+    .btn-dark{color:var(--ink)}.btn-dark:hover{background:var(--ink);color:var(--cream)}
+    .divider{width:48px;height:2px;background:var(--gold);margin:1.5rem 0}
+
+
+    /* ── NAV ─────────────────────────────────────────── */
+    #nav{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(26,18,8,0);backdrop-filter:blur(0);transition:background .3s,backdrop-filter .3s}
+    #nav.scrolled{background:rgba(26,18,8,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(200,150,62,.2)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:1rem clamp(20px,5vw,60px)}
+    .nav-logo{font-family:"Playfair Display",serif;font-size:1.25rem;font-weight:900;color:var(--cream);letter-spacing:.04em}
+    .nav-logo span{color:var(--gold)}
+    .nav-links{display:flex;gap:1.8rem;align-items:center}
+    .nav-links a{font-size:.7rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,240,232,.8);transition:color .2s;position:relative}
+    .nav-links a::after{content:"";position:absolute;bottom:-3px;left:0;right:100%;height:1px;background:var(--gold);transition:right .25s}
+    .nav-links a:hover{color:var(--cream)}.nav-links a:hover::after{right:0}
+    .nav-links .nav-cta{background:var(--gold);color:var(--ink);padding:.5rem 1.2rem;font-weight:600}
+    .nav-links .nav-cta:hover{background:var(--gold-lt)}.nav-links .nav-cta::after{display:none}
+    .lang-toggle{display:flex;gap:0;border:1px solid rgba(200,150,62,.4);overflow:hidden}
+    .lang-btn{font-size:.65rem;font-weight:700;letter-spacing:.1em;padding:.38rem .7rem;cursor:pointer;border:none;background:transparent;color:rgba(245,240,232,.6);transition:var(--transition)}
+    .lang-btn.active{background:var(--gold);color:var(--ink)}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+    .hamburger span{display:block;width:24px;height:2px;background:var(--cream);transition:var(--transition)}
+    .mobile-menu{display:none;flex-direction:column;background:rgba(26,18,8,.98);padding:1.5rem clamp(20px,5vw,60px) 2rem;gap:1.2rem;border-top:1px solid rgba(200,150,62,.2)}
+    .mobile-menu a{font-size:.8rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,240,232,.8);padding:.4rem 0}
+    .mobile-menu .lang-toggle{border-color:rgba(200,150,62,.3);margin-top:.5rem;width:fit-content}
+    .mobile-menu.open{display:flex}
+    @media(max-width:900px){.nav-links{display:none}.hamburger{display:flex}}
+
+    /* ── HERO ─────────────────────────────────────────── */
+    #loc-hero{position:relative;height:90vh;min-height:520px;display:flex;align-items:flex-end;overflow:hidden}
+    .loc-hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 8s ease;z-index:0}
+    #loc-hero:hover .loc-hero-bg{transform:scale(1.04)}
+    .loc-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,8,4,.88) 0%,rgba(10,8,4,.3) 50%,rgba(10,8,4,.4) 100%);z-index:1}
+    .loc-hero-content{position:relative;z-index:2;padding:clamp(40px,8vw,90px) clamp(20px,5vw,80px)}
+    .loc-hero-back{display:inline-flex;align-items:center;gap:.5rem;font-size:.68rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:rgba(245,240,232,.6);margin-bottom:1.5rem;transition:color .2s}
+    .loc-hero-back:hover{color:var(--gold)}
+    .loc-eyebrow{font-size:.68rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;opacity:0;animation:fade-up .7s .2s forwards}
+    .loc-hero-title{font-family:"Playfair Display",serif;font-size:clamp(2.8rem,7vw,6rem);font-weight:900;color:var(--cream);line-height:1;margin-bottom:.8rem;opacity:0;animation:fade-up .7s .4s forwards}
+    .loc-hero-title em{font-style:italic;color:var(--gold)}
+    .loc-hero-tag{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(1rem,2vw,1.4rem);color:rgba(245,240,232,.7);margin-bottom:2rem;opacity:0;animation:fade-up .7s .6s forwards}
+    .loc-hero-actions{display:flex;flex-wrap:wrap;gap:1rem;opacity:0;animation:fade-up .7s .8s forwards}
+    @keyframes fade-up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+    /* ── INFO BAR ─────────────────────────────────────── */
+    #info-bar{background:var(--forest);padding:1.4rem 0}
+    .info-bar-inner{display:flex;flex-wrap:wrap;gap:1.5rem 3rem;align-items:center}
+    .info-item{display:flex;align-items:center;gap:.6rem;font-size:.8rem;color:var(--sand)}
+    .info-icon{font-size:1rem;color:var(--gold)}
+    .info-item a{color:var(--sand);transition:color .2s}.info-item a:hover{color:var(--gold-lt)}
+
+    /* ── QUICK LINKS ──────────────────────────────────── */
+    #quick-links{padding:4rem 0;background:var(--warm);border-bottom:1px solid var(--sand)}
+    .quick-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1.2rem}
+    .quick-card{background:var(--cream);border:1px solid var(--sand);padding:1.8rem 1.5rem;text-align:center;transition:var(--transition);cursor:pointer;text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:.7rem}
+    .quick-card:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 8px 24px rgba(26,18,8,.1)}
+    .quick-icon{font-size:1.6rem}
+    .quick-label{font-size:.7rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--ink)}
+
+    /* ── ABOUT / PHOTOS ───────────────────────────────── */
+    #loc-about{padding:5rem 0;background:var(--cream)}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+    .about-photos{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .about-photo{border-radius:2px;overflow:hidden;background:#ccc}
+    .about-photo img{width:100%;height:100%;object-fit:cover;display:block}
+    .about-photo.tall{grid-row:span 2}
+    .about-photo.tall img{height:420px}
+    .about-photo:not(.tall) img{height:200px}
+    .about-text .heading-display{margin-bottom:.8rem}
+    .about-text p{font-size:.92rem;line-height:1.85;color:#5a4a32;margin-bottom:1rem}
+    @media(max-width:900px){.about-grid{grid-template-columns:1fr}}
+
+    /* ── HOURS ────────────────────────────────────────── */
+    #loc-hours{padding:4rem 0;background:var(--ink)}
+    .hours-inner{max-width:640px}
+    .hours-inner .section-label{color:var(--gold)}
+    .hours-inner h2{color:var(--cream);margin-bottom:1.5rem}
+    .hours-table{width:100%;border-collapse:collapse}
+    .hours-table tr{border-bottom:1px solid rgba(212,196,160,.15)}
+    .hours-table tr:last-child{border-bottom:none}
+    .hours-table td{padding:.7rem 0;font-size:.88rem}
+    .hours-table td:first-child{color:var(--sand);font-weight:500;width:160px}
+    .hours-table td:last-child{color:var(--gold);font-weight:600;text-align:right}
+    .hours-note{font-size:.75rem;color:var(--mist);margin-top:1rem;font-style:italic}
+    .weather-pill{display:inline-flex;align-items:center;gap:.5rem;background:rgba(200,150,62,.12);border:1px solid rgba(200,150,62,.3);padding:.4rem .9rem;font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem}
+
+    /* ── MENU ─────────────────────────────────────────── */
+    #loc-menu{padding:5rem 0;background:var(--warm)}
+    .menu-header{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;margin-bottom:2.5rem}
+    .menu-lang-tabs{display:flex;gap:.4rem}
+    .menu-lang-tab{font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:.5rem 1rem;border:1px solid var(--sand);background:transparent;cursor:pointer;color:#7a6a50;transition:var(--transition)}
+    .menu-lang-tab.active,.menu-lang-tab:hover{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+    .menu-body{display:none}.menu-body.active{display:block}
+    .menu-sections{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem}
+    .menu-section{background:var(--cream);border:1px solid var(--sand);padding:2rem;position:relative;overflow:hidden}
+    .menu-section::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+    .menu-section:hover::before{transform:scaleX(1)}
+    .menu-section-title{font-size:.65rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--mist);margin-bottom:1.2rem;padding-bottom:.6rem;border-bottom:1px solid var(--sand)}
+    .menu-item{display:flex;justify-content:space-between;align-items:baseline;padding:.55rem 0;border-bottom:1px dashed rgba(212,196,160,.5);font-size:.88rem;gap:.8rem}
+    .menu-item:last-child{border-bottom:none}
+    .menu-item-info{flex:1}
+    .menu-item-name{color:var(--ink);font-weight:500}
+    .menu-item-desc{font-size:.75rem;color:#7a6a50;display:block;margin-top:.1rem}
+    .menu-item-price{color:var(--gold);font-weight:600;font-size:.85rem;white-space:nowrap}
+    /* Admin editable highlight */
+    .menu-item.editable-special .menu-item-name{color:var(--gold)}
+    .special-badge{font-size:.55rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--gold);color:var(--ink);padding:.1rem .4rem;margin-left:.4rem;vertical-align:middle}
+
+    /* ── MUSIC ────────────────────────────────────────── */
+    #loc-music{padding:5rem 0;background:var(--ink);position:relative;overflow:hidden}
+    #loc-music::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 59px,rgba(200,150,62,.04) 60px)}
+    #loc-music .container{position:relative;z-index:1}
+    .music-head{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;margin-bottom:2.5rem}
+    .music-head .heading-display{color:var(--cream)}
+    .schedule-list{display:flex;flex-direction:column;gap:1px}
+    .schedule-item{display:grid;grid-template-columns:100px 1fr auto;gap:1.5rem;align-items:center;padding:1.2rem 1.6rem;background:rgba(245,240,232,.03);border-left:3px solid transparent;transition:var(--transition)}
+    .schedule-item:hover{background:rgba(245,240,232,.07);border-left-color:var(--gold)}
+    .schedule-date{font-family:"Cormorant Garamond",serif;font-size:1rem;color:var(--gold)}
+    .schedule-date .day{display:block;font-size:.62rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--sand);font-family:"Jost",sans-serif;margin-bottom:.1rem}
+    .schedule-artist{font-size:.92rem;color:var(--cream);font-weight:500}
+    .schedule-genre{font-size:.7rem;color:var(--mist);margin-top:.15rem}
+    .schedule-time{font-size:.75rem;font-weight:600;letter-spacing:.1em;color:var(--sand);text-align:right;white-space:nowrap}
+    .music-note{margin-top:1.5rem;font-size:.78rem;color:var(--mist)}
+    @media(max-width:600px){.schedule-item{grid-template-columns:80px 1fr}.schedule-time{display:none}}
+
+    /* ── EVENT FORM ───────────────────────────────────── */
+    #loc-events{padding:5rem 0;background:var(--forest);position:relative;overflow:hidden}
+    #loc-events::before{content:"";position:absolute;inset:0;opacity:.04;background-image:radial-gradient(var(--gold) 1px,transparent 1px);background-size:28px 28px}
+    .events-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;position:relative;z-index:1}
+    .events-text .heading-display{color:var(--cream);margin-bottom:1rem}
+    .events-text p{color:var(--sand);line-height:1.8;font-size:.9rem;margin-bottom:1.5rem}
+    .events-perks{display:flex;flex-direction:column;gap:.7rem;margin-bottom:2rem}
+    .events-perk{display:flex;align-items:center;gap:.7rem;font-size:.85rem;color:var(--sand)}
+    .perk-dot{width:6px;height:6px;background:var(--gold);border-radius:50%;flex-shrink:0}
+    .contact-form{background:rgba(245,240,232,.06);border:1px solid rgba(200,150,62,.2);padding:2rem;backdrop-filter:blur(8px)}
+    .form-title{font-family:"Playfair Display",serif;font-size:1.2rem;color:var(--cream);margin-bottom:1.2rem}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+    .form-group{margin-bottom:.8rem}
+    .form-group label{display:block;font-size:.66rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--sand);margin-bottom:.4rem}
+    .form-group input,.form-group select,.form-group textarea{width:100%;background:rgba(245,240,232,.06);border:1px solid rgba(200,150,62,.25);padding:.75rem .9rem;color:var(--cream);font-family:"Jost",sans-serif;font-size:.85rem;outline:none;transition:border-color .2s;-webkit-appearance:none}
+    .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold)}
+    .form-group textarea{resize:vertical;min-height:90px}
+    .form-group select option{background:var(--ink);color:var(--cream)}
+    .form-submit{width:100%;background:var(--gold);color:var(--ink);border:none;padding:.9rem;font-family:"Jost",sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;transition:background .2s;margin-top:.4rem}
+    .form-submit:hover{background:var(--gold-lt)}
+    .form-success{display:none;text-align:center;padding:2rem;color:var(--cream)}
+    .form-success .ck{font-size:2rem;color:var(--gold);margin-bottom:.8rem}
+    @media(max-width:900px){.events-inner{grid-template-columns:1fr}}
+    @media(max-width:600px){.form-row{grid-template-columns:1fr}}
+
+    /* ── GIFT CARDS ───────────────────────────────────── */
+    #loc-gift{padding:4rem 0;background:var(--cream);border-top:1px solid var(--sand)}
+    .gift-inner{display:flex;align-items:center;gap:3rem;flex-wrap:wrap}
+    .gift-mock{flex:0 0 280px;background:linear-gradient(135deg,var(--ink),var(--forest));border-radius:10px;padding:2rem;aspect-ratio:1.6;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 20px 50px rgba(26,18,8,.2);position:relative;overflow:hidden}
+    .gift-mock::before{content:"";position:absolute;top:-50px;right:-50px;width:160px;height:160px;border-radius:50%;background:rgba(200,150,62,.1)}
+    .gift-logo{font-family:"Playfair Display",serif;font-size:1rem;font-weight:900;color:var(--cream)}
+    .gift-logo span{color:var(--gold)}
+    .gift-tagline{font-family:"Cormorant Garamond",serif;font-size:1.5rem;color:var(--gold)}
+    .gift-text{flex:1;min-width:240px}
+    .gift-text h2{margin-bottom:.8rem}
+    .gift-text p{font-size:.88rem;line-height:1.8;color:#5a4a32;margin-bottom:1.5rem}
+
+    /* ── FOOTER ───────────────────────────────────────── */
+    footer{background:var(--ink);border-top:1px solid rgba(200,150,62,.15);padding:3rem 0 1.8rem}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:2.5rem;margin-bottom:2.5rem}
+    .footer-brand .nav-logo{font-size:1.3rem;margin-bottom:.8rem;display:block}
+    .footer-brand p{font-size:.82rem;color:var(--mist);line-height:1.7;max-width:260px;margin-bottom:1.2rem}
+    .social-links{display:flex;gap:.8rem}
+    .social-link{width:34px;height:34px;border:1px solid rgba(200,150,62,.3);display:flex;align-items:center;justify-content:center;color:var(--sand);font-size:.72rem;transition:var(--transition)}
+    .social-link:hover{border-color:var(--gold);color:var(--gold)}
+    .footer-col h4{font-size:.65rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+    .footer-col ul{display:flex;flex-direction:column;gap:.55rem}
+    .footer-col a{font-size:.82rem;color:var(--mist);transition:color .2s}.footer-col a:hover{color:var(--cream)}
+    .footer-bottom{border-top:1px solid rgba(200,150,62,.1);padding-top:1.2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem}
+    .footer-bottom p{font-size:.72rem;color:rgba(138,158,140,.6)}
+    .footer-bottom a{color:var(--gold)}
+    @media(max-width:768px){.footer-grid{grid-template-columns:1fr}}
+
+    /* ── ADMIN ────────────────────────────────────────── */
+    #admin-toggle{position:fixed;bottom:2rem;right:2rem;z-index:9999;width:48px;height:48px;background:var(--gold);border:none;border-radius:50%;cursor:pointer;font-size:1.1rem;color:var(--ink);box-shadow:0 4px 20px rgba(200,150,62,.35);transition:var(--transition)}
+    #admin-toggle:hover{background:var(--gold-lt);transform:scale(1.06)}
+    #admin-panel{display:none;position:fixed;inset:0;z-index:10000;background:rgba(26,18,8,.85);backdrop-filter:blur(8px);align-items:center;justify-content:center}
+    #admin-panel.open{display:flex}
+    .admin-modal{background:var(--cream);max-width:680px;width:90%;max-height:90vh;overflow-y:auto;padding:2.5rem;position:relative}
+    .admin-close{position:absolute;top:1.2rem;right:1.2rem;background:none;border:none;font-size:1.3rem;cursor:pointer;color:var(--ink)}
+    .admin-modal h2{font-family:"Playfair Display",serif;font-size:1.6rem;margin-bottom:.3rem}
+    .admin-note{font-size:.78rem;color:var(--mist);margin-bottom:1.2rem;line-height:1.5}
+    .admin-tabs{display:flex;gap:.3rem;margin:1.2rem 0;border-bottom:1px solid var(--sand);padding-bottom:0}
+    .admin-tab{font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:.55rem .9rem;border:none;background:none;cursor:pointer;color:#7a6a50;border-bottom:2px solid transparent;margin-bottom:-1px;transition:var(--transition)}
+    .admin-tab.active{color:var(--rust);border-bottom-color:var(--rust)}
+    .admin-pane{display:none}.admin-pane.active{display:block;padding-top:1.2rem}
+    .admin-field{margin-bottom:.9rem}
+    .admin-field label{display:block;font-size:.65rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#5a4a32;margin-bottom:.35rem}
+    .admin-field input,.admin-field textarea,.admin-field select{width:100%;border:1px solid var(--sand);padding:.65rem .9rem;font-family:"Jost",sans-serif;font-size:.85rem;background:white;color:var(--ink);outline:none;transition:border-color .2s}
+    .admin-field input:focus,.admin-field textarea:focus,.admin-field select:focus{border-color:var(--gold)}
+    .admin-field textarea{min-height:70px;resize:vertical}
+    .admin-row{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+    .admin-save{background:var(--rust);color:white;border:none;padding:.75rem 1.8rem;font-family:"Jost",sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;transition:background .2s;margin-top:.8rem}
+    .admin-save:hover{background:#7a2e18}
+    @media(max-width:600px){.admin-row{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">The <span>Tavern</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html#locations" data-i18n="nav_locations">Locations</a></li>
+      <li><a href="#loc-menu" data-i18n="nav_menus">Menus</a></li>
+      <li><a href="#loc-music" data-i18n="nav_music">Live Music</a></li>
+      <li><a href="#loc-events" data-i18n="nav_events">Host an Event</a></li>
+      <li><a href="index.html#gift-cards" data-i18n="nav_gift">Gift Cards</a></li>
+      <li><a href="RESERVE_URL" target="_blank" class="nav-cta" data-i18n="nav_reserve">Reserve a Table</a></li>
+      <li>
+        <div class="lang-toggle">
+          <button class="lang-btn active" onclick="setLang('en',this)">EN</button>
+          <button class="lang-btn" onclick="setLang('fr',this)">FR</button>
+        </div>
+      </li>
+    </ul>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html#locations" onclick="toggleMenu()" data-i18n="nav_locations">Locations</a>
+    <a href="#loc-menu" onclick="toggleMenu()" data-i18n="nav_menus">Menus</a>
+    <a href="#loc-music" onclick="toggleMenu()" data-i18n="nav_music">Live Music</a>
+    <a href="#loc-events" onclick="toggleMenu()" data-i18n="nav_events">Host an Event</a>
+    <a href="RESERVE_URL" target="_blank" onclick="toggleMenu()" data-i18n="nav_reserve">Reserve a Table</a>
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('en',this)">EN</button>
+      <button class="lang-btn" onclick="setLang('fr',this)">FR</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="loc-hero">
+  <div class="loc-hero-bg" id="hero-bg"></div>
+  <div class="loc-hero-overlay"></div>
+  <div class="loc-hero-content">
+    <a class="loc-hero-back" href="index.html#locations" data-i18n="nav_back">← All Locations</a>
+    <div class="loc-eyebrow" id="loc-eyebrow"></div>
+    <h1 class="loc-hero-title" id="loc-title"></h1>
+    <p class="loc-hero-tag" id="loc-tag"></p>
+    <div class="loc-hero-actions">
+      <a href="RESERVE_URL" target="_blank" class="btn btn-gold" data-i18n="reserve">Make a Reservation</a>
+      <a href="#loc-menu" class="btn btn-cream" data-i18n="nav_menus">Menus</a>
+      <a href="#loc-music" class="btn btn-cream" data-i18n="nav_music">Live Music</a>
+    </div>
+  </div>
+</section>
+
+<!-- INFO BAR -->
+<div id="info-bar">
+  <div class="container">
+    <div class="info-bar-inner">
+      <div class="info-item"><span class="info-icon">📍</span><a id="loc-addr-link" href="#" target="_blank"><span id="loc-addr"></span></a></div>
+      <div class="info-item"><span class="info-icon">📞</span><a id="loc-phone-link" href="#"><span id="loc-phone"></span></a></div>
+      <div class="info-item"><span class="info-icon">✉️</span><a id="loc-email-link" href="#"><span id="loc-email"></span></a></div>
+      <div class="info-item"><span class="info-icon">🕐</span><span data-i18n="open_daily">Open Daily</span>&nbsp;<span data-i18n="weather_perm">*Weather permitting</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- QUICK LINKS -->
+<section id="quick-links">
+  <div class="container">
+    <div class="quick-grid">
+      <a href="#loc-menu" class="quick-card"><span class="quick-icon">🍽</span><span class="quick-label" data-i18n="nav_menus">Menus</span></a>
+      <a href="#loc-music" class="quick-card"><span class="quick-icon">🎸</span><span class="quick-label" data-i18n="nav_music">Live Music</span></a>
+      <a href="#loc-hours" class="quick-card"><span class="quick-icon">🕐</span><span class="quick-label" data-i18n="hours_title">Hours</span></a>
+      <a href="#loc-events" class="quick-card"><span class="quick-icon">🎉</span><span class="quick-label" data-i18n="book_event">Book an Event</span></a>
+      <a id="ql-reserve" href="RESERVE_URL" target="_blank" class="quick-card"><span class="quick-icon">🪑</span><span class="quick-label" data-i18n="reserve">Reserve</span></a>
+      <a id="ql-maps" href="#" target="_blank" class="quick-card"><span class="quick-icon">🗺</span><span class="quick-label" data-i18n="directions">Directions</span></a>
+      <a href="index.html#gift-cards" class="quick-card"><span class="quick-icon">🎁</span><span class="quick-label" data-i18n="nav_gift">Gift Cards</span></a>
+      <a id="ql-insta" href="#" target="_blank" class="quick-card"><span class="quick-icon">📸</span><span class="quick-label">Instagram</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT / PHOTOS -->
+<section id="loc-about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="section-label" data-i18n="about_label">Our Story</div>
+        <h2 class="heading-display" id="about-title"></h2>
+        <div class="divider"></div>
+        <p id="about-body-1"></p>
+        <p id="about-body-2"></p>
+      </div>
+      <div class="about-photos">
+        <div class="about-photo tall"><img id="about-img1" src="" alt="Location photo"/></div>
+        <div class="about-photo"><img id="about-img2" src="" alt="Location photo"/></div>
+        <div class="about-photo"><img id="about-img3" src="" alt="Location photo"/></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOURS -->
+<section id="loc-hours">
+  <div class="container">
+    <div class="hours-inner">
+      <div class="weather-pill">☀️ <span data-i18n="weather_dependent">Outdoor Patio — Weather Dependent</span></div>
+      <div class="section-label" data-i18n="hours_title">Operating Hours</div>
+      <h2 class="heading-display">Heures / Hours</h2>
+      <table class="hours-table" id="hours-table"></table>
+      <div class="hours-note" data-i18n="hours_note">*Weather permitting. Kitchen closes 1hr before close.</div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="loc-menu">
+  <div class="container">
+    <div class="menu-header">
+      <div>
+        <div class="section-label" data-i18n="nav_menus">Menu</div>
+        <h2 class="heading-display" data-i18n="menu_title">Our Menu</h2>
+      </div>
+      <div class="menu-lang-tabs">
+        <button class="menu-lang-tab active" onclick="switchMenuLang('en',this)">EN</button>
+        <button class="menu-lang-tab" onclick="switchMenuLang('fr',this)">FR</button>
+      </div>
+    </div>
+    <div class="menu-body active" id="menu-en"></div>
+    <div class="menu-body" id="menu-fr"></div>
+  </div>
+</section>
+
+<!-- LIVE MUSIC -->
+<section id="loc-music">
+  <div class="container">
+    <div class="music-head">
+      <div>
+        <div class="section-label" data-i18n="music_title">Live Music</div>
+        <h2 class="heading-display" data-i18n="music_sub">Where Every Night Has a Soundtrack</h2>
+      </div>
+    </div>
+    <div class="schedule-list" id="music-list"></div>
+    <p class="music-note" data-i18n="music_footer">All shows weather-dependent. Ages 19+. Schedule subject to change.</p>
+  </div>
+</section>
+
+<!-- EVENT FORM -->
+<section id="loc-events">
+  <div class="container">
+    <div class="events-inner">
+      <div class="events-text">
+        <div class="section-label" data-i18n="events_label">Private Events</div>
+        <h2 class="heading-display" data-i18n="events_title">Host Your Event in Style</h2>
+        <p data-i18n="events_body">From intimate celebrations to corporate gatherings, The Tavern Group offers exclusive venue experiences.</p>
+        <div class="events-perks" id="events-perks"></div>
+        <a href="#" class="btn btn-gold" data-i18n="see_calendar">See Full Calendar</a>
+      </div>
+      <div class="contact-form">
+        <div class="form-title" data-i18n="book_event">Book an Event</div>
+        <form id="event-form" onsubmit="submitForm(event)">
+          <div class="form-row">
+            <div class="form-group"><label data-i18n="form_fname">First Name</label><input type="text" required/></div>
+            <div class="form-group"><label data-i18n="form_lname">Last Name</label><input type="text" required/></div>
+          </div>
+          <div class="form-group"><label data-i18n="form_email">Email</label><input type="email" required/></div>
+          <div class="form-group"><label data-i18n="form_phone">Phone</label><input type="tel"/></div>
+          <div class="form-row">
+            <div class="form-group">
+              <label data-i18n="form_guests">Estimated Guests</label>
+              <select><option>20–50</option><option>50–100</option><option>100–200</option><option>200+</option></select>
+            </div>
+            <div class="form-group"><label data-i18n="form_date">Event Date</label><input type="date"/></div>
+          </div>
+          <div class="form-group"><label data-i18n="form_msg">Tell us about your event</label><textarea></textarea></div>
+          <button type="submit" class="form-submit" data-i18n="form_submit">Send Inquiry →</button>
+        </form>
+        <div class="form-success" id="form-success">
+          <div class="ck">✓</div>
+          <div style="font-family:'Playfair Display',serif;font-size:1.2rem;margin-bottom:.4rem" data-i18n="form_success_title">We'll be in touch soon!</div>
+          <div style="font-size:.82rem;color:var(--sand)" data-i18n="form_success_body">Our events team typically responds within 24 hours.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GIFT CARDS -->
+<section id="loc-gift">
+  <div class="container">
+    <div class="gift-inner">
+      <div class="gift-mock">
+        <div class="gift-logo">The <span>Tavern</span> Group</div>
+        <div class="gift-tagline">A Drink With a View</div>
+      </div>
+      <div class="gift-text">
+        <div class="section-label" data-i18n="gift_label">Gift Cards</div>
+        <h2 class="heading-display" data-i18n="gift_title">Give the Gift of a Great Evening</h2>
+        <p data-i18n="gift_body">Valid at all four Ottawa locations and never expires.</p>
+        <a href="https://app.tableup.com/r/907/home" target="_blank" class="btn btn-gold" data-i18n="gift_cta">Purchase a Gift Card</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="nav-logo" href="index.html">The <span style="color:var(--gold)">Tavern</span></a>
+        <p data-i18n="footer_tagline">Ottawa's best outdoor patio bar — four locations, one unforgettable experience.</p>
+        <div class="social-links">
+          <a id="f-facebook" href="#" class="social-link" target="_blank">f</a>
+          <a id="f-instagram" href="#" class="social-link" target="_blank">ig</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer_loc">Locations</h4>
+        <ul>
+          <li><a href="gallery.html" data-i18n="gallery_name">Tavern at the Gallery</a></li>
+          <li><a href="falls.html" data-i18n="falls_name">Tavern on the Falls</a></li>
+          <li><a href="hill.html" data-i18n="hill_name">Tavern on the Hill</a></li>
+          <li><a href="island.html" data-i18n="island_name">Tavern on the Island</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer_explore">Explore</h4>
+        <ul>
+          <li><a href="#loc-music" data-i18n="nav_music">Live Music</a></li>
+          <li><a href="#loc-menu" data-i18n="nav_menus">Menus</a></li>
+          <li><a href="#loc-events" data-i18n="nav_events">Host an Event</a></li>
+          <li><a href="index.html#gift-cards" data-i18n="nav_gift">Gift Cards</a></li>
+          <li><a href="index.html#about" data-i18n="our_story">Our Story</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 The Tavern Group · Ottawa, ON</p>
+      <p><a href="#">Privacy</a> · <a href="#">Accessibility</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- ADMIN BUTTON -->
+<button id="admin-toggle" onclick="openAdmin()" title="Admin">⚙</button>
+
+<!-- ADMIN PANEL -->
+<div id="admin-panel">
+  <div class="admin-modal">
+    <button class="admin-close" onclick="closeAdmin()">✕</button>
+    <div class="section-label">Content Management</div>
+    <h2 data-i18n="admin_title">Site Admin Panel</h2>
+    <p class="admin-note" data-i18n="admin_note">Update hours, specials, and music schedules from this panel.</p>
+    <div class="admin-tabs">
+      <button class="admin-tab active" onclick="switchAdminTab('admin-hours',this)" data-i18n="admin_hours">Hours</button>
+      <button class="admin-tab" onclick="switchAdminTab('admin-special',this)" data-i18n="admin_specials">Specials</button>
+      <button class="admin-tab" onclick="switchAdminTab('admin-music',this)" data-i18n="admin_music">Music</button>
+      <button class="admin-tab" onclick="switchAdminTab('admin-weather',this)" data-i18n="admin_weather">Weather Alert</button>
+      <button class="admin-tab" onclick="switchAdminTab('admin-menu-edit',this)">Edit Menu</button>
+    </div>
+    <!-- Hours -->
+    <div class="admin-pane active" id="admin-hours">
+      <div class="admin-row">
+        <div class="admin-field"><label>Mon–Thu</label><input type="text" id="ah-wkday" value=""/></div>
+        <div class="admin-field"><label>Friday</label><input type="text" id="ah-fri" value=""/></div>
+      </div>
+      <div class="admin-row">
+        <div class="admin-field"><label>Saturday</label><input type="text" id="ah-sat" value=""/></div>
+        <div class="admin-field"><label>Sunday</label><input type="text" id="ah-sun" value=""/></div>
+      </div>
+      <button class="admin-save" onclick="saveHours()">Save Hours</button>
+      <div id="ah-msg" style="font-size:.8rem;color:var(--forest);margin-top:.6rem;font-weight:600"></div>
+    </div>
+    <!-- Specials -->
+    <div class="admin-pane" id="admin-special">
+      <div class="admin-field"><label>Section (EN)</label><input type="text" id="as-section" placeholder="e.g. Cocktails"/></div>
+      <div class="admin-row">
+        <div class="admin-field"><label>Item Name (EN)</label><input type="text" id="as-name-en" placeholder="Peach Bellini"/></div>
+        <div class="admin-field"><label>Item Name (FR)</label><input type="text" id="as-name-fr" placeholder="Bellini à la pêche"/></div>
+      </div>
+      <div class="admin-row">
+        <div class="admin-field"><label>Description (EN)</label><input type="text" id="as-desc-en" placeholder="Fresh peach, prosecco, basil"/></div>
+        <div class="admin-field"><label>Description (FR)</label><input type="text" id="as-desc-fr" placeholder="Pêche fraîche, prosecco, basilic"/></div>
+      </div>
+      <div class="admin-field"><label>Price</label><input type="text" id="as-price" placeholder="$13"/></div>
+      <button class="admin-save" onclick="addSpecial()">Add Special</button>
+    </div>
+    <!-- Music -->
+    <div class="admin-pane" id="admin-music">
+      <div class="admin-row">
+        <div class="admin-field"><label>Date (e.g. Jun 28)</label><input type="text" id="am-date" placeholder="Jun 28"/></div>
+        <div class="admin-field"><label>Day (e.g. Sat)</label><input type="text" id="am-day" placeholder="Sat"/></div>
+      </div>
+      <div class="admin-row">
+        <div class="admin-field"><label>Artist / Band</label><input type="text" id="am-artist" placeholder="The Blue Herons"/></div>
+        <div class="admin-field"><label>Time</label><input type="text" id="am-time" placeholder="8:00 PM"/></div>
+      </div>
+      <div class="admin-field"><label>Genre</label><input type="text" id="am-genre" placeholder="Blues / Folk"/></div>
+      <button class="admin-save" onclick="addShow()">Add Show</button>
+    </div>
+    <!-- Weather -->
+    <div class="admin-pane" id="admin-weather">
+      <div class="admin-field"><label>Status (EN)</label><input type="text" id="aw-msg-en" placeholder="All locations open today"/></div>
+      <div class="admin-field"><label>Status (FR)</label><input type="text" id="aw-msg-fr" placeholder="Tous les emplacements ouverts aujourd'hui"/></div>
+      <div class="admin-field"><label>Type</label>
+        <select id="aw-type">
+          <option value="open">✅ Open</option>
+          <option value="partial">⚠️ Partial</option>
+          <option value="closed">🚫 Closed</option>
+        </select>
+      </div>
+      <button class="admin-save" onclick="saveWeather()">Update</button>
+    </div>
+    <!-- Menu Edit -->
+    <div class="admin-pane" id="admin-menu-edit">
+      <p class="admin-note">Edit an existing menu item (by name) or add a new permanent item to a section.</p>
+      <div class="admin-field"><label>Language</label>
+        <select id="ame-lang"><option value="en">English</option><option value="fr">Français</option></select>
+      </div>
+      <div class="admin-field"><label>Section Title (exact)</label><input type="text" id="ame-section" placeholder="Cocktails"/></div>
+      <div class="admin-row">
+        <div class="admin-field"><label>Item Name</label><input type="text" id="ame-name" placeholder="New Item"/></div>
+        <div class="admin-field"><label>Price</label><input type="text" id="ame-price" placeholder="$14"/></div>
+      </div>
+      <div class="admin-field"><label>Description</label><input type="text" id="ame-desc" placeholder="Description"/></div>
+      <button class="admin-save" onclick="saveMenuItem()">Save to Menu</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const LOC_KEY = "gallery";
+// ═══════════════════════════════════════════════════════════════
+// TAVERN GROUP — SHARED DATA & TRANSLATIONS
+// ═══════════════════════════════════════════════════════════════
+
+// ── GOOGLE SHEETS CONFIG ─────────────────────────────────────
+// Publish your Google Sheet to the web as CSV:
+// File → Share → Publish to web → Sheet → CSV → Get link
+// Paste the URL below. Sheet columns: Location,Day,Date,Artist,Genre,Time
+const SHEETS_CONFIG = {
+  // Replace this URL with your published Google Sheet CSV URL
+  url: 'YOUR_GOOGLE_SHEET_CSV_URL_HERE',
+  // Fallback to hardcoded data if sheet unavailable
+  useFallback: true
+};
+
+// ── LOCATION DATA ─────────────────────────────────────────────
+const LOCATION_INFO = {
+  gallery: {
+    key: 'gallery',
+    img:  'https://static.wixstatic.com/media/a88227_d331ffd34fdc4eec800b2cf02ad50861~mv2.jpg/v1/fill/w_1440,h_879,al_c,q_85,enc_avif,quality_auto/a88227_d331ffd34fdc4eec800b2cf02ad50861~mv2.jpg',
+    img2: 'https://static.wixstatic.com/media/a88227_322949a436ea4c9cb92bb0a1cf9d1bff~mv2.jpg/v1/fill/w_752,h_1786,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a88227_322949a436ea4c9cb92bb0a1cf9d1bff~mv2.jpg',
+    img3: 'https://static.wixstatic.com/media/a88227_b995ca7c9ceb4a73bee36324c40aa6c7~mv2.jpg/v1/fill/w_770,h_1786,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a88227_b995ca7c9ceb4a73bee36324c40aa6c7~mv2.jpg',
+    addr:  '380 Sussex Dr., Ottawa, ON',
+    phone: '613-555-0101',
+    email: 'gallery@thetavern.ca',
+    maps:  'https://maps.google.com/?q=380+Sussex+Dr+Ottawa',
+    reserve: 'https://www.tbdine.com/book/restaurant/the-tavern-at-the-gallery?idApp=69897&language=en-us',
+    facebook:  'https://www.facebook.com/tavernatthegallery',
+    instagram: 'https://www.instagram.com/tavernatthegallery/',
+    accentColor: '#2d4a35',
+    num_en: 'Location 01', num_fr: 'Emplacement 01',
+    tag_en: 'National Gallery Views · Byward Market',
+    tag_fr: 'Vue sur la Galerie nationale · Marché By',
+    story_en: ["Ottawa's premier National Gallery patio — nestled beside one of Canada's greatest cultural institutions, with views of the iconic spider sculpture and the Rideau River.", "Come for the art. Stay for the drinks and the company. Where the Byward Market meets fine patio culture."],
+    story_fr: ["La terrasse principale de la Galerie nationale d'Ottawa — nichée à côté de l'une des plus grandes institutions culturelles du Canada.", "Venez pour l'art. Restez pour les boissons et la compagnie. Là où le Marché By rencontre la culture de terrasse raffinée."],
+    hours: { monThu:'11am – 11pm', fri:'11am – 1am', sat:'10am – 1am', sun:'10am – 10pm' }
+  },
+  falls: {
+    key: 'falls',
+    img:  'https://static.wixstatic.com/media/a88227_2e4af2f3dc8d4ff6933c25cec2f4c47e~mv2.jpg/v1/fill/w_2534,h_1546,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a88227_2e4af2f3dc8d4ff6933c25cec2f4c47e~mv2.jpg',
+    img2: 'https://static.wixstatic.com/media/a88227_22fd1797e7de4d46b2c1fe428705c268~mv2.jpg/v1/fill/w_752,h_1992,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a88227_22fd1797e7de4d46b2c1fe428705c268~mv2.jpg',
+    img3: 'https://static.wixstatic.com/media/a88227_c9f0c3a887ce4e58bb4f022b0087fbf4~mv2.jpeg/v1/fill/w_371,h_960,al_c,q_80,enc_avif,quality_auto/a88227_c9f0c3a887ce4e58bb4f022b0087fbf4~mv2.jpeg',
+    addr:  'Rideau Falls Park, Ottawa, ON',
+    phone: '613-555-0202',
+    email: 'falls@thetavern.ca',
+    maps:  'https://maps.google.com/?q=Rideau+Falls+Park+Ottawa',
+    reserve: 'https://www.tbdine.com/book/restaurant/the-tavern-at-the-gallery?idApp=69897&language=en-us',
+    facebook:  'https://www.facebook.com/tavernatthegallery',
+    instagram: 'https://www.instagram.com/tavernatthegallery/',
+    accentColor: '#1a3a5c',
+    num_en: 'Location 02', num_fr: 'Emplacement 02',
+    tag_en: 'Waterfront · Rideau Falls Views',
+    tag_fr: 'Bord de l\'eau · Vue sur les Chutes Rideau',
+    story_en: ["Perched at the edge of Rideau Falls, this is Ottawa's most dramatic outdoor patio. The sound of cascading water is the constant backdrop to every great evening.", "Order something cold, lean back, and let the falls do the talking. There's no better seat in Ottawa."],
+    story_fr: ["Perchée au bord des Chutes Rideau, voici la terrasse extérieure la plus dramatique d'Ottawa. Le son de l'eau en cascade accompagne chaque belle soirée.", "Commandez quelque chose de frais, détendez-vous et laissez les chutes parler."],
+    hours: { monThu:'11am – 11pm', fri:'11am – 1am', sat:'10am – 1am', sun:'10am – 10pm' }
+  },
+  hill: {
+    key: 'hill',
+    img:  'https://static.wixstatic.com/media/a88227_f4831e7cc95c47a2b553f9fd936dc614~mv2.jpg/v1/fill/w_1080,h_659,al_c,q_85,enc_avif,quality_auto/a88227_f4831e7cc95c47a2b553f9fd936dc614~mv2.jpg',
+    img2: 'https://static.wixstatic.com/media/a88227_fa970914314f4e6289958379f3a049b3~mv2.jpg/v1/fill/w_526,h_1351,al_c,q_85,enc_avif,quality_auto/a88227_fa970914314f4e6289958379f3a049b3~mv2.jpg',
+    img3: 'https://static.wixstatic.com/media/a88227_407cdc6d5b7844ffa2a65eccdaca21b0~mv2.jpg/v1/fill/w_716,h_1795,al_c,q_85,enc_avif,quality_auto/a88227_407cdc6d5b7844ffa2a65eccdaca21b0~mv2.jpg',
+    addr:  "Major's Hill Park, Ottawa, ON",
+    phone: '613-555-0303',
+    email: 'hill@thetavern.ca',
+    maps:  "https://maps.google.com/?q=Major's+Hill+Park+Ottawa",
+    reserve: 'https://www.tbdine.com/book/restaurant/the-tavern-at-the-gallery?idApp=69897&language=en-us',
+    facebook:  'https://www.facebook.com/tavernatthegallery',
+    instagram: 'https://www.instagram.com/tavernatthegallery/',
+    accentColor: '#4a3520',
+    num_en: 'Location 03', num_fr: 'Emplacement 03',
+    tag_en: "Parliament Views · Major's Hill Park",
+    tag_fr: 'Vue sur le Parlement · Parc Major\'s Hill',
+    story_en: ["Atop Major's Hill Park, this location commands some of the most iconic views in all of Canada — the Peace Tower, the Ottawa River, and the Gatineau Hills in the distance.", "Whether you're catching a post-work sunset or a Saturday night show, Tavern on the Hill always delivers."],
+    story_fr: ["Au sommet du parc Major's Hill, cet emplacement offre certaines des vues les plus emblématiques du Canada — la Tour de la Paix, la rivière des Outaouais et les collines de la Gatineau.", "Que vous profitiez d'un coucher de soleil après le travail ou d'un spectacle le samedi soir, la Taverne sur la Colline livre toujours."],
+    hours: { monThu:'12pm – 11pm', fri:'12pm – 1am', sat:'11am – 1am', sun:'11am – 10pm' }
+  },
+  island: {
+    key: 'island',
+    img:  'https://static.wixstatic.com/media/1e1b17_035df277dad2454ba763f2b5c3da1b03~mv2.jpg/v1/fill/w_1630,h_994,al_c,q_85,enc_avif,quality_auto/1e1b17_035df277dad2454ba763f2b5c3da1b03~mv2.jpg',
+    img2: 'https://static.wixstatic.com/media/1e1b17_b797790917834c578b818aa1adf9c598f000.jpg/v1/fill/w_376,h_965,al_c,q_85,usm_0.33_1.00_0.00,enc_avif,quality_auto/1e1b17_b797790917834c578b818aa1adf9c598f000.jpg',
+    img3: 'https://static.wixstatic.com/media/1e1b17_45a710737f9d432e85c05ae7e6dcbf32f000.jpg/v1/fill/w_376,h_575,al_c,q_80,usm_0.33_1.00_0.00,enc_avif,quality_auto/1e1b17_45a710737f9d432e85c05ae7e6dcbf32f000.jpg',
+    addr:  'Nepean Point, Ottawa, ON',
+    phone: '613-555-0404',
+    email: 'island@thetavern.ca',
+    maps:  'https://maps.google.com/?q=Nepean+Point+Ottawa',
+    reserve: 'https://www.tbdine.com/book/restaurant/the-tavern-at-the-gallery?idApp=69897&language=en-us',
+    facebook:  'https://www.facebook.com/tavernatthegallery',
+    instagram: 'https://www.instagram.com/tavernatthegallery/',
+    accentColor: '#2a4040',
+    num_en: 'Location 04', num_fr: 'Emplacement 04',
+    tag_en: 'River Views · Gatineau Hills',
+    tag_fr: 'Vue sur la rivière · Collines Gatineau',
+    story_en: ["The most serene of our four locations, Tavern on the Island sits at Nepean Point with unobstructed views of the Ottawa River, Gatineau Hills, and the Canadian Museum of History.", "Come early for brunch jazz, stay for sunset cocktails. Ottawa's best-kept patio secret."],
+    story_fr: ["Le plus serein de nos quatre emplacements, la Taverne sur l'Île est à la Pointe Nepean avec des vues dégagées sur la rivière des Outaouais et les collines de la Gatineau.", "Venez tôt pour le jazz du brunch, restez pour les cocktails au coucher du soleil."],
+    hours: { monThu:'12pm – 11pm', fri:'12pm – 1am', sat:'11am – 1am', sun:'11am – 10pm' }
+  }
+};
+
+// ── MENUS (bilingual, per location) ──────────────────────────
+const MENUS = {
+  gallery: {
+    en: [
+      { section:'Small Plates', items:[
+        {name:'Charcuterie Board',     desc:'Local cured meats, artisan cheese, preserves',              price:'$22'},
+        {name:'Crispy Calamari',       desc:'House aioli, pickled lemon',                                price:'$17'},
+        {name:'Gallery Flatbread',     desc:'Roasted garlic, brie, fig jam',                             price:'$16'},
+        {name:'Burrata & Heirloom',    desc:'Basil oil, fleur de sel, grilled crostini',                 price:'$19'},
+      ]},
+      { section:'Mains', items:[
+        {name:'Gallery Salmon',        desc:'Herb-crusted Atlantic salmon, wilted greens, lemon beurre blanc', price:'$29'},
+        {name:'Sussex Burger',         desc:'Double smash, aged cheddar, caramelized onion, house pickle', price:'$19'},
+        {name:'Grilled Chicken Sandwich', desc:'Sourdough, avocado, chipotle mayo, arugula',             price:'$18'},
+        {name:'Mushroom Risotto',      desc:'Wild mushroom, truffle oil, parmesan, chives',              price:'$24'},
+      ]},
+      { section:'Cocktails', items:[
+        {name:'Sussex Sling',          desc:'Gin, elderflower, cucumber, prosecco',                      price:'$14'},
+        {name:'Byward Bramble',        desc:'Whisky, blackberry, lemon, honey',                          price:'$14'},
+        {name:'Gallery Spritz',        desc:'Aperol, prosecco, blood orange, soda',                      price:'$13'},
+        {name:'The Diplomat',          desc:'Vodka, St-Germain, grapefruit, tonic',                      price:'$14'},
+      ]},
+      { section:'Beer & Wine', items:[
+        {name:'Local Craft (rotating)',desc:'Ask your server for today\'s selection',                     price:'$9'},
+        {name:'House White / Rosé',    desc:'Ask your server',                                           price:'$10'},
+        {name:'House Red',             desc:'Ask your server',                                           price:'$10'},
+      ]},
+    ],
+    fr: [
+      { section:'Petites assiettes', items:[
+        {name:'Planche de charcuterie',desc:'Charcuteries locales, fromages artisanaux, conserves',      price:'$22'},
+        {name:'Calamars croustillants',desc:'Aïoli maison, citron mariné',                               price:'$17'},
+        {name:'Flatbread de la Galerie',desc:'Ail rôti, brie, confiture de figue',                       price:'$16'},
+        {name:'Burrata & Tomate ancienne',desc:'Huile de basilic, fleur de sel, crostini grillé',        price:'$19'},
+      ]},
+      { section:'Plats principaux', items:[
+        {name:'Saumon de la Galerie',  desc:'Saumon en croûte d\'herbes, verdures, beurre blanc citron', price:'$29'},
+        {name:'Burger Sussex',         desc:'Double smash, cheddar vieilli, oignon caramélisé, cornichon',price:'$19'},
+        {name:'Sandwich au poulet grillé',desc:'Pain au levain, avocat, mayo chipotle, roquette',        price:'$18'},
+        {name:'Risotto aux champignons',desc:'Champignons sauvages, huile de truffe, parmesan',          price:'$24'},
+      ]},
+      { section:'Cocktails', items:[
+        {name:'Sussex Sling',          desc:'Gin, fleur de sureau, concombre, prosecco',                 price:'$14'},
+        {name:'Bramble Byward',        desc:'Whisky, mûre, citron, miel',                                price:'$14'},
+        {name:'Spritz de la Galerie',  desc:'Aperol, prosecco, orange sanguine, eau gazeuse',            price:'$13'},
+        {name:'Le Diplomate',          desc:'Vodka, St-Germain, pamplemousse, tonic',                    price:'$14'},
+      ]},
+      { section:'Bières et vins', items:[
+        {name:'Bière artisanale (rotatif)',desc:'Demandez à votre serveur',                              price:'$9'},
+        {name:'Blanc / Rosé maison',   desc:'Demandez à votre serveur',                                  price:'$10'},
+        {name:'Rouge maison',          desc:'Demandez à votre serveur',                                  price:'$10'},
+      ]},
+    ]
+  },
+  falls: {
+    en: [
+      { section:'Starters', items:[
+        {name:'Steamed Mussels',       desc:'White wine, garlic, shallots, grilled bread',               price:'$18'},
+        {name:'Fish Tacos (3pc)',      desc:'Beer-battered pickerel, slaw, chipotle crema',              price:'$19'},
+        {name:'Shrimp Cocktail',       desc:'Chilled tiger shrimp, house cocktail sauce, lemon',         price:'$17'},
+      ]},
+      { section:'Mains', items:[
+        {name:'Falls Burger',          desc:'Double smash, aged cheddar, house pickle, fries',           price:'$18'},
+        {name:'Lobster Roll',          desc:'Atlantic lobster, tarragon mayo, brioche, chips',           price:'$26'},
+        {name:'Fish & Chips',          desc:'Beer-battered haddock, hand-cut fries, tartar sauce',       price:'$22'},
+        {name:'Grilled Salmon Tacos',  desc:'Mango salsa, avocado crema, pickled cabbage',               price:'$23'},
+      ]},
+      { section:'Cocktails', items:[
+        {name:'Rideau Mist',           desc:'Vodka, green tea, mint, lime',                              price:'$13'},
+        {name:'Cascade Cooler',        desc:'Rum, pineapple, coconut',                                   price:'$14'},
+        {name:'Falls Paloma',          desc:'Tequila, grapefruit, agave, salt rim',                      price:'$14'},
+        {name:'Waterfall Spritz',      desc:'Gin, cucumber, tonic, elderflower',                         price:'$13'},
+      ]},
+      { section:'Beer & Wine', items:[
+        {name:'Local Craft (rotating)',desc:'Ask your server',                                           price:'$9'},
+        {name:'House White / Rosé',    desc:'Ask your server',                                           price:'$10'},
+        {name:'House Red',             desc:'Ask your server',                                           price:'$10'},
+      ]},
+    ],
+    fr: [
+      { section:'Entrées', items:[
+        {name:'Moules vapeur',         desc:'Vin blanc, ail, échalotes, pain grillé',                    price:'$18'},
+        {name:'Tacos de poisson (3pc)',desc:'Doré pané à la bière, chou, crème chipotle',                price:'$19'},
+        {name:'Cocktail de crevettes', desc:'Crevettes tigrées froides, sauce cocktail maison',          price:'$17'},
+      ]},
+      { section:'Plats principaux', items:[
+        {name:'Burger des Chutes',     desc:'Double smash, cheddar vieilli, cornichon maison, frites',   price:'$18'},
+        {name:'Rouleau de homard',     desc:'Homard de l\'Atlantique, mayo à l\'estragon, brioche',      price:'$26'},
+        {name:'Fish & Chips',          desc:'Aiglefin pané à la bière, frites coupées, sauce tartare',   price:'$22'},
+        {name:'Tacos de saumon grillé',desc:'Salsa à la mangue, crème d\'avocat, chou mariné',           price:'$23'},
+      ]},
+      { section:'Cocktails', items:[
+        {name:'Brume de la Rideau',    desc:'Vodka, thé vert, menthe, lime',                             price:'$13'},
+        {name:'Refroidisseur Cascade', desc:'Rhum, ananas, noix de coco',                                price:'$14'},
+        {name:'Paloma des Chutes',     desc:'Tequila, pamplemousse, agave, rebord salé',                 price:'$14'},
+        {name:'Spritz de la Cascade',  desc:'Gin, concombre, tonic, fleur de sureau',                    price:'$13'},
+      ]},
+      { section:'Bières et vins', items:[
+        {name:'Bière artisanale (rotatif)',desc:'Demandez à votre serveur',                              price:'$9'},
+        {name:'Blanc / Rosé maison',   desc:'Demandez à votre serveur',                                  price:'$10'},
+        {name:'Rouge maison',          desc:'Demandez à votre serveur',                                  price:'$10'},
+      ]},
+    ]
+  },
+  hill: {
+    en: [
+      { section:'Snacks & Shares', items:[
+        {name:'Poutine Classique',     desc:'Quebec curds, rich gravy',                                  price:'$14'},
+        {name:'Hill Nachos',           desc:'House chips, pulled pork, all the fixings',                 price:'$21'},
+        {name:'Parliament Platter',    desc:'Wings, fries, dips — serves 4',                             price:'$38'},
+        {name:'Crispy Brussels',       desc:'Bacon lardons, lemon, parmesan, chili flake',               price:'$15'},
+      ]},
+      { section:'Mains', items:[
+        {name:'Hill Smash Burger',     desc:'Double patty, smoked gouda, caramelized onion, pickle',     price:'$19'},
+        {name:'Chicken & Waffles',     desc:'Buttermilk fried chicken, maple sriracha, jalapeño',        price:'$22'},
+        {name:'Steak Frites',          desc:'6oz bavette, house butter, hand-cut fries',                 price:'$28'},
+        {name:'Veggie Bowl',           desc:'Farro, roasted veg, tahini, pomegranate, herbs',            price:'$20'},
+      ]},
+      { section:'Cocktails', items:[
+        {name:'The Hill & Honey',      desc:'Bourbon, local honey, thyme, ginger beer',                  price:'$14'},
+        {name:"Major's Mule",          desc:'Vodka, lime, ginger beer, mint',                            price:'$13'},
+        {name:'Parliament Old Fashioned', desc:'Rye whisky, maple, aromatic bitters, orange',           price:'$15'},
+        {name:'Capital Sour',          desc:'Bourbon, lemon, aquafaba, angostura',                       price:'$14'},
+      ]},
+      { section:'Beer & Wine', items:[
+        {name:'Local Craft (rotating)',desc:'Ask your server',                                           price:'$9'},
+        {name:'House White / Rosé',    desc:'Ask your server',                                           price:'$10'},
+        {name:'House Red',             desc:'Ask your server',                                           price:'$10'},
+      ]},
+    ],
+    fr: [
+      { section:'Grignotines et partage', items:[
+        {name:'Poutine classique',     desc:'Fromage en grains du Québec, sauce riche',                  price:'$14'},
+        {name:'Nachos de la Colline',  desc:'Chips maison, porc effiloché, garnitures complètes',        price:'$21'},
+        {name:'Plateau du Parlement',  desc:'Ailes, frites, trempettes — pour 4 personnes',              price:'$38'},
+        {name:'Choux de Bruxelles croustillants', desc:'Lardons, citron, parmesan, flocons de piment',  price:'$15'},
+      ]},
+      { section:'Plats principaux', items:[
+        {name:'Burger Smash de la Colline', desc:'Double galette, gouda fumé, oignon caramélisé',        price:'$19'},
+        {name:'Poulet et gaufres',     desc:'Poulet frit au babeurre, érable sriracha, jalapeño mariné', price:'$22'},
+        {name:'Steak frites',          desc:'Bavette 6oz, beurre maison, frites coupées à la main',      price:'$28'},
+        {name:'Bol végétarien',        desc:'Farro, légumes rôtis, tahini, grenade, herbes',             price:'$20'},
+      ]},
+      { section:'Cocktails', items:[
+        {name:'La Colline et le Miel', desc:'Bourbon, miel local, thym, bière au gingembre',             price:'$14'},
+        {name:'Mule du Major',         desc:'Vodka, lime, bière au gingembre, menthe',                   price:'$13'},
+        {name:'Old Fashioned du Parlement', desc:'Whisky de seigle, sirop d\'érable, bitters',          price:'$15'},
+        {name:'Sour Capital',          desc:'Bourbon, citron, aquafaba, angostura',                      price:'$14'},
+      ]},
+      { section:'Bières et vins', items:[
+        {name:'Bière artisanale (rotatif)',desc:'Demandez à votre serveur',                              price:'$9'},
+        {name:'Blanc / Rosé maison',   desc:'Demandez à votre serveur',                                  price:'$10'},
+        {name:'Rouge maison',          desc:'Demandez à votre serveur',                                  price:'$10'},
+      ]},
+    ]
+  },
+  island: {
+    en: [
+      { section:'Raw Bar & Bites', items:[
+        {name:'Oysters on the Half (6pc)', desc:'East Coast, mignonette, lemon',                         price:'$20'},
+        {name:'Tuna Tartare',          desc:'Sesame, avocado, crispy wonton, sriracha mayo',             price:'$19'},
+        {name:'Island Shrimp Cocktail',desc:'Chilled tiger shrimp, house cocktail sauce',                price:'$18'},
+        {name:'Ceviche of the Day',    desc:'Ask your server for today\'s catch',                        price:'$17'},
+      ]},
+      { section:'Mains', items:[
+        {name:'Whole Grilled Branzino',desc:'Lemon herb butter, grilled vegetables, chimichurri',        price:'$32'},
+        {name:'Island Lobster Roll',   desc:'Warm butter-poached lobster, brioche, chips',               price:'$28'},
+        {name:'Grilled Octopus',       desc:'Smoked paprika, fingerling potato, salsa verde',            price:'$27'},
+        {name:'Island Fish Sandwich',  desc:'Blackened mahi, slaw, avocado, brioche',                    price:'$22'},
+      ]},
+      { section:'Cocktails', items:[
+        {name:'Nepean Negroni',        desc:'Gin, Campari, sweet vermouth, orange',                      price:'$15'},
+        {name:'Island Spritz',         desc:'Aperol, Prosecco, soda, blood orange',                      price:'$13'},
+        {name:'Dark & Stormy Island',  desc:'Dark rum, ginger beer, lime, angostura',                    price:'$13'},
+        {name:'The Horizon',           desc:'Tequila, blue curaçao, lime, salt rim',                     price:'$14'},
+      ]},
+      { section:'Beer & Wine', items:[
+        {name:'Local Craft (rotating)',desc:'Ask your server',                                           price:'$9'},
+        {name:'House White / Rosé',    desc:'Ask your server',                                           price:'$10'},
+        {name:'House Red',             desc:'Ask your server',                                           price:'$10'},
+      ]},
+    ],
+    fr: [
+      { section:'Bar à fruits de mer et bouchées', items:[
+        {name:'Huîtres sur coquille (6 pièces)', desc:'Côte Est, mignonette, citron',                   price:'$20'},
+        {name:'Tartare de thon',       desc:'Sésame, avocat, wonton croustillant, mayo sriracha',        price:'$19'},
+        {name:'Cocktail de crevettes de l\'Île', desc:'Crevettes tigrées froides, sauce cocktail maison', price:'$18'},
+        {name:'Ceviche du jour',       desc:'Demandez à votre serveur pour la prise du jour',            price:'$17'},
+      ]},
+      { section:'Plats principaux', items:[
+        {name:'Branzino grillé entier',desc:'Beurre aux herbes et citron, légumes grillés, chimichurri', price:'$32'},
+        {name:'Rouleau de homard de l\'Île', desc:'Homard poché au beurre chaud, brioche, chips',       price:'$28'},
+        {name:'Pieuvre grillée',       desc:'Paprika fumé, pommes de terre grenaille, salsa verde',      price:'$27'},
+        {name:'Sandwich de poisson de l\'Île', desc:'Mahi noirci, chou, avocat, brioche',               price:'$22'},
+      ]},
+      { section:'Cocktails', items:[
+        {name:'Negroni Nepean',        desc:'Gin, Campari, vermouth doux, orange',                       price:'$15'},
+        {name:'Spritz de l\'Île',      desc:'Aperol, Prosecco, eau gazeuse, orange sanguine',            price:'$13'},
+        {name:'Dark & Stormy de l\'Île',desc:'Rhum brun, bière au gingembre, lime, angostura',           price:'$13'},
+        {name:'L\'Horizon',            desc:'Tequila, curaçao bleu, lime, rebord salé',                  price:'$14'},
+      ]},
+      { section:'Bières et vins', items:[
+        {name:'Bière artisanale (rotatif)',desc:'Demandez à votre serveur',                              price:'$9'},
+        {name:'Blanc / Rosé maison',   desc:'Demandez à votre serveur',                                  price:'$10'},
+        {name:'Rouge maison',          desc:'Demandez à votre serveur',                                  price:'$10'},
+      ]},
+    ]
+  }
+};
+
+// ── FALLBACK MUSIC (used if Google Sheet unavailable) ─────────
+const MUSIC_FALLBACK = [
+  {loc:'gallery', day:'Fri', date:'Jun 6',  artist:'The Blue Herons',          genre:'Blues / Folk',           time:'8:00 PM'},
+  {loc:'gallery', day:'Sat', date:'Jun 7',  artist:'Mackenzie Moran Trio',     genre:'Jazz / Soul',            time:'7:30 PM'},
+  {loc:'gallery', day:'Fri', date:'Jun 13', artist:'River Road',               genre:'Country / Americana',    time:'8:00 PM'},
+  {loc:'gallery', day:'Sat', date:'Jun 14', artist:'Club Soda Collective',     genre:'Funk / R&B',             time:'9:00 PM'},
+  {loc:'gallery', day:'Sun', date:'Jun 15', artist:'Sunday Sessions (Open Mic)',genre:'Acoustic / Various',    time:'3:00 PM'},
+  {loc:'gallery', day:'Fri', date:'Jun 20', artist:'The Sable Brothers',       genre:'Indie Folk',             time:'8:00 PM'},
+  {loc:'falls',   day:'Thu', date:'Jun 5',  artist:'The Rideau Kings',         genre:'Classic Rock',           time:'7:00 PM'},
+  {loc:'falls',   day:'Sat', date:'Jun 7',  artist:'Lena Voss Band',           genre:'Indie / Pop',            time:'8:30 PM'},
+  {loc:'falls',   day:'Fri', date:'Jun 13', artist:'Waterfall Jazz Project',   genre:'Contemporary Jazz',      time:'7:30 PM'},
+  {loc:'falls',   day:'Sat', date:'Jun 21', artist:'Eastern Front',            genre:'Blues Rock',             time:'9:00 PM'},
+  {loc:'hill',    day:'Fri', date:'Jun 6',  artist:'The Parlour',              genre:'Swing / Jazz',           time:'8:00 PM'},
+  {loc:'hill',    day:'Sat', date:'Jun 14', artist:'Capital City Brass',       genre:'Brass Band / Funk',      time:'7:00 PM'},
+  {loc:'hill',    day:'Thu', date:'Jun 19', artist:'The Hillside Session',     genre:'Acoustic Folk',          time:'6:30 PM'},
+  {loc:'hill',    day:'Sat', date:'Jun 28', artist:'Disco Inferno Revue',      genre:'Disco / Dance',          time:'9:00 PM'},
+  {loc:'island',  day:'Sat', date:'Jun 7',  artist:'River Nomads',             genre:'World / Reggae',         time:'7:00 PM'},
+  {loc:'island',  day:'Sun', date:'Jun 8',  artist:'Sunday Brunch Jazz',       genre:'Jazz Quartet',           time:'11:00 AM'},
+  {loc:'island',  day:'Fri', date:'Jun 20', artist:'Island Nights DJs',        genre:'Electronic / Chill',     time:'9:00 PM'},
+  {loc:'island',  day:'Sat', date:'Jun 28', artist:"The Nepean Sessions",      genre:'Indie / Ambient',        time:'8:00 PM'},
+];
+
+// ── TRANSLATIONS ──────────────────────────────────────────────
+const T = {
+  en: {
+    // Nav
+    nav_locations:'Locations', nav_menus:'Menus', nav_music:'Live Music',
+    nav_events:'Host an Event', nav_gift:'Gift Cards', nav_reserve:'Reserve a Table',
+    // Hero
+    hero_eyebrow:"Ottawa's Finest Outdoor Patio Experience",
+    hero_title:'A Drink <em>With a View</em>',
+    hero_tagline:'Four distinct locations. One unforgettable atmosphere.',
+    hero_cta1:'Explore Locations', hero_cta2:'Live Music Schedule',
+    // Sections
+    weather_title:'Outdoor Patio — Weather Dependent',
+    weather_body:'The Tavern Group operates seasonal outdoor patios across four Ottawa locations. <strong>All patios are weather-dependent</strong> — we may close or adjust hours during rain or storms. Check our socials before you head out.',
+    loc_label:'Our Locations', loc_heading:'Four Ways to Sip Beneath the Sky',
+    hours_label:'Operating Hours', hours_note:'*Weather permitting. Kitchen closes 1hr before close.',
+    music_label:'Live Music 2025', music_heading:'Where Every Night Has a Soundtrack',
+    music_all:'All Locations', music_footer:'All shows weather-dependent · Ages 19+ · Schedule subject to change',
+    menu_label:'Seasonal Menus', menu_heading:'Crafted for the Season',
+    menu_tagline:'Each location offers its own menu inspired by the view',
+    events_label:'Private Events', events_heading:'Host Your Event in Style',
+    events_body:'From intimate celebrations to corporate gatherings, the Tavern Group offers exclusive venue experiences across all four Ottawa locations.',
+    events_perks:['Dedicated event coordinator at every location','Custom menus & bar packages','Live music add-ons available','Capacity from 20 to 300 guests','Corporate, weddings, birthdays & more'],
+    form_fname:'First Name', form_lname:'Last Name', form_email:'Email', form_phone:'Phone',
+    form_loc:'Preferred Location', form_guests:'Estimated Guests', form_date:'Event Date',
+    form_msg:'Tell us about your event', form_submit:'Send Inquiry →',
+    form_ok_title:"We'll be in touch soon!", form_ok_body:'Our events team typically responds within 24 hours.',
+    gift_label:'Gift Cards', gift_title:'Give the Gift of a Great Evening',
+    gift_body:"The perfect gift for any occasion. Valid at all four Ottawa locations and never expires — because great evenings shouldn't have an expiry date.",
+    gift_cta:'Purchase a Gift Card',
+    about_label:'Our Story', about_title:"Ottawa's Outdoor Patio Since Day One",
+    about_p1:"The Tavern Group was born from a simple idea: Ottawa deserved outdoor gathering spaces as beautiful as its skyline. We set out to build patios with soul — places where the view is as good as the drink in your hand.",
+    about_p2:"From our flagship location beside the National Gallery to our serene Island perch overlooking the Gatineau Hills, every Tavern location is designed to make you feel somewhere special — because you are.",
+    stat_loc:'Locations', stat_shows:'Live shows / yr', stat_views:'Stunning views',
+    footer_tagline:"Ottawa's best outdoor patio bar — four locations, one unforgettable experience. A drink with a view.",
+    footer_loc:'Locations', footer_explore:'Explore', footer_contact:'Contact',
+    // Location page
+    back:'← All Locations', reserve:'Make a Reservation', directions:'Get Directions',
+    contact_us:'Contact', open_daily:'Open Daily', weather_perm:'*Weather permitting',
+    book_event:'Book an Event', full_menu:'View Full Menu', see_all:'See Full Calendar',
+    loc_gallery:'Tavern at the Gallery', loc_falls:'Tavern on the Falls',
+    loc_hill:'Tavern on the Hill', loc_island:"Tavern on the Island",
+    mon_thu:'Mon – Thu', fri:'Friday', sat:'Saturday', sun:'Sunday',
+    // Modal
+    modal_visit:'Visit Location Page', modal_menu:'View Menu', modal_music:'Music Schedule',
+    modal_reserve:'Reserve', modal_directions:'Directions',
+    // Admin
+    adm_title:'Admin Panel', adm_hours:'Hours', adm_special:'Specials',
+    adm_music:'Music', adm_weather:'Weather', adm_menu:'Edit Menu',
+    adm_save:'Save Changes', adm_sheet:'Google Sheet URL',
+    adm_sheet_note:'Paste your published Google Sheet CSV URL to sync the live music schedule.',
+  },
+  fr: {
+    nav_locations:'Emplacements', nav_menus:'Menus', nav_music:'Musique en direct',
+    nav_events:'Organiser un événement', nav_gift:'Cartes-cadeaux', nav_reserve:'Réserver une table',
+    hero_eyebrow:'La meilleure expérience de terrasse à Ottawa',
+    hero_title:'Un verre <em>Avec vue</em>',
+    hero_tagline:'Quatre emplacements distincts. Une atmosphère inoubliable.',
+    hero_cta1:'Explorer les emplacements', hero_cta2:'Horaire musique',
+    weather_title:'Terrasse extérieure — Selon la météo',
+    weather_body:'Le Groupe Tavern exploite des terrasses saisonnières dans quatre emplacements à Ottawa. <strong>Toutes les terrasses dépendent de la météo</strong> — nous pouvons fermer lors de pluie ou d\'orages. Consultez nos réseaux sociaux avant de venir.',
+    loc_label:'Nos emplacements', loc_heading:'Quatre façons de siroter sous le ciel',
+    hours_label:'Heures d\'ouverture', hours_note:'*Selon la météo. La cuisine ferme 1h avant la fermeture.',
+    music_label:'Musique en direct 2025', music_heading:'Chaque soir a sa trame sonore',
+    music_all:'Tous les emplacements', music_footer:'Tous les spectacles selon la météo · 19 ans et plus · Horaire sujet à changement',
+    menu_label:'Menus saisonniers', menu_heading:'Créé pour la saison',
+    menu_tagline:'Chaque emplacement offre son propre menu inspiré par la vue',
+    events_label:'Événements privés', events_heading:'Organisez votre événement avec style',
+    events_body:'Des célébrations intimes aux rassemblements d\'entreprise, le Groupe Tavern offre des expériences exclusives dans ses quatre magnifiques emplacements à Ottawa.',
+    events_perks:['Coordinateur d\'événements dédié à chaque emplacement','Menus et forfaits bar personnalisés','Options de musique en direct','Capacité de 20 à 300 invités','Entreprises, mariages, anniversaires et plus'],
+    form_fname:'Prénom', form_lname:'Nom', form_email:'Courriel', form_phone:'Téléphone',
+    form_loc:'Emplacement préféré', form_guests:'Nombre d\'invités estimé', form_date:'Date de l\'événement',
+    form_msg:'Parlez-nous de votre événement', form_submit:'Envoyer la demande →',
+    form_ok_title:'Nous vous contacterons bientôt!', form_ok_body:'Notre équipe répond généralement dans les 24 heures.',
+    gift_label:'Cartes-cadeaux', gift_title:'Offrez une belle soirée',
+    gift_body:'Le cadeau parfait pour toute occasion. Valide dans les quatre emplacements d\'Ottawa et sans date d\'expiration — parce que les belles soirées ne devraient pas avoir de limite.',
+    gift_cta:'Acheter une carte-cadeau',
+    about_label:'Notre histoire', about_title:'La terrasse d\'Ottawa depuis le premier jour',
+    about_p1:'Le Groupe Tavern est né d\'une idée simple : Ottawa méritait des espaces de rassemblement extérieurs aussi beaux que sa ligne d\'horizon. Nous avons entrepris de créer des terrasses avec de l\'âme.',
+    about_p2:'De notre emplacement phare à côté de la Galerie nationale à notre perche sereine sur l\'Île surplombant les collines de la Gatineau, chaque emplacement est conçu pour vous faire sentir quelque part de spécial.',
+    stat_loc:'Emplacements', stat_shows:'Spectacles / an', stat_views:'Vues magnifiques',
+    footer_tagline:'Le meilleur bar-terrasse extérieur d\'Ottawa — quatre emplacements, une expérience inoubliable. Un verre avec vue.',
+    footer_loc:'Emplacements', footer_explore:'Explorer', footer_contact:'Contact',
+    back:'← Tous les emplacements', reserve:'Faire une réservation', directions:'Itinéraire',
+    contact_us:'Contact', open_daily:'Ouvert tous les jours', weather_perm:'*Selon la météo',
+    book_event:'Réserver un événement', full_menu:'Voir le menu complet', see_all:'Voir le calendrier',
+    loc_gallery:'Taverne à la Galerie', loc_falls:'Taverne aux Chutes',
+    loc_hill:'Taverne sur la Colline', loc_island:"Taverne sur l'Île",
+    mon_thu:'Lun – Jeu', fri:'Vendredi', sat:'Samedi', sun:'Dimanche',
+    modal_visit:'Visiter la page', modal_menu:'Voir le menu', modal_music:'Horaire musical',
+    modal_reserve:'Réserver', modal_directions:'Itinéraire',
+    adm_title:'Panneau d\'administration', adm_hours:'Heures', adm_special:'Spéciaux',
+    adm_music:'Musique', adm_weather:'Météo', adm_menu:'Modifier menu',
+    adm_save:'Enregistrer', adm_sheet:'URL Google Sheet',
+    adm_sheet_note:'Collez l\'URL CSV publié de votre Google Sheet pour synchroniser l\'horaire musical.',
+  }
+};
+
+// ============================================================
+// SHARED TAVERN JS — language switcher + admin helpers
+// Include this inline in every page
+// ============================================================
+
+// ─── LANGUAGE DATA ─────────────────────────────────────────
+const LANG = {
+  en: {
+    nav_locations: "Locations",
+    nav_music: "Live Music",
+    nav_menus: "Menus",
+    nav_events: "Host an Event",
+    nav_gift: "Gift Cards",
+    nav_reserve: "Reserve a Table",
+    nav_back: "← All Locations",
+    weather_open: "All locations open today",
+    weather_dependent: "Outdoor Patio — Weather Dependent",
+    weather_desc: "The Tavern Group operates seasonal outdoor patios across four Ottawa locations. <strong>All patios are weather-dependent</strong> and may close or adjust hours during rain, storms, or extreme temperatures. We recommend checking our social channels or calling your location before visiting. <strong>Normal hours resume as soon as skies clear.</strong>",
+    hours_title: "Operating Hours",
+    hours_note: "*Weather permitting. Kitchen closes 1hr before close.",
+    music_title: "Live Music",
+    music_sub: "Where Every Night Has a Soundtrack",
+    music_footer: "All shows weather-dependent. Ages 19+. Schedule subject to change.",
+    menu_title: "Our Menu",
+    menu_small: "Small Plates",
+    menu_mains: "Mains",
+    menu_cocktails: "Cocktails",
+    menu_beer: "Beer & Wine",
+    events_label: "Private Events",
+    events_title: "Host Your Event in Style",
+    events_body: "From intimate celebrations to corporate gatherings, The Tavern Group offers exclusive venue experiences at all four of our stunning Ottawa locations.",
+    events_perks: ["Dedicated event coordinator", "Custom menus & bar packages", "Live music add-ons available", "Capacity from 20 to 300 guests", "Corporate, weddings, birthdays & more"],
+    form_fname: "First Name", form_lname: "Last Name", form_email: "Email", form_phone: "Phone",
+    form_location: "Preferred Location", form_guests: "Estimated Guests", form_date: "Event Date",
+    form_msg: "Tell us about your event", form_submit: "Send Inquiry →",
+    form_success_title: "We'll be in touch soon!", form_success_body: "Our events team typically responds within 24 hours.",
+    gift_label: "Gift Cards", gift_title: "Give the Gift of a Great Evening",
+    gift_body: "The perfect gift for any occasion. Tavern Group gift cards are valid at all four Ottawa locations and never expire.",
+    gift_cta: "Purchase a Gift Card",
+    about_label: "Our Story", about_title: "Ottawa's Outdoor Patio Since Day One",
+    footer_tagline: "Ottawa's best outdoor patio bar — four locations, one unforgettable experience. A drink with a view.",
+    footer_loc: "Locations", footer_explore: "Explore", footer_contact: "Contact",
+    admin_title: "Site Admin Panel",
+    admin_note: "Update hours, specials, and music schedules directly from this panel.",
+    admin_hours: "Hours", admin_specials: "Specials", admin_music: "Music", admin_weather: "Weather Alert",
+    mon_thu: "Mon – Thu", fri: "Friday", sat: "Saturday", sun: "Sunday",
+    full_menu: "Full Menu",
+    see_calendar: "See Full Calendar",
+    book_event: "Book an Event",
+    our_story: "Our Story",
+    reserve: "Make a Reservation",
+    directions: "Get Directions",
+    contact: "Contact Us",
+    open_daily: "Open Daily",
+    weather_perm: "*Weather permitting",
+    gallery_name: "Tavern at the Gallery",
+    falls_name: "Tavern on the Falls",
+    hill_name: "Tavern on the Hill",
+    island_name: "Tavern on the Island",
+    hero_eyebrow: "Ottawa's Finest Outdoor Patio Experience",
+    hero_tagline: "Four distinct locations. One unforgettable atmosphere.",
+    explore_locations: "Explore Locations",
+  },
+  fr: {
+    nav_locations: "Emplacements",
+    nav_music: "Musique en direct",
+    nav_menus: "Menus",
+    nav_events: "Organiser un événement",
+    nav_gift: "Cartes-cadeaux",
+    nav_reserve: "Réserver une table",
+    nav_back: "← Tous les emplacements",
+    weather_open: "Tous les emplacements ouverts aujourd'hui",
+    weather_dependent: "Terrasse extérieure — Selon la météo",
+    weather_desc: "Le Groupe Tavern exploite des terrasses saisonnières dans quatre emplacements à Ottawa. <strong>Toutes les terrasses dépendent de la météo</strong> et peuvent fermer ou modifier leurs heures lors de pluie, d'orages ou de températures extrêmes. Nous vous recommandons de consulter nos réseaux sociaux ou d'appeler votre emplacement avant de venir. <strong>Les heures normales reprennent dès que le ciel se dégage.</strong>",
+    hours_title: "Heures d'ouverture",
+    hours_note: "*Selon la météo. La cuisine ferme 1h avant la fermeture.",
+    music_title: "Musique en direct",
+    music_sub: "Chaque soir a sa trame sonore",
+    music_footer: "Tous les spectacles selon la météo. 19 ans et plus. Horaire sujet à changement.",
+    menu_title: "Notre menu",
+    menu_small: "Petites assiettes",
+    menu_mains: "Plats principaux",
+    menu_cocktails: "Cocktails",
+    menu_beer: "Bières et vins",
+    events_label: "Événements privés",
+    events_title: "Organisez votre événement avec style",
+    events_body: "Des célébrations intimes aux rassemblements d'entreprise, le Groupe Tavern offre des expériences de lieu exclusives dans ses quatre magnifiques emplacements à Ottawa.",
+    events_perks: ["Coordinateur d'événements dédié", "Menus et forfaits bar personnalisés", "Options de musique en direct", "Capacité de 20 à 300 invités", "Entreprises, mariages, anniversaires et plus"],
+    form_fname: "Prénom", form_lname: "Nom", form_email: "Courriel", form_phone: "Téléphone",
+    form_location: "Emplacement préféré", form_guests: "Nombre d'invités estimé", form_date: "Date de l'événement",
+    form_msg: "Parlez-nous de votre événement", form_submit: "Envoyer la demande →",
+    form_success_title: "Nous vous contacterons bientôt!", form_success_body: "Notre équipe répond généralement dans les 24 heures.",
+    gift_label: "Cartes-cadeaux", gift_title: "Offrez une belle soirée",
+    gift_body: "Le cadeau parfait pour toute occasion. Les cartes-cadeaux du Groupe Tavern sont valides dans les quatre emplacements d'Ottawa et n'expirent jamais.",
+    gift_cta: "Acheter une carte-cadeau",
+    about_label: "Notre histoire", about_title: "La terrasse d'Ottawa depuis le premier jour",
+    footer_tagline: "Le meilleur bar-terrasse extérieur d'Ottawa — quatre emplacements, une expérience inoubliable. Un verre avec vue.",
+    footer_loc: "Emplacements", footer_explore: "Explorer", footer_contact: "Contact",
+    admin_title: "Panneau d'administration",
+    admin_note: "Mettez à jour les heures, les spéciaux et les horaires musicaux directement depuis ce panneau.",
+    admin_hours: "Heures", admin_specials: "Spéciaux", admin_music: "Musique", admin_weather: "Alerte météo",
+    mon_thu: "Lun – Jeu", fri: "Vendredi", sat: "Samedi", sun: "Dimanche",
+    full_menu: "Menu complet",
+    see_calendar: "Voir le calendrier complet",
+    book_event: "Réserver un événement",
+    our_story: "Notre histoire",
+    reserve: "Faire une réservation",
+    directions: "Itinéraire",
+    contact: "Nous contacter",
+    open_daily: "Ouvert tous les jours",
+    weather_perm: "*Selon la météo",
+    gallery_name: "Taverne à la Galerie",
+    falls_name: "Taverne aux Chutes",
+    hill_name: "Taverne sur la Colline",
+    island_name: "Taverne sur l'Île",
+    hero_eyebrow: "La meilleure expérience de terrasse à Ottawa",
+    hero_tagline: "Quatre emplacements distincts. Une atmosphère inoubliable.",
+    explore_locations: "Explorer les emplacements",
+  }
+};
+
+// Menu data — keyed by location, bilingual
+const MENUS = {
+  gallery: {
+    en: {
+      sections: [
+        { title: "Small Plates", items: [
+          { name: "Charcuterie Board", desc: "Local cured meats, artisan cheese, preserves", price: "$22" },
+          { name: "Crispy Calamari", desc: "House aioli, pickled lemon", price: "$17" },
+          { name: "Gallery Flatbread", desc: "Roasted garlic, brie, fig jam", price: "$16" },
+          { name: "Burrata & Heirloom Tomato", desc: "Basil oil, fleur de sel, grilled crostini", price: "$19" },
+        ]},
+        { title: "Mains", items: [
+          { name: "Gallery Salmon", desc: "Herb-crusted Atlantic salmon, wilted greens, lemon beurre blanc", price: "$29" },
+          { name: "Sussex Burger", desc: "Double smash, aged cheddar, caramelized onion, house pickle", price: "$19" },
+          { name: "Grilled Chicken Sandwich", desc: "Sourdough, avocado, chipotle mayo, arugula", price: "$18" },
+          { name: "Mushroom Risotto", desc: "Wild mushroom, truffle oil, parmesan, chives", price: "$24" },
+        ]},
+        { title: "Cocktails", items: [
+          { name: "Sussex Sling", desc: "Gin, elderflower, cucumber, prosecco", price: "$14" },
+          { name: "Byward Bramble", desc: "Whisky, blackberry, lemon, honey", price: "$14" },
+          { name: "Gallery Spritz", desc: "Aperol, prosecco, blood orange, soda", price: "$13" },
+          { name: "The Diplomat", desc: "Vodka, St-Germain, grapefruit, tonic", price: "$14" },
+        ]},
+        { title: "Beer & Wine", items: [
+          { name: "Local Craft (rotating)", desc: "Ask your server for today's selection", price: "$9" },
+          { name: "House White / Rosé", desc: "Ask your server for current pour", price: "$10" },
+          { name: "House Red", desc: "Ask your server for current pour", price: "$10" },
+        ]},
+      ]
+    },
+    fr: {
+      sections: [
+        { title: "Petites assiettes", items: [
+          { name: "Planche de charcuterie", desc: "Charcuteries locales, fromages artisanaux, conserves", price: "$22" },
+          { name: "Calamars croustillants", desc: "Aïoli maison, citron mariné", price: "$17" },
+          { name: "Flatbread de la Galerie", desc: "Ail rôti, brie, confiture de figue", price: "$16" },
+          { name: "Burrata & Tomate ancienne", desc: "Huile de basilic, fleur de sel, crostini grillé", price: "$19" },
+        ]},
+        { title: "Plats principaux", items: [
+          { name: "Saumon de la Galerie", desc: "Saumon de l'Atlantique en croûte d'herbes, verdures flétries, beurre blanc au citron", price: "$29" },
+          { name: "Burger Sussex", desc: "Double smash, cheddar vieilli, oignon caramélisé, cornichon maison", price: "$19" },
+          { name: "Sandwich au poulet grillé", desc: "Pain au levain, avocat, mayo chipotle, roquette", price: "$18" },
+          { name: "Risotto aux champignons", desc: "Champignons sauvages, huile de truffe, parmesan, ciboulette", price: "$24" },
+        ]},
+        { title: "Cocktails", items: [
+          { name: "Sussex Sling", desc: "Gin, fleur de sureau, concombre, prosecco", price: "$14" },
+          { name: "Bramble Byward", desc: "Whisky, mûre, citron, miel", price: "$14" },
+          { name: "Spritz de la Galerie", desc: "Aperol, prosecco, orange sanguine, eau gazeuse", price: "$13" },
+          { name: "Le Diplomate", desc: "Vodka, St-Germain, pamplemousse, tonic", price: "$14" },
+        ]},
+        { title: "Bières et vins", items: [
+          { name: "Bière artisanale locale (rotatif)", desc: "Demandez à votre serveur la sélection du jour", price: "$9" },
+          { name: "Blanc / Rosé maison", desc: "Demandez à votre serveur", price: "$10" },
+          { name: "Rouge maison", desc: "Demandez à votre serveur", price: "$10" },
+        ]},
+      ]
+    }
+  },
+  falls: {
+    en: {
+      sections: [
+        { title: "Starters", items: [
+          { name: "Steamed Mussels", desc: "White wine, garlic, shallots, grilled bread", price: "$18" },
+          { name: "Fish Tacos (3pc)", desc: "Beer-battered pickerel, slaw, chipotle crema", price: "$19" },
+          { name: "Shrimp Cocktail", desc: "Chilled tiger shrimp, house cocktail sauce, lemon", price: "$17" },
+        ]},
+        { title: "Mains", items: [
+          { name: "Falls Burger", desc: "Double smash, aged cheddar, house pickle, fries", price: "$18" },
+          { name: "Lobster Roll", desc: "Atlantic lobster, tarragon mayo, brioche, chips", price: "$26" },
+          { name: "Fish & Chips", desc: "Beer-battered haddock, hand-cut fries, tartar sauce", price: "$22" },
+          { name: "Grilled Salmon Tacos", desc: "Mango salsa, avocado crema, pickled cabbage", price: "$23" },
+        ]},
+        { title: "Cocktails", items: [
+          { name: "Rideau Mist", desc: "Vodka, green tea, mint, lime", price: "$13" },
+          { name: "Cascade Cooler", desc: "Rum, pineapple, coconut, splash", price: "$14" },
+          { name: "Falls Paloma", desc: "Tequila, grapefruit, agave, salt rim", price: "$14" },
+          { name: "Waterfall Spritz", desc: "Gin, cucumber, tonic, elderflower", price: "$13" },
+        ]},
+        { title: "Beer & Wine", items: [
+          { name: "Local Craft (rotating)", desc: "Ask your server for today's selection", price: "$9" },
+          { name: "House White / Rosé", desc: "Ask your server for current pour", price: "$10" },
+          { name: "House Red", desc: "Ask your server for current pour", price: "$10" },
+        ]},
+      ]
+    },
+    fr: {
+      sections: [
+        { title: "Entrées", items: [
+          { name: "Moules vapeur", desc: "Vin blanc, ail, échalotes, pain grillé", price: "$18" },
+          { name: "Tacos de poisson (3 pièces)", desc: "Doré pané à la bière, chou, crème chipotle", price: "$19" },
+          { name: "Cocktail de crevettes", desc: "Crevettes tigrées froides, sauce cocktail maison, citron", price: "$17" },
+        ]},
+        { title: "Plats principaux", items: [
+          { name: "Burger des Chutes", desc: "Double smash, cheddar vieilli, cornichon maison, frites", price: "$18" },
+          { name: "Rouleau de homard", desc: "Homard de l'Atlantique, mayo à l'estragon, brioche, chips", price: "$26" },
+          { name: "Fish & Chips", desc: "Aiglefin pané à la bière, frites coupées à la main, sauce tartare", price: "$22" },
+          { name: "Tacos de saumon grillé", desc: "Salsa à la mangue, crème d'avocat, chou mariné", price: "$23" },
+        ]},
+        { title: "Cocktails", items: [
+          { name: "Brume de la Rideau", desc: "Vodka, thé vert, menthe, lime", price: "$13" },
+          { name: "Refroidisseur Cascade", desc: "Rhum, ananas, noix de coco", price: "$14" },
+          { name: "Paloma des Chutes", desc: "Tequila, pamplemousse, agave, rebord salé", price: "$14" },
+          { name: "Spritz de la Cascade", desc: "Gin, concombre, tonic, fleur de sureau", price: "$13" },
+        ]},
+        { title: "Bières et vins", items: [
+          { name: "Bière artisanale locale (rotatif)", desc: "Demandez à votre serveur", price: "$9" },
+          { name: "Blanc / Rosé maison", desc: "Demandez à votre serveur", price: "$10" },
+          { name: "Rouge maison", desc: "Demandez à votre serveur", price: "$10" },
+        ]},
+      ]
+    }
+  },
+  hill: {
+    en: {
+      sections: [
+        { title: "Snacks & Shares", items: [
+          { name: "Poutine Classique", desc: "Quebec curds, rich gravy", price: "$14" },
+          { name: "Hill Nachos", desc: "House-made chips, pulled pork, all the fixings", price: "$21" },
+          { name: "Parliament Platter", desc: "Wings, fries, dips — for 4", price: "$38" },
+          { name: "Crispy Brussels", desc: "Bacon lardons, lemon, parmesan, chili flake", price: "$15" },
+        ]},
+        { title: "Mains", items: [
+          { name: "Hill Smash Burger", desc: "Double patty, smoked gouda, caramelized onion, pickle", price: "$19" },
+          { name: "Chicken & Waffles", desc: "Buttermilk fried chicken, maple sriracha, pickled jalapeño", price: "$22" },
+          { name: "Steak Frites", desc: "6oz bavette, house butter, hand-cut fries, aioli", price: "$28" },
+          { name: "Veggie Bowl", desc: "Farro, roasted veg, tahini, pomegranate, herbs", price: "$20" },
+        ]},
+        { title: "Cocktails", items: [
+          { name: "The Hill & Honey", desc: "Bourbon, local honey, thyme, ginger beer", price: "$14" },
+          { name: "Major's Mule", desc: "Vodka, lime, ginger beer, mint", price: "$13" },
+          { name: "Parliament Old Fashioned", desc: "Rye whisky, maple, aromatic bitters, orange", price: "$15" },
+          { name: "Capital Sour", desc: "Bourbon, lemon, aquafaba, angostura", price: "$14" },
+        ]},
+        { title: "Beer & Wine", items: [
+          { name: "Local Craft (rotating)", desc: "Ask your server for today's selection", price: "$9" },
+          { name: "House White / Rosé", desc: "Ask your server for current pour", price: "$10" },
+          { name: "House Red", desc: "Ask your server for current pour", price: "$10" },
+        ]},
+      ]
+    },
+    fr: {
+      sections: [
+        { title: "Grignotines et partage", items: [
+          { name: "Poutine classique", desc: "Fromage en grains du Québec, sauce riche", price: "$14" },
+          { name: "Nachos de la Colline", desc: "Chips maison, porc effiloché, garnitures complètes", price: "$21" },
+          { name: "Plateau du Parlement", desc: "Ailes, frites, trempettes — pour 4 personnes", price: "$38" },
+          { name: "Choux de Bruxelles croustillants", desc: "Lardons, citron, parmesan, flocons de piment", price: "$15" },
+        ]},
+        { title: "Plats principaux", items: [
+          { name: "Burger Smash de la Colline", desc: "Double galette, gouda fumé, oignon caramélisé, cornichon", price: "$19" },
+          { name: "Poulet et gaufres", desc: "Poulet frit au babeurre, érable sriracha, jalapeño mariné", price: "$22" },
+          { name: "Steak frites", desc: "Bavette 6oz, beurre maison, frites coupées à la main, aïoli", price: "$28" },
+          { name: "Bol végétarien", desc: "Farro, légumes rôtis, tahini, grenade, herbes", price: "$20" },
+        ]},
+        { title: "Cocktails", items: [
+          { name: "La Colline et le Miel", desc: "Bourbon, miel local, thym, bière au gingembre", price: "$14" },
+          { name: "Mule du Major", desc: "Vodka, lime, bière au gingembre, menthe", price: "$13" },
+          { name: "Old Fashioned du Parlement", desc: "Whisky de seigle, sirop d'érable, bitters aromatiques, orange", price: "$15" },
+          { name: "Sour Capital", desc: "Bourbon, citron, aquafaba, angostura", price: "$14" },
+        ]},
+        { title: "Bières et vins", items: [
+          { name: "Bière artisanale locale (rotatif)", desc: "Demandez à votre serveur", price: "$9" },
+          { name: "Blanc / Rosé maison", desc: "Demandez à votre serveur", price: "$10" },
+          { name: "Rouge maison", desc: "Demandez à votre serveur", price: "$10" },
+        ]},
+      ]
+    }
+  },
+  island: {
+    en: {
+      sections: [
+        { title: "Raw Bar & Bites", items: [
+          { name: "Oysters on the Half (6pc)", desc: "East Coast, mignonette, lemon", price: "$20" },
+          { name: "Tuna Tartare", desc: "Sesame, avocado, crispy wonton, sriracha mayo", price: "$19" },
+          { name: "Island Shrimp Cocktail", desc: "Chilled tiger shrimp, house cocktail sauce", price: "$18" },
+          { name: "Ceviche of the Day", desc: "Ask your server for today's catch", price: "$17" },
+        ]},
+        { title: "Mains", items: [
+          { name: "Whole Grilled Branzino", desc: "Lemon herb butter, grilled vegetables, chimichurri", price: "$32" },
+          { name: "Island Lobster Roll", desc: "Warm butter-poached lobster, brioche, chips", price: "$28" },
+          { name: "Grilled Octopus", desc: "Smoked paprika, fingerling potato, salsa verde", price: "$27" },
+          { name: "Island Fish Sandwich", desc: "Blackened mahi, slaw, avocado, brioche", price: "$22" },
+        ]},
+        { title: "Cocktails", items: [
+          { name: "Nepean Negroni", desc: "Gin, Campari, sweet vermouth, orange", price: "$15" },
+          { name: "Island Spritz", desc: "Aperol, Prosecco, soda, blood orange", price: "$13" },
+          { name: "Dark & Stormy Island", desc: "Dark rum, ginger beer, lime, angostura", price: "$13" },
+          { name: "The Horizon", desc: "Tequila, blue curaçao, lime, salt rim", price: "$14" },
+        ]},
+        { title: "Beer & Wine", items: [
+          { name: "Local Craft (rotating)", desc: "Ask your server for today's selection", price: "$9" },
+          { name: "House White / Rosé", desc: "Ask your server for current pour", price: "$10" },
+          { name: "House Red", desc: "Ask your server for current pour", price: "$10" },
+        ]},
+      ]
+    },
+    fr: {
+      sections: [
+        { title: "Bar à fruits de mer et bouchées", items: [
+          { name: "Huîtres sur coquille (6 pièces)", desc: "Côte Est, mignonette, citron", price: "$20" },
+          { name: "Tartare de thon", desc: "Sésame, avocat, wonton croustillant, mayo sriracha", price: "$19" },
+          { name: "Cocktail de crevettes de l'Île", desc: "Crevettes tigrées froides, sauce cocktail maison", price: "$18" },
+          { name: "Ceviche du jour", desc: "Demandez à votre serveur pour la prise du jour", price: "$17" },
+        ]},
+        { title: "Plats principaux", items: [
+          { name: "Branzino grillé entier", desc: "Beurre aux herbes et citron, légumes grillés, chimichurri", price: "$32" },
+          { name: "Rouleau de homard de l'Île", desc: "Homard poché au beurre chaud, brioche, chips", price: "$28" },
+          { name: "Pieuvre grillée", desc: "Paprika fumé, pommes de terre grenaille, salsa verde", price: "$27" },
+          { name: "Sandwich de poisson de l'Île", desc: "Mahi noirci, chou, avocat, brioche", price: "$22" },
+        ]},
+        { title: "Cocktails", items: [
+          { name: "Negroni Nepean", desc: "Gin, Campari, vermouth doux, orange", price: "$15" },
+          { name: "Spritz de l'Île", desc: "Aperol, Prosecco, eau gazeuse, orange sanguine", price: "$13" },
+          { name: "Dark & Stormy de l'Île", desc: "Rhum brun, bière au gingembre, lime, angostura", price: "$13" },
+          { name: "L'Horizon", desc: "Tequila, curaçao bleu, lime, rebord salé", price: "$14" },
+        ]},
+        { title: "Bières et vins", items: [
+          { name: "Bière artisanale locale (rotatif)", desc: "Demandez à votre serveur", price: "$9" },
+          { name: "Blanc / Rosé maison", desc: "Demandez à votre serveur", price: "$10" },
+          { name: "Rouge maison", desc: "Demandez à votre serveur", price: "$10" },
+        ]},
+      ]
+    }
+  }
+};
+
+// Music schedules per location
+const MUSIC = {
+  gallery: [
+    { day:"Fri", date:"Jun 6", artist:"The Blue Herons", genre:"Blues / Folk", time:"8:00 PM" },
+    { day:"Sat", date:"Jun 7", artist:"Mackenzie Moran Trio", genre:"Jazz / Soul", time:"7:30 PM" },
+    { day:"Fri", date:"Jun 13", artist:"River Road", genre:"Country / Americana", time:"8:00 PM" },
+    { day:"Sat", date:"Jun 14", artist:"Club Soda Collective", genre:"Funk / R&B", time:"9:00 PM" },
+    { day:"Sun", date:"Jun 15", artist:"Sunday Sessions (Open Mic)", genre:"Acoustic / Various", time:"3:00 PM" },
+    { day:"Fri", date:"Jun 20", artist:"The Sable Brothers", genre:"Indie Folk", time:"8:00 PM" },
+    { day:"Sat", date:"Jun 21", artist:"Neon Palms", genre:"Pop / Soul", time:"9:00 PM" },
+  ],
+  falls: [
+    { day:"Thu", date:"Jun 5", artist:"The Rideau Kings", genre:"Classic Rock", time:"7:00 PM" },
+    { day:"Sat", date:"Jun 7", artist:"Lena Voss Band", genre:"Indie / Pop", time:"8:30 PM" },
+    { day:"Fri", date:"Jun 13", artist:"Waterfall Jazz Project", genre:"Contemporary Jazz", time:"7:30 PM" },
+    { day:"Sat", date:"Jun 21", artist:"Eastern Front", genre:"Blues Rock", time:"9:00 PM" },
+    { day:"Fri", date:"Jun 27", artist:"The Current", genre:"Rock / Alternative", time:"8:00 PM" },
+  ],
+  hill: [
+    { day:"Fri", date:"Jun 6", artist:"The Parlour", genre:"Swing / Jazz", time:"8:00 PM" },
+    { day:"Sat", date:"Jun 14", artist:"Capital City Brass", genre:"Brass Band / Funk", time:"7:00 PM" },
+    { day:"Thu", date:"Jun 19", artist:"The Hillside Session", genre:"Acoustic Folk", time:"6:30 PM" },
+    { day:"Sat", date:"Jun 28", artist:"Disco Inferno Revue", genre:"Disco / Dance", time:"9:00 PM" },
+  ],
+  island: [
+    { day:"Sat", date:"Jun 7", artist:"River Nomads", genre:"World / Reggae", time:"7:00 PM" },
+    { day:"Sun", date:"Jun 8", artist:"Sunday Brunch Jazz", genre:"Jazz Quartet", time:"11:00 AM" },
+    { day:"Fri", date:"Jun 20", artist:"Island Nights DJs", genre:"Electronic / Chill", time:"9:00 PM" },
+    { day:"Sat", date:"Jun 28", artist:"The Nepean Sessions", genre:"Indie / Ambient", time:"8:00 PM" },
+  ]
+};
+
+const LOCATION_INFO = {
+  gallery: {
+    img: "https://static.wixstatic.com/media/a88227_d331ffd34fdc4eec800b2cf02ad50861~mv2.jpg/v1/fill/w_1440,h_879,al_c,q_85,enc_avif,quality_auto/a88227_d331ffd34fdc4eec800b2cf02ad50861~mv2.jpg",
+    img2: "https://static.wixstatic.com/media/a88227_322949a436ea4c9cb92bb0a1cf9d1bff~mv2.jpg/v1/fill/w_752,h_1786,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a88227_322949a436ea4c9cb92bb0a1cf9d1bff~mv2.jpg",
+    img3: "https://static.wixstatic.com/media/a88227_b995ca7c9ceb4a73bee36324c40aa6c7~mv2.jpg/v1/fill/w_770,h_1786,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a88227_b995ca7c9ceb4a73bee36324c40aa6c7~mv2.jpg",
+    addr: "380 Sussex Dr., Ottawa, ON",
+    phone: "613-555-0101",
+    email: "gallery@thetavern.ca",
+    maps: "https://maps.google.com/?q=380+Sussex+Dr+Ottawa",
+    reserve: "https://www.tbdine.com/book/restaurant/the-tavern-at-the-gallery?idApp=69897&language=en-us",
+    facebook: "https://www.facebook.com/tavernatthegallery",
+    instagram: "https://www.instagram.com/tavernatthegallery/",
+    color: "#2d4a35",
+    tag_en: "National Gallery Views · Byward Market",
+    tag_fr: "Vue sur la Galerie nationale · Marché By",
+    hours: { weekday: "11am – 11pm", fri: "11am – 1am", sat: "10am – 1am", sun: "10am – 10pm" },
+    key: "gallery",
+  },
+  falls: {
+    img: "https://static.wixstatic.com/media/a88227_2e4af2f3dc8d4ff6933c25cec2f4c47e~mv2.jpg/v1/fill/w_2534,h_1546,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a88227_2e4af2f3dc8d4ff6933c25cec2f4c47e~mv2.jpg",
+    img2: "https://static.wixstatic.com/media/a88227_22fd1797e7de4d46b2c1fe428705c268~mv2.jpg/v1/fill/w_752,h_1992,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a88227_22fd1797e7de4d46b2c1fe428705c268~mv2.jpg",
+    img3: "https://static.wixstatic.com/media/a88227_c9f0c3a887ce4e58bb4f022b0087fbf4~mv2.jpeg/v1/fill/w_371,h_960,al_c,q_80,enc_avif,quality_auto/a88227_c9f0c3a887ce4e58bb4f022b0087fbf4~mv2.jpeg",
+    addr: "Rideau Falls Park, Ottawa, ON",
+    phone: "613-555-0202",
+    email: "falls@thetavern.ca",
+    maps: "https://maps.google.com/?q=Rideau+Falls+Park+Ottawa",
+    reserve: "https://www.tbdine.com/book/restaurant/the-tavern-at-the-gallery?idApp=69897&language=en-us",
+    facebook: "https://www.facebook.com/tavernatthegallery",
+    instagram: "https://www.instagram.com/tavernatthegallery/",
+    color: "#1a3a5c",
+    tag_en: "Waterfront · Rideau Falls Views",
+    tag_fr: "Bord de l'eau · Vue sur les Chutes Rideau",
+    hours: { weekday: "11am – 11pm", fri: "11am – 1am", sat: "10am – 1am", sun: "10am – 10pm" },
+    key: "falls",
+  },
+  hill: {
+    img: "https://static.wixstatic.com/media/a88227_f4831e7cc95c47a2b553f9fd936dc614~mv2.jpg/v1/fill/w_1080,h_659,al_c,q_85,enc_avif,quality_auto/a88227_f4831e7cc95c47a2b553f9fd936dc614~mv2.jpg",
+    img2: "https://static.wixstatic.com/media/a88227_fa970914314f4e6289958379f3a049b3~mv2.jpg/v1/fill/w_526,h_1351,al_c,q_85,enc_avif,quality_auto/a88227_fa970914314f4e6289958379f3a049b3~mv2.jpg",
+    img3: "https://static.wixstatic.com/media/a88227_407cdc6d5b7844ffa2a65eccdaca21b0~mv2.jpg/v1/fill/w_716,h_1795,al_c,q_85,enc_avif,quality_auto/a88227_407cdc6d5b7844ffa2a65eccdaca21b0~mv2.jpg",
+    addr: "Major's Hill Park, Ottawa, ON",
+    phone: "613-555-0303",
+    email: "hill@thetavern.ca",
+    maps: "https://maps.google.com/?q=Major's+Hill+Park+Ottawa",
+    reserve: "https://www.tbdine.com/book/restaurant/the-tavern-at-the-gallery?idApp=69897&language=en-us",
+    facebook: "https://www.facebook.com/tavernatthegallery",
+    instagram: "https://www.instagram.com/tavernatthegallery/",
+    color: "#4a3520",
+    tag_en: "Parliament Views · Major's Hill Park",
+    tag_fr: "Vue sur le Parlement · Parc Major's Hill",
+    hours: { weekday: "12pm – 11pm", fri: "12pm – 1am", sat: "11am – 1am", sun: "11am – 10pm" },
+    key: "hill",
+  },
+  island: {
+    img: "https://static.wixstatic.com/media/1e1b17_035df277dad2454ba763f2b5c3da1b03~mv2.jpg/v1/fill/w_1630,h_994,al_c,q_85,enc_avif,quality_auto/1e1b17_035df277dad2454ba763f2b5c3da1b03~mv2.jpg",
+    img2: "https://static.wixstatic.com/media/1e1b17_b797790917834c578b818aa1adf9c598f000.jpg/v1/fill/w_376,h_965,al_c,q_85,usm_0.33_1.00_0.00,enc_avif,quality_auto/1e1b17_b797790917834c578b818aa1adf9c598f000.jpg",
+    img3: "https://static.wixstatic.com/media/1e1b17_45a710737f9d432e85c05ae7e6dcbf32f000.jpg/v1/fill/w_376,h_575,al_c,q_80,usm_0.33_1.00_0.00,enc_avif,quality_auto/1e1b17_45a710737f9d432e85c05ae7e6dcbf32f000.jpg",
+    addr: "Nepean Point, Ottawa, ON",
+    phone: "613-555-0404",
+    email: "island@thetavern.ca",
+    maps: "https://maps.google.com/?q=Nepean+Point+Ottawa",
+    reserve: "https://www.tbdine.com/book/restaurant/the-tavern-at-the-gallery?idApp=69897&language=en-us",
+    facebook: "https://www.facebook.com/tavernatthegallery",
+    instagram: "https://www.instagram.com/tavernatthegallery/",
+    color: "#2a4040",
+    tag_en: "River Views · Gatineau Hills",
+    tag_fr: "Vue sur la rivière · Collines Gatineau",
+    hours: { weekday: "12pm – 11pm", fri: "12pm – 1am", sat: "11am – 1am", sun: "11am – 10pm" },
+    key: "island",
+  }
+};
+
+
+// ── INIT ─────────────────────────────────────────────────────
+let currentLang = localStorage.getItem('tavern-lang') || 'en';
+let currentMenuLang = currentLang;
+let menuData = JSON.parse(JSON.stringify(MENUS[LOC_KEY])); // mutable copy
+
+function init() {
+  const info = LOCATION_INFO[LOC_KEY];
+  // Hero
+  document.getElementById('hero-bg').style.backgroundImage = `url('${info.img}')`;
+  // Info bar
+  document.getElementById('loc-addr').textContent = info.addr;
+  document.getElementById('loc-addr-link').href = info.maps;
+  document.getElementById('loc-phone').textContent = info.phone;
+  document.getElementById('loc-phone-link').href = 'tel:' + info.phone.replace(/[^0-9]/g,'');
+  document.getElementById('loc-email').textContent = info.email;
+  document.getElementById('loc-email-link').href = 'mailto:' + info.email;
+  // Quick links
+  document.getElementById('ql-reserve').href = info.reserve;
+  document.getElementById('ql-maps').href = info.maps;
+  document.getElementById('ql-insta').href = info.instagram;
+  // Footer
+  document.getElementById('f-facebook').href = info.facebook;
+  document.getElementById('f-instagram').href = info.instagram;
+  // Reserve links
+  document.querySelectorAll('a[href="RESERVE_URL"]').forEach(a => a.href = info.reserve);
+  // About photos
+  document.getElementById('about-img1').src = info.img2;
+  document.getElementById('about-img2').src = info.img3;
+  document.getElementById('about-img3').src = info.img;
+  // Admin hours pre-fill
+  document.getElementById('ah-wkday').value = info.hours.weekday;
+  document.getElementById('ah-fri').value = info.hours.fri;
+  document.getElementById('ah-sat').value = info.hours.sat;
+  document.getElementById('ah-sun').value = info.hours.sun;
+  // Build music
+  buildMusic();
+  // Build both menus
+  buildMenu('en');
+  buildMenu('fr');
+  // Apply language
+  applyLang(currentLang);
+  // Hours table
+  buildHoursTable(info.hours);
+}
+
+function applyLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('tavern-lang', lang);
+  document.documentElement.lang = lang;
+  const L = LANG[lang];
+  const info = LOCATION_INFO[LOC_KEY];
+  // i18n elements
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (L[key] !== undefined) el.innerHTML = L[key];
+  });
+  // Dynamic content
+  document.getElementById('loc-eyebrow').textContent = lang === 'en' ? info.tag_en : info.tag_fr;
+  const names = {gallery:L.gallery_name, falls:L.falls_name, hill:L.hill_name, island:L.island_name};
+  const parts = names[LOC_KEY].split(' ');
+  const lastName = parts.slice(2).join(' ');
+  document.getElementById('loc-title').innerHTML = parts.slice(0,2).join(' ')+'<br><em>'+lastName+'</em>';
+  document.getElementById('loc-tag').textContent = lang === 'en' ? info.tag_en : info.tag_fr;
+  // About text
+  const aboutTexts = {
+    gallery: {
+      en: ["Ottawa's premier National Gallery patio — nestled beside one of Canada's greatest cultural institutions, with views of the iconic spider sculpture and the Rideau River.", "Come for the art. Stay for the drinks and the company. Tavern at the Gallery is where the Byward Market meets fine patio culture."],
+      fr: ["La terrasse principale de la Galerie nationale d'Ottawa — nichée à côté de l'une des plus grandes institutions culturelles du Canada, avec vue sur la sculpture iconique de l'araignée et la rivière Rideau.", "Venez pour l'art. Restez pour les boissons et la compagnie. La Taverne à la Galerie, c'est là où le Marché By rencontre la culture de terrasse raffinée."]
+    },
+    falls: {
+      en: ["Perched at the edge of Rideau Falls, this is Ottawa's most dramatic outdoor patio. The sound of cascading water is the constant backdrop to every great evening.", "Order something cold, lean back, and let the falls do the talking. There's no better seat in Ottawa."],
+      fr: ["Perchée au bord des Chutes Rideau, voici la terrasse extérieure la plus dramatique d'Ottawa. Le son de l'eau en cascade est le fond sonore constant de chaque belle soirée.", "Commandez quelque chose de frais, détendez-vous et laissez les chutes parler. Il n'y a pas de meilleure place à Ottawa."]
+    },
+    hill: {
+      en: ["Atop Major's Hill Park, this location commands some of the most iconic views in all of Canada — the Peace Tower, the Ottawa River, and the Gatineau Hills in the distance.", "Whether you're catching a post-work sunset or a Saturday night show, Tavern on the Hill always delivers the goods."],
+      fr: ["Au sommet du parc Major's Hill, cet emplacement offre certaines des vues les plus emblématiques du Canada — la Tour de la Paix, la rivière des Outaouais et les collines de la Gatineau au loin.", "Que vous profitiez d'un coucher de soleil après le travail ou d'un spectacle le samedi soir, la Taverne sur la Colline livre toujours la marchandise."]
+    },
+    island: {
+      en: ["The most serene of our four locations, Tavern on the Island sits at Nepean Point with unobstructed views of the Ottawa River, Gatineau Hills, and the Canadian Museum of History.", "Come early for brunch jazz, stay for sunset cocktails. This is Ottawa's best-kept patio secret — until now."],
+      fr: ["Le plus serein de nos quatre emplacements, la Taverne sur l'Île est située à la Pointe Nepean avec des vues dégagées sur la rivière des Outaouais, les collines de la Gatineau et le Musée canadien de l'histoire.", "Venez tôt pour le jazz du brunch, restez pour les cocktails au coucher du soleil. C'est le secret de terrasse le mieux gardé d'Ottawa — jusqu'à maintenant."]
+    }
+  };
+  document.getElementById('about-title').textContent = lang === 'en' ? LANG.en.about_title : LANG.fr.about_title;
+  if(aboutTexts[LOC_KEY]) {
+    document.getElementById('about-body-1').textContent = aboutTexts[LOC_KEY][lang][0];
+    document.getElementById('about-body-2').textContent = aboutTexts[LOC_KEY][lang][1];
+  }
+  // Events perks
+  const perksEl = document.getElementById('events-perks');
+  perksEl.innerHTML = L.events_perks.map(p => `<div class="events-perk"><span class="perk-dot"></span>${p}</div>`).join('');
+  // Hours note
+  buildHoursTable(LOCATION_INFO[LOC_KEY].hours);
+  // Lang buttons sync
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    b.classList.toggle('active', b.textContent === lang.toUpperCase());
+  });
+  // Page title & meta
+  const locName = lang === 'en' ? LANG.en[LOC_KEY+'_name'] : LANG.fr[LOC_KEY+'_name'];
+  document.getElementById('page-title').textContent = locName + ' | The Tavern Group Ottawa';
+  document.getElementById('page-desc').content = lang === 'en'
+    ? `${locName} — Ottawa patio bar with live music, seasonal menus and stunning views. A drink with a view.`
+    : `${locName} — Bar-terrasse à Ottawa avec musique en direct, menus saisonniers et vues magnifiques.`;
+}
+
+function setLang(lang, btn) {
+  applyLang(lang);
+  // Sync menu lang tab too
+  switchMenuLang(lang, document.querySelector(`.menu-lang-tab[onclick*="'${lang}'"]`));
+}
+
+function buildHoursTable(h) {
+  const L = LANG[currentLang];
+  document.getElementById('hours-table').innerHTML = `
+    <tr><td>${L.mon_thu}</td><td>${h.weekday}</td></tr>
+    <tr><td>${L.fri}</td><td>${h.fri}</td></tr>
+    <tr><td>${L.sat}</td><td>${h.sat}</td></tr>
+    <tr><td>${L.sun}</td><td>${h.sun}</td></tr>
+  `;
+}
+
+function buildMenu(lang) {
+  const sections = menuData[lang].sections;
+  const container = document.getElementById('menu-'+lang);
+  container.innerHTML = '<div class="menu-sections">' + sections.map(sec => `
+    <div class="menu-section" data-section="${sec.title}">
+      <div class="menu-section-title">${sec.title}</div>
+      ${sec.items.map(item => `
+        <div class="menu-item ${item.special ? 'editable-special' : ''}">
+          <div class="menu-item-info">
+            <span class="menu-item-name">${item.name}${item.special ? '<span class="special-badge">Special</span>' : ''}</span>
+            <span class="menu-item-desc">${item.desc}</span>
+          </div>
+          <span class="menu-item-price">${item.price}</span>
+        </div>`).join('')}
+    </div>`).join('')+'</div>';
+}
+
+function buildMusic() {
+  const shows = MUSIC[LOC_KEY];
+  document.getElementById('music-list').innerHTML = shows.map(s => `
+    <div class="schedule-item">
+      <div class="schedule-date"><span class="day">${s.day}</span>${s.date}</div>
+      <div><div class="schedule-artist">${s.artist}</div><div class="schedule-genre">${s.genre}</div></div>
+      <div class="schedule-time">${s.time}</div>
+    </div>`).join('');
+}
+
+function switchMenuLang(lang, btn) {
+  currentMenuLang = lang;
+  document.querySelectorAll('.menu-body').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.menu-lang-tab').forEach(b => b.classList.remove('active'));
+  document.getElementById('menu-'+lang).classList.add('active');
+  if(btn) btn.classList.add('active');
+}
+
+// ── NAV / SCROLL ─────────────────────────────────────────────
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
+});
+function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('open'); }
+
+// ── ADMIN ─────────────────────────────────────────────────────
+function openAdmin()  { document.getElementById('admin-panel').classList.add('open'); }
+function closeAdmin() { document.getElementById('admin-panel').classList.remove('open'); }
+document.getElementById('admin-panel').addEventListener('click', e => { if(e.target===document.getElementById('admin-panel')) closeAdmin(); });
+function switchAdminTab(id, btn) {
+  document.querySelectorAll('.admin-pane').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+
+function saveHours() {
+  const info = LOCATION_INFO[LOC_KEY];
+  info.hours.weekday = document.getElementById('ah-wkday').value;
+  info.hours.fri     = document.getElementById('ah-fri').value;
+  info.hours.sat     = document.getElementById('ah-sat').value;
+  info.hours.sun     = document.getElementById('ah-sun').value;
+  buildHoursTable(info.hours);
+  const m = document.getElementById('ah-msg');
+  m.textContent = '✓ Hours updated'; setTimeout(()=>m.textContent='',3000);
+}
+
+function addSpecial() {
+  const sectionEn = document.getElementById('as-section').value;
+  const nameEn = document.getElementById('as-name-en').value;
+  const nameFr = document.getElementById('as-name-fr').value || nameEn;
+  const descEn = document.getElementById('as-desc-en').value;
+  const descFr = document.getElementById('as-desc-fr').value || descEn;
+  const price  = document.getElementById('as-price').value;
+  if(!nameEn||!price) return alert('Fill in name and price');
+  ['en','fr'].forEach(lang => {
+    const sec = menuData[lang].sections.find(s=>s.title.toLowerCase().includes(sectionEn.toLowerCase()));
+    const nameToUse = lang==='en'?nameEn:nameFr;
+    const descToUse = lang==='en'?descEn:descFr;
+    if(sec) sec.items.unshift({name:nameToUse,desc:descToUse,price,special:true});
+    else menuData[lang].sections.push({title:sectionEn+' Special',items:[{name:nameToUse,desc:descToUse,price,special:true}]});
+    buildMenu(lang);
+  });
+  closeAdmin();
+}
+
+function addShow() {
+  const show = {
+    day:document.getElementById('am-day').value,
+    date:document.getElementById('am-date').value,
+    artist:document.getElementById('am-artist').value,
+    genre:document.getElementById('am-genre').value,
+    time:document.getElementById('am-time').value,
+  };
+  if(!show.artist||!show.date) return alert('Fill in artist and date');
+  MUSIC[LOC_KEY].push(show);
+  buildMusic();
+  closeAdmin();
+}
+
+function saveWeather() { closeAdmin(); }
+
+function saveMenuItem() {
+  const lang = document.getElementById('ame-lang').value;
+  const secTitle = document.getElementById('ame-section').value;
+  const name  = document.getElementById('ame-name').value;
+  const price = document.getElementById('ame-price').value;
+  const desc  = document.getElementById('ame-desc').value;
+  if(!name||!secTitle) return alert('Fill in section and item name');
+  let sec = menuData[lang].sections.find(s=>s.title.toLowerCase()===secTitle.toLowerCase());
+  if(!sec){ sec={title:secTitle,items:[]}; menuData[lang].sections.push(sec); }
+  const existing = sec.items.findIndex(i=>i.name.toLowerCase()===name.toLowerCase());
+  if(existing>=0) sec.items[existing]={name,desc,price};
+  else sec.items.push({name,desc,price});
+  buildMenu(lang);
+  closeAdmin();
+}
+
+function submitForm(e) {
+  e.preventDefault();
+  document.getElementById('event-form').style.display = 'none';
+  document.getElementById('form-success').style.display = 'block';
+}
+
+// START
+// Load schedule from Google Sheet if URL is saved
+const _sheetUrl = localStorage.getItem('tv-sheet-url') || '';
+async function loadLocSchedule(){
+  if(_sheetUrl && _sheetUrl !== 'YOUR_GOOGLE_SHEET_CSV_URL_HERE'){
+    try {
+      const res = await fetch(_sheetUrl);
+      const csv = await res.text();
+      const rows = csv.trim().split('\n').slice(1);
+      const shows = rows.map(row=>{
+        const cols = row.split(',').map(c=>c.replace(/^"|"$/g,'').trim());
+        return {loc:cols[0],day:cols[1],date:cols[2],artist:cols[3],genre:cols[4],time:cols[5]};
+      }).filter(s=>s.artist && s.loc===LOC_KEY);
+      if(shows.length) { MUSIC[LOC_KEY] = shows; buildMusic(); }
+    } catch(e) { /* use fallback */ }
+  }
+}
+init();
+loadLocSchedule();
+</script>
+</body>
+</html>
