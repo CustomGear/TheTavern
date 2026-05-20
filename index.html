@@ -227,8 +227,11 @@ img{max-width:100%;display:block}a{color:inherit;text-decoration:none}ul{list-st
 .loc-grid{display:grid;grid-template-columns:repeat(2,1fr);
   grid-template-rows:repeat(2,clamp(280px,38vw,480px));gap:3px;
   background:var(--ink)}
-@media(max-width:700px){.loc-grid{grid-template-columns:1fr;
-  grid-template-rows:repeat(4,280px)}}
+@media(max-width:700px){
+  .loc-grid{grid-template-columns:1fr;grid-template-rows:repeat(4,280px)}
+  .loc-card:nth-child(1),.loc-card:nth-child(2),
+  .loc-card:nth-child(3),.loc-card:nth-child(4){grid-column:1!important;grid-row:auto!important}
+}
 .loc-card{position:relative;overflow:hidden;cursor:pointer;background:var(--ink)}
 /* Stagger sizing — card 0 & 3 are wider */
 .loc-card:nth-child(1){grid-column:1;grid-row:1}
@@ -689,11 +692,11 @@ footer{background:var(--ink);border-top:1px solid var(--gold-line);
 /* Strip restructure */
 #strip { padding: 0 !important; }
 .strip-inner {
-  display: flex; align-items: stretch; min-height: 32px;
+  display: flex; align-items: stretch; min-height: 46px;
 }
 .strip-center {
   flex: 1; display: flex; align-items: center; justify-content: center;
-  gap: .55rem; padding: .46rem 1rem; font-size: .62rem;
+  gap: .6rem; padding: .5rem 1rem; font-size: .66rem;
   letter-spacing: .14em; text-transform: uppercase;
   color: var(--sand); text-align: center; flex-wrap: wrap;
 }
@@ -702,7 +705,7 @@ footer{background:var(--ink);border-top:1px solid var(--gold-line);
 /* Weather button */
 #wx-btn {
   display: flex; align-items: center; gap: .5rem;
-  padding: 0 1.2rem; min-height: 32px;
+  padding: 0 1.2rem; min-height: 46px;
   background: rgba(196,135,58,.1);
   border: none; border-left: 1px solid rgba(196,135,58,.2);
   cursor: pointer; color: var(--sand);
@@ -719,7 +722,7 @@ footer{background:var(--ink);border-top:1px solid var(--gold-line);
 
 /* Flyout panel — desktop dropdown */
 #wx-panel {
-  position: fixed; top: 32px; right: 0;
+  position: fixed; top: 46px; right: 0;
   width: 318px; max-width: calc(100vw - 16px);
   background: var(--ink,#111009);
   border: 1px solid rgba(196,135,58,.22); border-top: none;
@@ -849,6 +852,11 @@ footer{background:var(--ink);border-top:1px solid var(--gold-line);
   margin-bottom: 1px;
 }
 .has-drop:hover > a .nav-caret { transform: rotate(180deg); opacity: .7; }
+/* Invisible hover bridge so mouse crossing the gap doesn't close dropdown */
+.has-drop::after {
+  content: ''; position: absolute; top: 100%; left: -12px; right: -12px;
+  height: 16px; /* matches the 14px gap + buffer */
+}
 /* Hide desktop EN/FR from nav — it lives in the strip now */
 @media (min-width: 1001px) { #lt-main { display: none; } }
 
@@ -1446,7 +1454,7 @@ const LOCATION_INFO = {
     phone: '613-555-0202',
     email: 'falls@thetavern.ca',
     maps:  'https://maps.google.com/?q=Rideau+Falls+Park+Ottawa',
-    reserve: 'https://www.tbdine.com/book/restaurant/the-tavern-at-the-gallery?idApp=69897&language=en-us',
+    reserve: '',
     facebook:  'https://www.facebook.com/tavernatthegallery',
     instagram: 'https://www.instagram.com/tavernatthegallery/',
     accentColor: '#1a3a5c',
@@ -1466,7 +1474,7 @@ const LOCATION_INFO = {
     phone: '613-555-0303',
     email: 'hill@thetavern.ca',
     maps:  "https://maps.google.com/?q=Major's+Hill+Park+Ottawa",
-    reserve: 'https://www.tbdine.com/book/restaurant/the-tavern-at-the-gallery?idApp=69897&language=en-us',
+    reserve: '',
     facebook:  'https://www.facebook.com/tavernatthegallery',
     instagram: 'https://www.instagram.com/tavernatthegallery/',
     accentColor: '#4a3520',
@@ -1486,7 +1494,7 @@ const LOCATION_INFO = {
     phone: '613-555-0404',
     email: 'island@thetavern.ca',
     maps:  'https://maps.google.com/?q=Nepean+Point+Ottawa',
-    reserve: 'https://www.tbdine.com/book/restaurant/the-tavern-at-the-gallery?idApp=69897&language=en-us',
+    reserve: '',
     facebook:  'https://www.facebook.com/tavernatthegallery',
     instagram: 'https://www.instagram.com/tavernatthegallery/',
     accentColor: '#2a4040',
@@ -1869,7 +1877,7 @@ function setLang(l){ lang=l; localStorage.setItem('tv-lang',l); applyLang(); }
 
 // ── Nav ─────────────────────────────────────────────────
 window.addEventListener('scroll',()=>{
-  document.getElementById('nav').classList.toggle('stuck', window.scrollY>28);
+  document.getElementById('nav').classList.toggle('stuck', window.scrollY>44);
 });
 function toggleMob(){ document.getElementById('mob').classList.toggle('open'); }
 function closeMob(){  document.getElementById('mob').classList.remove('open'); }
@@ -2047,7 +2055,7 @@ function buildLocGrid(){
           <div class="lc-hover-pills">
             <a class="lc-pill primary" href="${k}.html" onclick="event.stopPropagation()">${ICONS.reserve||''}${tl('modal_visit')}</a>
             <a class="lc-pill" href="${k}.html#loc-menu" onclick="event.stopPropagation()">${ICONS.fork||''}${tl('nav_menus')}</a>
-            <a class="lc-pill" href="${L.reserve}" target="_blank" onclick="event.stopPropagation()">${ICONS.reserve||''}${tl('modal_reserve')}</a>
+            ${L.reserve ? `<a class="lc-pill" href="${L.reserve}" target="_blank" onclick="event.stopPropagation()">${ICONS.reserve||''}${tl('modal_reserve')}</a>` : ''}
             <a class="lc-pill" href="${L.maps}" target="_blank" onclick="event.stopPropagation()">${ICONS.map||''}${tl('modal_directions')}</a>
           </div>
         </div>
@@ -2186,7 +2194,7 @@ function openModal(k){
   // Actions
   document.getElementById('m-actions').innerHTML = [
     {href:`${k}.html`,      label:tl('modal_visit'),      icon:'arrow_ne',  cls:'primary'},
-    {href:L.reserve,        label:tl('modal_reserve'),    icon:'reserve',   cls:''},
+    ...(L.reserve ? [{href:L.reserve, label:tl('modal_reserve'), icon:'reserve', cls:''}] : []),
     {href:L.maps,           label:tl('modal_directions'), icon:'map',       cls:'',ext:true},
     {href:`${k}.html#loc-music`, label:tl('nav_music'),  icon:'music',     cls:''},
     {href:L.instagram,      label:'Instagram',            icon:'instagram', cls:'',ext:true},
@@ -2619,7 +2627,7 @@ attachReveal();
   window.addEventListener('scroll', () => {
     const panel = document.getElementById('wx-panel');
     if(!panel || window.innerWidth <= 640) return;
-    panel.style.top = (window.scrollY > 28) ? '0' : '32px';
+    panel.style.top = (window.scrollY > 44) ? '0' : '46px';
   });
 
   // ── Init strip ────────────────────────────────────────────────
