@@ -470,7 +470,6 @@
   height: 16px; /* matches the 14px gap + buffer */
 }
 /* Hide desktop EN/FR from nav — it lives in the strip now */
-@media (min-width: 1001px) { #lt-main { display: none; } }
 
 /* ── MOBILE ──────────────────────────────────────────── */
 @media (max-width: 640px) {
@@ -544,7 +543,6 @@
       <li><a href="#loc-music" data-i18n="nav_music">Live Music</a></li>
       <li><a href="#loc-events" data-i18n="nav_events">Host an Event</a></li>
       <li><a href="index.html#gift" data-i18n="nav_gift">Gift Cards</a></li>
-      <li><a href="RESERVE_URL" target="_blank" class="nav-cta-link" data-i18n="nav_reserve">Reserve</a></li>
     </ul>
     <div style="display:flex;align-items:center;gap:.9rem">
       <div class="lt" id="lt-main">
@@ -575,9 +573,6 @@
     <a href="#loc-music"  onclick="closeMob()" data-i18n="nav_music">Live Music</a>
     <a href="#loc-events" onclick="closeMob()" data-i18n="nav_events">Host an Event</a>
     <a href="index.html#gift" onclick="closeMob()" data-i18n="nav_gift">Gift Cards</a>
-  </div>
-  <div class="mob-cta-zone">
-    <a href="RESERVE_URL" target="_blank" class="mob-cta" onclick="closeMob()" data-i18n="nav_reserve">Reserve a Table</a>
   </div>
   <div class="mob-ft">
     <div class="lt">

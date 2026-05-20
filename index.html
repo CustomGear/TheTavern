@@ -884,8 +884,6 @@ footer{background:var(--ink);border-top:1px solid var(--gold-line);
   content: ''; position: absolute; top: 100%; left: -12px; right: -12px;
   height: 16px; /* matches the 14px gap + buffer */
 }
-/* Hide desktop EN/FR from nav — it lives in the strip now */
-@media (min-width: 1001px) { #lt-main { display: none; } }
 
 /* ── MOBILE ──────────────────────────────────────────── */
 @media (max-width: 640px) {
@@ -958,7 +956,6 @@ footer{background:var(--ink);border-top:1px solid var(--gold-line);
       <li><a href="#menus"     data-k="nav_menus">Menus</a></li>
       <li><a href="#events"    data-k="nav_events">Host an Event</a></li>
       <li><a href="#gift"      data-k="nav_gift">Gift Cards</a></li>
-      <li><a href="https://www.tbdine.com/book/restaurant/the-tavern-at-the-gallery?idApp=69897" target="_blank" class="nav-cta-link" data-k="nav_reserve">Reserve</a></li>
     </ul>
     <div style="display:flex;align-items:center;gap:.9rem">
       <div class="lt" id="lt-main">
@@ -989,9 +986,6 @@ footer{background:var(--ink);border-top:1px solid var(--gold-line);
     <a href="#menus"  onclick="closeMob()" data-k="nav_menus">Menus</a>
     <a href="#events" onclick="closeMob()" data-k="nav_events">Host an Event</a>
     <a href="#gift"   onclick="closeMob()" data-k="nav_gift">Gift Cards</a>
-  </div>
-  <div class="mob-cta-zone">
-    <a href="https://www.tbdine.com/book/restaurant/the-tavern-at-the-gallery?idApp=69897" target="_blank" class="mob-cta" onclick="closeMob()" data-k="nav_reserve">Reserve a Table</a>
   </div>
   <div class="mob-ft">
     <div class="lt">
