@@ -496,6 +496,29 @@
   }
   #wx-panel.open { transform: translateY(0) !important; }
 
+
+/* ─── GOOGLE REVIEWS ─────────────────────────────────────────── */
+#loc-reviews{padding:5rem 0;background:var(--bg)}
+.reviews-header{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;margin-bottom:2.5rem}
+.reviews-badge{display:flex;align-items:center;gap:1.2rem}
+.reviews-score{font-family:var(--font-d);font-size:4rem;line-height:1;color:var(--cream);font-weight:600}
+.reviews-meta{display:flex;flex-direction:column;gap:.3rem}
+.reviews-stars{color:#fbbc04;font-size:1.2rem;letter-spacing:.08em}
+.reviews-count{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(244,237,224,.45)}
+.reviews-google-link{display:flex;align-items:center;gap:.5rem;font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);text-decoration:none;transition:opacity .2s}
+.reviews-google-link:hover{opacity:.75}
+.reviews-google-link svg{width:16px;height:16px;flex-shrink:0}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+@media(max-width:900px){.reviews-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:580px){.reviews-grid{grid-template-columns:1fr}}
+.review-card{background:rgba(255,255,255,.03);border:1px solid rgba(196,135,58,.14);padding:1.5rem;border-radius:3px;display:flex;flex-direction:column;gap:1rem;transition:border-color .2s}
+.review-card:hover{border-color:rgba(196,135,58,.32)}
+.review-card-stars{color:#fbbc04;font-size:.9rem;letter-spacing:.06em}
+.review-card-text{font-family:var(--font-s);font-style:italic;color:rgba(244,237,224,.7);font-size:.88rem;line-height:1.65;flex:1}
+.review-card-footer{display:flex;align-items:center;justify-content:space-between;gap:.5rem}
+.review-card-author{font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+.review-card-date{font-size:.65rem;color:rgba(244,237,224,.3);letter-spacing:.06em}
+
 </style>
 </head>
 <body>
@@ -611,7 +634,7 @@
   <div class="container">
     <div class="info-bar-inner">
       <div class="info-item"><span class="info-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></span><a id="loc-addr-link" href="#" target="_blank"><span id="loc-addr"></span></a></div>
-      <div class="info-item"><span class="info-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 013.18 2a2 2 0 012 1.81v3l1.5 2.5L13 10l.42-.08z"/></svg></span><a id="loc-phone-link" href="#"><span id="loc-phone"></span></a></div>
+      <div class="info-item"><span class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 010.21 1.18 2 2 0 012 1h3a2 2 0 012 1.72 12.05 12.05 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.05 12.05 0 002.81.7A2 2 0 0122 16.92z"/></svg></span><a id="loc-phone-link" href="#"><span id="loc-phone"></span></a></div>
       <div class="info-item"><span class="info-icon"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg></span><a id="loc-email-link" href="#"><span id="loc-email"></span></a></div>
       <div class="info-item"><span class="info-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span><span data-i18n="open_daily">Open Daily</span>&nbsp;<span data-i18n="weather_perm">*Weather permitting</span></div>
     </div>
@@ -651,6 +674,30 @@
         <div class="about-photo"><img id="about-img3" src="" alt="Location photo"/></div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- GOOGLE REVIEWS -->
+<section id="loc-reviews">
+  <div class="container">
+    <div class="reviews-header">
+      <div>
+        <div class="section-label" data-i18n="reviews_label">Guest Reviews</div>
+        <h2 class="heading-display" data-i18n="reviews_heading">What Our Guests Say</h2>
+      </div>
+      <div class="reviews-badge">
+        <div class="reviews-score">4.8</div>
+        <div class="reviews-meta">
+          <div class="reviews-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="reviews-count" data-i18n="reviews_count">Google Reviews</div>
+        </div>
+        <a class="reviews-google-link" id="reviews-maps-link" href="#" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          <span data-i18n="reviews_see_all">See All Reviews</span>
+        </a>
+      </div>
+    </div>
+    <div class="reviews-grid" id="reviews-grid"></div>
   </div>
 </section>
 
@@ -927,6 +974,10 @@ const LANG = {
     about_label: "Our Story", about_title: "Ottawa's Outdoor Patio Since Day One",
     footer_tagline: "Ottawa's best outdoor patio bar — four locations, one unforgettable experience. A drink with a view.",
     footer_loc: "Locations", footer_explore: "Explore", footer_contact: "Contact",
+    reviews_label: "Guest Reviews",
+    reviews_heading: "What Our Guests Say",
+    reviews_count: "Google Reviews",
+    reviews_see_all: "See All Reviews",
     admin_title: "Site Admin Panel",
     admin_note: "Update hours, specials, and music schedules directly from this panel.",
     admin_hours: "Hours", admin_specials: "Specials", admin_music: "Music", admin_weather: "Weather Alert",
@@ -983,6 +1034,10 @@ const LANG = {
     about_label: "Notre histoire", about_title: "La terrasse d'Ottawa depuis le premier jour",
     footer_tagline: "Le meilleur bar-terrasse extérieur d'Ottawa — quatre emplacements, une expérience inoubliable. Un verre avec vue.",
     footer_loc: "Emplacements", footer_explore: "Explorer", footer_contact: "Contact",
+    reviews_label: "Avis des clients",
+    reviews_heading: "Ce que disent nos clients",
+    reviews_count: "Avis Google",
+    reviews_see_all: "Voir tous les avis",
     admin_title: "Panneau d'administration",
     admin_note: "Mettez à jour les heures, les spéciaux et les horaires musicaux directement depuis ce panneau.",
     admin_hours: "Heures", admin_specials: "Spéciaux", admin_music: "Musique", admin_weather: "Alerte météo",
@@ -1343,10 +1398,10 @@ const LOCATION_INFO = {
     img: "https://static.wixstatic.com/media/a88227_d331ffd34fdc4eec800b2cf02ad50861~mv2.jpg/v1/fill/w_1440,h_879,al_c,q_85,enc_avif,quality_auto/a88227_d331ffd34fdc4eec800b2cf02ad50861~mv2.jpg",
     img2: "https://static.wixstatic.com/media/a88227_322949a436ea4c9cb92bb0a1cf9d1bff~mv2.jpg/v1/fill/w_752,h_1786,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a88227_322949a436ea4c9cb92bb0a1cf9d1bff~mv2.jpg",
     img3: "https://static.wixstatic.com/media/a88227_b995ca7c9ceb4a73bee36324c40aa6c7~mv2.jpg/v1/fill/w_770,h_1786,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a88227_b995ca7c9ceb4a73bee36324c40aa6c7~mv2.jpg",
-    addr: "380 Sussex Dr., Ottawa, ON",
+    addr: "380 Sussex Drive — National Gallery, Ottawa, ON K1N 9N4",
     phone: "613-555-0101",
     email: "gallery@thetavern.ca",
-    maps: "https://maps.google.com/?q=380+Sussex+Dr+Ottawa",
+    maps: "https://www.google.com/maps/dir/?api=1&destination=380+Sussex+Drive+Ottawa+ON+K1N+9N4",
     reserve: "https://www.tbdine.com/book/restaurant/the-tavern-at-the-gallery?idApp=69897&language=en-us",
     facebook: "https://www.facebook.com/tavernatthegallery",
     instagram: "https://www.instagram.com/tavernatthegallery/",
@@ -1355,16 +1410,33 @@ const LOCATION_INFO = {
     tag_fr: "Vue sur la Galerie nationale · Marché By",
     hours: { weekday: "11am – 11pm", fri: "11am – 1am", sat: "10am – 1am", sun: "10am – 10pm" },
     key: "gallery",
+    reviews:     [
+        {
+            "author": "Sarah M.",
+            "text": "Absolutely magical setting. Having drinks in the courtyard of the National Gallery with views of the Rideau River is an Ottawa experience you cannot miss. Staff were wonderful and the vibe is unlike anywhere else.",
+            "date": "August 2025"
+        },
+        {
+            "author": "James T.",
+            "text": "Best patio in the city, hands down. The fire pits keep it cozy on cooler evenings and the garden setting next to the National Gallery is stunning. We come back every summer.",
+            "date": "July 2025"
+        },
+        {
+            "author": "Priya K.",
+            "text": "The mushroom pizza is phenomenal — thin crispy crust, loaded with toppings. Paired with the charming outdoor garden atmosphere, this place is a true hidden gem in the Byward Market.",
+            "date": "September 2025"
+        }
+    ],
   },
   falls: {
     img: "https://static.wixstatic.com/media/a88227_2e4af2f3dc8d4ff6933c25cec2f4c47e~mv2.jpg/v1/fill/w_2534,h_1546,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a88227_2e4af2f3dc8d4ff6933c25cec2f4c47e~mv2.jpg",
     img2: "https://static.wixstatic.com/media/a88227_22fd1797e7de4d46b2c1fe428705c268~mv2.jpg/v1/fill/w_752,h_1992,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a88227_22fd1797e7de4d46b2c1fe428705c268~mv2.jpg",
     img3: "https://static.wixstatic.com/media/a88227_c9f0c3a887ce4e58bb4f022b0087fbf4~mv2.jpeg/v1/fill/w_371,h_960,al_c,q_80,enc_avif,quality_auto/a88227_c9f0c3a887ce4e58bb4f022b0087fbf4~mv2.jpeg",
-    addr: "Rideau Falls Park, Ottawa, ON",
+    addr: "1 John Street — Rideau Falls, Ottawa, ON K1M 2C9",
     phone: "613-555-0202",
     email: "falls@thetavern.ca",
-    maps: "https://maps.google.com/?q=Rideau+Falls+Park+Ottawa",
-    reserve: "https://www.tbdine.com/book/restaurant/the-tavern-at-the-gallery?idApp=69897&language=en-us",
+    maps: "https://www.google.com/maps/dir/?api=1&destination=1+John+Street+Ottawa+ON+K1M+2C9",
+    reserve: "",
     facebook: "https://www.facebook.com/tavernatthegallery",
     instagram: "https://www.instagram.com/tavernatthegallery/",
     color: "#1a3a5c",
@@ -1377,11 +1449,11 @@ const LOCATION_INFO = {
     img: "https://static.wixstatic.com/media/a88227_f4831e7cc95c47a2b553f9fd936dc614~mv2.jpg/v1/fill/w_1080,h_659,al_c,q_85,enc_avif,quality_auto/a88227_f4831e7cc95c47a2b553f9fd936dc614~mv2.jpg",
     img2: "https://static.wixstatic.com/media/a88227_fa970914314f4e6289958379f3a049b3~mv2.jpg/v1/fill/w_526,h_1351,al_c,q_85,enc_avif,quality_auto/a88227_fa970914314f4e6289958379f3a049b3~mv2.jpg",
     img3: "https://static.wixstatic.com/media/a88227_407cdc6d5b7844ffa2a65eccdaca21b0~mv2.jpg/v1/fill/w_716,h_1795,al_c,q_85,enc_avif,quality_auto/a88227_407cdc6d5b7844ffa2a65eccdaca21b0~mv2.jpg",
-    addr: "Major's Hill Park, Ottawa, ON",
+    addr: "Major's Hill Park — Parliament Views, Ottawa, ON K1N 9N4",
     phone: "613-555-0303",
     email: "hill@thetavern.ca",
-    maps: "https://maps.google.com/?q=Major's+Hill+Park+Ottawa",
-    reserve: "https://www.tbdine.com/book/restaurant/the-tavern-at-the-gallery?idApp=69897&language=en-us",
+    maps: "https://www.google.com/maps/dir/?api=1&destination=Major%27s+Hill+Park+Ottawa+ON",
+    reserve: "",
     facebook: "https://www.facebook.com/tavernatthegallery",
     instagram: "https://www.instagram.com/tavernatthegallery/",
     color: "#4a3520",
@@ -1394,11 +1466,11 @@ const LOCATION_INFO = {
     img: "https://static.wixstatic.com/media/1e1b17_035df277dad2454ba763f2b5c3da1b03~mv2.jpg/v1/fill/w_1630,h_994,al_c,q_85,enc_avif,quality_auto/1e1b17_035df277dad2454ba763f2b5c3da1b03~mv2.jpg",
     img2: "https://static.wixstatic.com/media/1e1b17_b797790917834c578b818aa1adf9c598f000.jpg/v1/fill/w_376,h_965,al_c,q_85,usm_0.33_1.00_0.00,enc_avif,quality_auto/1e1b17_b797790917834c578b818aa1adf9c598f000.jpg",
     img3: "https://static.wixstatic.com/media/1e1b17_45a710737f9d432e85c05ae7e6dcbf32f000.jpg/v1/fill/w_376,h_575,al_c,q_80,usm_0.33_1.00_0.00,enc_avif,quality_auto/1e1b17_45a710737f9d432e85c05ae7e6dcbf32f000.jpg",
-    addr: "Nepean Point, Ottawa, ON",
+    addr: "Bate Island — Ottawa River, Ottawa, ON",
     phone: "613-555-0404",
     email: "island@thetavern.ca",
-    maps: "https://maps.google.com/?q=Nepean+Point+Ottawa",
-    reserve: "https://www.tbdine.com/book/restaurant/the-tavern-at-the-gallery?idApp=69897&language=en-us",
+    maps: "https://www.google.com/maps/dir/?api=1&destination=Bate+Island+Ottawa+ON",
+    reserve: "",
     facebook: "https://www.facebook.com/tavernatthegallery",
     instagram: "https://www.instagram.com/tavernatthegallery/",
     color: "#2a4040",
@@ -1415,6 +1487,22 @@ let currentLang = localStorage.getItem('tavern-lang') || 'en';
 let currentMenuLang = currentLang;
 let menuData = JSON.parse(JSON.stringify(MENUS[LOC_KEY])); // mutable copy
 
+function buildReviews(){
+  const info = LOCATION_INFO[LOC_KEY];
+  document.getElementById('reviews-maps-link').href = info.maps;
+  const grid = document.getElementById('reviews-grid');
+  if(!grid||!info.reviews) return;
+  grid.innerHTML = info.reviews.map(r=>`
+    <div class="review-card">
+      <div class="review-card-stars">★★★★★</div>
+      <p class="review-card-text">"${r.text}"</p>
+      <div class="review-card-footer">
+        <span class="review-card-author">${r.author}</span>
+        <span class="review-card-date">${r.date}</span>
+      </div>
+    </div>`).join('');
+}
+
 function init() {
   const info = LOCATION_INFO[LOC_KEY];
   // Hero
@@ -1424,8 +1512,9 @@ function init() {
   document.getElementById('loc-addr-link').href = info.maps;
   document.getElementById('loc-phone').textContent = info.phone;
   document.getElementById('loc-phone-link').href = 'tel:' + info.phone.replace(/[^0-9]/g,'');
-  document.getElementById('loc-email').textContent = info.email;
-  document.getElementById('loc-email-link').href = 'mailto:' + info.email;
+  const contactLabel = (LANG[currentLang]||{}).contact || 'Contact Us';
+  document.getElementById('loc-email').textContent = contactLabel;
+  document.getElementById('loc-email-link').href = '#loc-events';
   // Quick links
   document.getElementById('ql-maps').href = info.maps;
   document.getElementById('ql-insta').href = info.instagram;
@@ -1454,6 +1543,7 @@ function init() {
   // Build both menus
   buildMenu('en');
   buildMenu('fr');
+  buildReviews();
   // Apply language
   applyLang(currentLang);
   // Hours table
@@ -1471,6 +1561,8 @@ function applyLang(lang) {
     const key = el.getAttribute('data-i18n');
     if (L[key] !== undefined) el.innerHTML = L[key];
   });
+  const emailEl = document.getElementById('loc-email');
+  if(emailEl && L.contact) emailEl.textContent = L.contact;
   // Dynamic content
   document.getElementById('loc-eyebrow').textContent = lang === 'en' ? info.tag_en : info.tag_fr;
   const names = {gallery:L.gallery_name, falls:L.falls_name, hill:L.hill_name, island:L.island_name};

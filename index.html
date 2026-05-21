@@ -907,6 +907,23 @@ footer{background:var(--ink);border-top:1px solid var(--gold-line);
     max-height: 80vh; overflow-y: auto;
   }
   #wx-panel.open { transform: translateY(0) !important; }
+
+  /* ── Hero mobile ─────────────────────────────────────── */
+  .hero-loc-pill { display: none; }
+  .hero-side-text { display: none; }
+  .hero-scroll { display: none; }
+  .hero-cnt {
+    padding: clamp(80px,18vw,120px) 1.25rem clamp(48px,10vw,72px);
+    display: flex; flex-direction: column; justify-content: flex-end;
+    min-height: 100vh;
+  }
+  .hero-eyebrow { margin-bottom: .7rem; }
+  .hero-h1 { margin-bottom: .9rem; line-height: .92; }
+  .hero-h1-big { font-size: clamp(3rem,14vw,4.2rem); }
+  .hero-h1-small { font-size: clamp(1.6rem,7.5vw,2.4rem); }
+  .hero-sub { font-size: .92rem; margin-bottom: 1.6rem; max-width: 100%; }
+  .hero-acts { flex-direction: column; gap: .6rem; }
+  .hero-acts .btn { text-align: center; justify-content: center; width: 100%; }
 }
 </style>
 </head>
@@ -1064,8 +1081,9 @@ footer{background:var(--ink);border-top:1px solid var(--gold-line);
           <div class="lbl" data-k="loc_label">Our Locations</div>
           <h2 class="h-d" data-k="loc_heading" style="margin-top:.5rem">Four Ways to Sip Beneath the Sky</h2>
         </div>
-        <a href="#" class="btn btn-ink btn-sm" onclick="event.preventDefault()">
+        <a href="https://www.tbdine.com/book/restaurant/the-tavern-at-the-gallery?idApp=69897&language=en-us" target="_blank" class="btn btn-ink btn-sm">
           <span data-k="nav_reserve">Reserve a Table</span>
+          <span style="font-size:.6rem;font-weight:600;letter-spacing:.12em;opacity:.55;margin-left:.1rem">· Gallery</span>
           <span class="icon-inline" data-icon="arrow_ne"></span>
         </a>
       </div>
@@ -1461,10 +1479,10 @@ const LOCATION_INFO = {
     img:  'https://static.wixstatic.com/media/a88227_d331ffd34fdc4eec800b2cf02ad50861~mv2.jpg/v1/fill/w_1440,h_879,al_c,q_85,enc_avif,quality_auto/a88227_d331ffd34fdc4eec800b2cf02ad50861~mv2.jpg',
     img2: 'https://static.wixstatic.com/media/a88227_322949a436ea4c9cb92bb0a1cf9d1bff~mv2.jpg/v1/fill/w_752,h_1786,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a88227_322949a436ea4c9cb92bb0a1cf9d1bff~mv2.jpg',
     img3: 'https://static.wixstatic.com/media/a88227_b995ca7c9ceb4a73bee36324c40aa6c7~mv2.jpg/v1/fill/w_770,h_1786,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a88227_b995ca7c9ceb4a73bee36324c40aa6c7~mv2.jpg',
-    addr:  '380 Sussex Dr., Ottawa, ON',
+    addr:  '380 Sussex Drive — National Gallery, Ottawa, ON K1N 9N4',
     phone: '613-555-0101',
     email: 'gallery@thetavern.ca',
-    maps:  'https://maps.google.com/?q=380+Sussex+Dr+Ottawa',
+    maps:  'https://www.google.com/maps/dir/?api=1&destination=380+Sussex+Drive+Ottawa+ON+K1N+9N4',
     reserve: 'https://www.tbdine.com/book/restaurant/the-tavern-at-the-gallery?idApp=69897&language=en-us',
     facebook:  'https://www.facebook.com/tavernatthegallery',
     instagram: 'https://www.instagram.com/tavernatthegallery/',
@@ -1481,10 +1499,10 @@ const LOCATION_INFO = {
     img:  'https://static.wixstatic.com/media/a88227_2e4af2f3dc8d4ff6933c25cec2f4c47e~mv2.jpg/v1/fill/w_2534,h_1546,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a88227_2e4af2f3dc8d4ff6933c25cec2f4c47e~mv2.jpg',
     img2: 'https://static.wixstatic.com/media/a88227_22fd1797e7de4d46b2c1fe428705c268~mv2.jpg/v1/fill/w_752,h_1992,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a88227_22fd1797e7de4d46b2c1fe428705c268~mv2.jpg',
     img3: 'https://static.wixstatic.com/media/a88227_c9f0c3a887ce4e58bb4f022b0087fbf4~mv2.jpeg/v1/fill/w_371,h_960,al_c,q_80,enc_avif,quality_auto/a88227_c9f0c3a887ce4e58bb4f022b0087fbf4~mv2.jpeg',
-    addr:  'Rideau Falls Park, Ottawa, ON',
+    addr:  '1 John Street — Rideau Falls, Ottawa, ON K1M 2C9',
     phone: '613-555-0202',
     email: 'falls@thetavern.ca',
-    maps:  'https://maps.google.com/?q=Rideau+Falls+Park+Ottawa',
+    maps:  'https://www.google.com/maps/dir/?api=1&destination=1+John+Street+Ottawa+ON+K1M+2C9',
     reserve: '',
     facebook:  'https://www.facebook.com/tavernatthegallery',
     instagram: 'https://www.instagram.com/tavernatthegallery/',
@@ -1501,10 +1519,10 @@ const LOCATION_INFO = {
     img:  'https://static.wixstatic.com/media/a88227_f4831e7cc95c47a2b553f9fd936dc614~mv2.jpg/v1/fill/w_1080,h_659,al_c,q_85,enc_avif,quality_auto/a88227_f4831e7cc95c47a2b553f9fd936dc614~mv2.jpg',
     img2: 'https://static.wixstatic.com/media/a88227_fa970914314f4e6289958379f3a049b3~mv2.jpg/v1/fill/w_526,h_1351,al_c,q_85,enc_avif,quality_auto/a88227_fa970914314f4e6289958379f3a049b3~mv2.jpg',
     img3: 'https://static.wixstatic.com/media/a88227_407cdc6d5b7844ffa2a65eccdaca21b0~mv2.jpg/v1/fill/w_716,h_1795,al_c,q_85,enc_avif,quality_auto/a88227_407cdc6d5b7844ffa2a65eccdaca21b0~mv2.jpg',
-    addr:  "Major's Hill Park, Ottawa, ON",
+    addr:  "Major's Hill Park — Parliament Views, Ottawa, ON K1N 9N4",
     phone: '613-555-0303',
     email: 'hill@thetavern.ca',
-    maps:  "https://maps.google.com/?q=Major's+Hill+Park+Ottawa",
+    maps:  "https://www.google.com/maps/dir/?api=1&destination=Major%27s+Hill+Park+Ottawa+ON",
     reserve: '',
     facebook:  'https://www.facebook.com/tavernatthegallery',
     instagram: 'https://www.instagram.com/tavernatthegallery/',
@@ -1521,10 +1539,10 @@ const LOCATION_INFO = {
     img:  'https://static.wixstatic.com/media/1e1b17_035df277dad2454ba763f2b5c3da1b03~mv2.jpg/v1/fill/w_1630,h_994,al_c,q_85,enc_avif,quality_auto/1e1b17_035df277dad2454ba763f2b5c3da1b03~mv2.jpg',
     img2: 'https://static.wixstatic.com/media/1e1b17_b797790917834c578b818aa1adf9c598f000.jpg/v1/fill/w_376,h_965,al_c,q_85,usm_0.33_1.00_0.00,enc_avif,quality_auto/1e1b17_b797790917834c578b818aa1adf9c598f000.jpg',
     img3: 'https://static.wixstatic.com/media/1e1b17_45a710737f9d432e85c05ae7e6dcbf32f000.jpg/v1/fill/w_376,h_575,al_c,q_80,usm_0.33_1.00_0.00,enc_avif,quality_auto/1e1b17_45a710737f9d432e85c05ae7e6dcbf32f000.jpg',
-    addr:  'Nepean Point, Ottawa, ON',
+    addr:  'Bate Island — Ottawa River, Ottawa, ON',
     phone: '613-555-0404',
     email: 'island@thetavern.ca',
-    maps:  'https://maps.google.com/?q=Nepean+Point+Ottawa',
+    maps:  'https://www.google.com/maps/dir/?api=1&destination=Bate+Island+Ottawa+ON',
     reserve: '',
     facebook:  'https://www.facebook.com/tavernatthegallery',
     instagram: 'https://www.instagram.com/tavernatthegallery/',
@@ -2329,7 +2347,7 @@ function openModal(k){
   document.getElementById('m-contact').innerHTML = [
     {icon:'pin',  html:`<a href="${L.maps}" target="_blank">${L.addr}</a>`},
     {icon:'phone',html:`<a href="tel:${L.phone}">${L.phone}</a>`},
-    {icon:'mail', html:`<a href="mailto:${L.email}">${L.email}</a>`},
+    {icon:'mail', html:`<a href="${k}.html#loc-events">${lang==='fr'?'Nous contacter':'Contact Us'}</a>`},
   ].map(c=>`<div class="modal-contact-item">${ICONS[c.icon]||''}<span>${c.html}</span></div>`).join('');
   // Music
   const shows = allShows.filter(s=>s.loc===k).slice(0,4);
